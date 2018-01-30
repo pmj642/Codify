@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+
+<html>
+	<head>
+		<title> Register </title>
+		<meta charset="utf-8">
+		<link rel="stylesheet" href="assets/stylesheets/main.css">
+	</head>
+
+	<body>
+
+		<!-- Header -->
+
+        <header class="container group">
+
+            <h1 class="logo">
+                <a href="index.html">Codify</a>
+            </h1>
+
+            <h3 class="tagline">Turn ideas into Code !</h3>
+
+            <nav class="nav primary-nav">
+                <ul>
+                    <li>    <a href="index.html">Home</a>   </li><!--
+                    --><li>    <a href="practice.html">Practice</a>   </li><!--
+                    --><li>    <a href="register.html">Register</a>   </li><!--
+                    --><li>    <a href="rankings.html">Rankings</a>   </li>
+                </ul>
+            </nav>
+
+        </header>
+
+		<section class="row">
+			<div class="container">
+				<form method="post">
+
+					<fieldset class="register">
+
+					<label>
+						Name
+						<input type="text" name="name" required>
+					</label>
+
+					<label>
+						<br>Age
+						<input type="number" name="age" required>
+					</label>
+
+					<label>
+						<br>Gender&nbsp;
+						<input type="radio" name="gender" value="male" checked>Male
+						<input type="radio" name="gender" value="female">Female
+						<input type="radio" name="gender" value="other">Other
+					</label>
+
+					<label>
+						<br>Email
+						<input type="email" name="email" required>
+					</label>
+
+					<label>
+						<br>Country
+						<select name="country" required>
+
+							<option value="india">India</option>
+							<option value="china">China</option>
+							<option value="russia">Russia</option>
+
+						</select>
+						<br>
+					</label>
+
+					<input type="submit" name="submit" value="Submit">
+
+				</fieldset>
+
+				</form>
+
+			</div>
+		</section>
+
+		<footer class="primary-footer container group">
+	            <small>&copy;Codify</small>
+
+	            <nav class="nav">
+	                <ul>
+	                    <li>    <a href="index.html">Home</a>   </li>
+	                    <li>    <a href="practice.html">Practice</a>   </li>
+	                    <li>    <a href="register.html">Register</a>   </li>
+	                    <li>    <a href="rankings.html">Rankings</a>   </li>
+	                </ul>
+	            </nav>
+        </footer>
+
+	</body>
+</html>
