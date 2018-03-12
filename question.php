@@ -4,6 +4,8 @@
             <title></title>
             <meta charset='utf-8'>
             <link rel="stylesheet" href="assets/stylesheets/main.css">
+            <script type="text/javascript" src="submission_api.js">
+            </script>
         </head>
         <body>
 
@@ -90,12 +92,16 @@
 
                 --><section class="col-1-3">
 
-                  <a href="practice.html">
-                    <h2>Workout for your brain</h2>
-                    <p>Everyone starts with a brute force solution.
-                        But with practice you will get rise above arrays!</p>
+                  <div>
+                    <h2>Submit</h2>
+                    <input type="file" id="solution">
+                    <select id="fileType">
+                        <option>C++</option>
+                        <option>Java</option>
+                    </select>
+
                     <a class="btn btn-default" onclick="submit()">Submit</a>
-                  </a>
+                </div>
 
                 </section>
               </div>
