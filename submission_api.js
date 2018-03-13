@@ -28,16 +28,18 @@ function submit()
             stdin: "1 2 4 2 3"
         };
 
+        xhr.setRequestHeader("Content-type", "application/json");
+        
+        xhr.onReadyStateChange = function() {
+            let st = xhr.response;
+            let resp = JSON.parse(st);
+            console.log(resp);
+        };
+        
         console.log(JSON.stringify(request));
 
-        xhr.open("POST",url,false);
+        xhr.open("POST",url,true);
         xhr.send(JSON.stringify(request));
-
-        // xhr.onReadyStateChange = function() {
-        //     let st = xhr.response;
-        //     let resp = JSON.parse(st);
-        //     console.log(resp);
-        // };
 
         console.log(reader.result);
     };
