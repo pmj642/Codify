@@ -28,17 +28,17 @@ function submit()
             stdin: "1 2 4 2 3"
         };
 
-        xhr.setRequestHeader("Content-type", "application/json");
+        xhr.responseType = 'json';
         
-        xhr.onReadyStateChange = function() {
-            let st = xhr.response;
-            let resp = JSON.parse(st);
-            console.log(resp);
+        xhr.onreadystatechange = function() {
+            if(xhr.readyState === XMLHttpRequest.DONE) {
+                console.log(xhr.response);
+              }
         };
         
         console.log(JSON.stringify(request));
 
-        xhr.open("POST",url,true);
+        xhr.open("POST",url);
         xhr.send(JSON.stringify(request));
 
         console.log(reader.result);
