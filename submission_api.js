@@ -20,7 +20,7 @@ function submit()
 
     reader.onload = function () {
         let xhr = new XMLHttpRequest();
-        let url = "https://api.judge0.com/submissions/?base64_encoded=false&wait=false";
+        let url = "https://api.judge0.com/submissions/?base64_encoded=false&wait=true";
 
         let request = {
             "source_code": "#include <stdio.h>\n\nint main(void) {\n  char name[10];\n  scanf(\"%s\", name);\n  printf(\"hello, %s\n\", name);\n  return 0;\n}",
