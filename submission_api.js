@@ -29,7 +29,6 @@ function submit()
         };
 
         xhr.responseType = 'json';
-        xhr.setRequestHeader("Content-type", "application/json");
         
         xhr.onreadystatechange = function() {
             if(xhr.readyState === XMLHttpRequest.DONE) {
@@ -39,7 +38,9 @@ function submit()
         
         console.log(JSON.stringify(request));
 
-        xhr.open("POST",url);
+        xhr.open("POST",url);        
+        xhr.setRequestHeader("Content-type", "application/json");
+        
         xhr.send(JSON.stringify(request));
 
         console.log(reader.result);
