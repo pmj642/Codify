@@ -29,6 +29,7 @@ function submit()
         };
 
         xhr.responseType = 'json';
+        xhr.setRequestHeader("Content-type", "application/json");
         
         xhr.onreadystatechange = function() {
             if(xhr.readyState === XMLHttpRequest.DONE) {
