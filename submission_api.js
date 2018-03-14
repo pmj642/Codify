@@ -23,9 +23,9 @@ function submit()
         let url = "https://api.judge0.com/submissions/?base64_encoded=false&wait=false";
 
         let request = {
-            source_code: reader.result,
-            language_id: langType,
-            stdin: "1 2 4 2 3"
+            "source_code": "#include <stdio.h>\n\nint main(void) {\n  char name[10];\n  scanf(\"%s\", name);\n  printf(\"hello, %s\n\", name);\n  return 0;\n}",
+            "language_id": 4,
+            "stdin": "world"
         };
 
         xhr.responseType = 'json';
