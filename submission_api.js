@@ -5,6 +5,7 @@ function submit()
     let file = document.getElementById('solution').files[0];
     let fileType = document.getElementById('fileType').value;
     let reader = new FileReader();
+    let stdin = document.getElementById('stdin').value;
     let langType;
 
     switch (fileType) {
@@ -23,9 +24,9 @@ function submit()
         let url = "https://api.judge0.com/submissions/?base64_encoded=false&wait=true";
 
         let request = {
-            "source_code": "#include <stdio.h>\n\nint main(void) {\n  char name[10];\n  scanf(\"%s\", name);\n  printf(\"hello, %s\n\", name);\n  return 0;\n}",
-            "language_id": 4,
-            "stdin": "world"
+            "source_code": reader.result,
+            "language_id": langType,
+            "stdin": stdin
         };
 
         xhr.responseType = 'json';
