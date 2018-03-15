@@ -6,7 +6,7 @@ function submit()
     let fileType = document.getElementById('fileType').value;
     let reader = new FileReader();
     let stdin = document.getElementById('stdin').value;
-    let output = document.getElementById('output');
+    let result = document.getElementById('result');
     let langType;
 
     switch (fileType) {
@@ -35,12 +35,12 @@ function submit()
         xhr.onreadystatechange = function() {
             if(xhr.readyState === XMLHttpRequest.DONE) {
                 console.log(xhr.response);
-//                 let outDiv = document.createElement('div');
-// //                 outDiv.style.margin = "20px";
-//                 outDiv.innerHTML =    "Time: " + xhr.response.time + "<br/>"
-//                                     + "Memory: " + xhr.response.memory + "<br/>"
-//                                     + "Output: " + xhr.response.stdout + "<br/>";
-//                 output.appendChild(outDiv);
+                let outDiv = document.createElement('div');
+//                 outDiv.style.margin = "20px";
+                outDiv.innerHTML =    "Time: " + xhr.response.time + "<br/>"
+                                    + "Memory: " + xhr.response.memory + "<br/>"
+                                    + "Output: " + xhr.response.stdout + "<br/>";
+                result.appendChild(outDiv);
               }
         };
         
