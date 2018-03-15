@@ -6,6 +6,7 @@ function submit()
     let fileType = document.getElementById('fileType').value;
     let reader = new FileReader();
     let stdin = document.getElementById('stdin').value;
+    let output = document.getElementById('output');
     let langType;
 
     switch (fileType) {
@@ -34,6 +35,11 @@ function submit()
         xhr.onreadystatechange = function() {
             if(xhr.readyState === XMLHttpRequest.DONE) {
                 console.log(xhr.response);
+                let outDiv = document.createElement('div');
+                outDiv.innerHTML = "Time: " + response.time + "<br/>"
+                                    + "Memory" + response.memory + "<br/>"
+                                    + "Output" + response.stdout + "<br/>";
+                output.appendChild(outDiv);
               }
         };
         
