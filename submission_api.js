@@ -55,7 +55,7 @@ function submit()
         
         xhr.onreadystatechange = function() {
             if(xhr.readyState === XMLHttpRequest.DONE) {
-                console.log(JSON.parse(xhr.response));
+                console.log(xhr.response);
                 let outDiv = document.createElement('div');
                 outDiv.style.padding = "20px";
                 outDiv.innerHTML =    "Time: " + xhr.response.time + "<br/>"
