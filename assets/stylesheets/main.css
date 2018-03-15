@@ -57,7 +57,7 @@ body {
     background: -webkit-linear-gradient(to right,#4b0082,#4b00af,#4b005f);
     background:    -moz-linear-gradient(to right,#4b0082,#4b00af,#4b005f);
     background:         linear-gradient(to right,#4b0082,#4b00af,#4b005f);
-    color: #888;
+    color: #000;
     font: 300 16px/22px "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
