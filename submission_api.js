@@ -36,9 +36,9 @@ function submit()
             if(xhr.readyState === XMLHttpRequest.DONE) {
                 console.log(xhr.response);
                 let outDiv = document.createElement('div');
-                outDiv.innerHTML = "Time: " + response.time + "<br/>"
-                                    + "Memory" + response.memory + "<br/>"
-                                    + "Output" + response.stdout + "<br/>";
+                outDiv.innerHTML = "Time: " + xhr.response.time + "<br/>"
+                                    + "Memory" + xhr.response.memory + "<br/>"
+                                    + "Output" + xhr.response.stdout + "<br/>";
                 output.appendChild(outDiv);
               }
         };
