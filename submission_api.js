@@ -9,6 +9,27 @@ function submit()
     let result = document.getElementById('result');
     let langType;
 
+    if(file === null)
+    {
+        alert('Please select a file!');  
+        return;
+    }
+    else if(fileType === null)
+    {
+        alert('Please select a language!');  
+        return;
+    }
+    if(file === null)
+    {
+        alert('Please select a file!');  
+        return;
+    }
+    else if(stdin === null)
+    {
+        alert('Please give some input for the program!');  
+        return;
+    }
+    
     switch (fileType) {
         case 'C++':
                     langType = 12;
@@ -34,9 +55,9 @@ function submit()
         
         xhr.onreadystatechange = function() {
             if(xhr.readyState === XMLHttpRequest.DONE) {
-                console.log(xhr.response);
+                console.log(JSON.parse(xhr.response));
                 let outDiv = document.createElement('div');
-//                 outDiv.style.margin = "20px";
+                outDiv.style.padding = "20px";
                 outDiv.innerHTML =    "Time: " + xhr.response.time + "<br/>"
                                     + "Memory: " + xhr.response.memory + "<br/>"
                                     + "Output: " + xhr.response.stdout + "<br/>";
