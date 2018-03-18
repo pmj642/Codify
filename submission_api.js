@@ -57,7 +57,7 @@ function submit()
             if(xhr.readyState === XMLHttpRequest.DONE) {
                 console.log(xhr.response);
                 let outDiv = document.createElement('div');
-                outDiv.setAttribute('class','button');
+                outDiv.setAttribute('class','btn-alt');
                 outDiv.style.padding = "20px";
                 outDiv.innerHTML =    "Time: " + xhr.response.time + "<br/>"
                                     + "Memory: " + xhr.response.memory + "<br/>"
