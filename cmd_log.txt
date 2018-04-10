@@ -1,0 +1,615 @@
+
+pmj64@DESKTOP-H9UCQF3 MINGW64 ~/Documents/GitHub/Online-Judge (master)
+$ heroku
+Usage: heroku COMMAND
+
+Help topics, type heroku help TOPIC for more details:
+
+ 2fa
+ access          manage user access to apps
+ addons          tools and services for developing, extending, and operating
+                 your app
+ apps            manage apps
+ auth            heroku authentication
+ authorizations  OAuth authorizations
+ buildpacks      manage the buildpacks for an app
+ certs           a topic for the ssl plugin
+ ci              run an application test suite on Heroku
+ clients         OAuth clients on the platform
+ config          manage app config vars
+ container       Use containers to build and deploy Heroku apps
+ domains         manage the domains for an app
+ drains          list all log drains
+ features        manage optional features
+ git             manage local git repository for app
+ keys            manage ssh keys
+ labs            experimental features
+ local           run heroku app locally
+ logs            display recent log output
+ maintenance     manage maintenance mode for an app
+ members         manage organization members
+ notifications   display notifications
+ orgs            manage organizations
+ outbound-rules
+ pg              manage postgresql databases
+ pipelines
+ plugins         add/remove CLI plugins
+ ps              Client tools for Heroku Exec
+ redis           manage heroku redis instances
+ regions         list available regions
+ releases        manage app releases
+ reviewapps
+ run             run a one-off process inside a Heroku dyno
+ sessions        OAuth sessions
+ spaces          manage heroku private spaces
+ status          status of the Heroku platform
+ teams           manage teams
+ twofactor
+ webhooks        setup HTTP notifications of app activity
+
+
+pmj64@DESKTOP-H9UCQF3 MINGW64 ~/Documents/GitHub/Online-Judge (master)
+$ heroku create codify
+Creating codify... !
+ !    ENOENT: getaddrinfo ENOENT api.heroku.com:443
+
+pmj64@DESKTOP-H9UCQF3 MINGW64 ~/Documents/GitHub/Online-Judge (master)
+$ heroku create codify
+Creating codify... done
+https://codify.herokuapp.com/ | https://git.heroku.com/codify.git
+
+pmj64@DESKTOP-H9UCQF3 MINGW64 ~/Documents/GitHub/Online-Judge (master)
+$ git push heroku master
+remote: !       No such app as safe-meadow-98845.
+fatal: repository 'https://git.heroku.com/safe-meadow-98845.git/' not found
+
+pmj64@DESKTOP-H9UCQF3 MINGW64 ~/Documents/GitHub/Online-Judge (master)
+$ git remote
+heroku
+origin
+
+pmj64@DESKTOP-H9UCQF3 MINGW64 ~/Documents/GitHub/Online-Judge (master)
+$ git remote heroku
+error: Unknown subcommand: heroku
+usage: git remote [-v | --verbose]
+   or: git remote add [-t <branch>] [-m <master>] [-f] [--tags | --no-tags] [--mirror=<fetch|push>] <name> <url>
+   or: git remote rename <old> <new>
+   or: git remote remove <name>
+   or: git remote set-head <name> (-a | --auto | -d | --delete | <branch>)
+   or: git remote [-v | --verbose] show [-n] <name>
+   or: git remote prune [-n | --dry-run] <name>
+   or: git remote [-v | --verbose] update [-p | --prune] [(<group> | <remote>)...]
+   or: git remote set-branches [--add] <name> <branch>...
+   or: git remote get-url [--push] [--all] <name>
+   or: git remote set-url [--push] <name> <newurl> [<oldurl>]
+   or: git remote set-url --add <name> <newurl>
+   or: git remote set-url --delete <name> <url>
+
+    -v, --verbose         be verbose; must be placed before a subcommand
+
+
+pmj64@DESKTOP-H9UCQF3 MINGW64 ~/Documents/GitHub/Online-Judge (master)
+$ ^C
+
+pmj64@DESKTOP-H9UCQF3 MINGW64 ~/Documents/GitHub/Online-Judge (master)
+$ git remote addhttps://git.heroku.com/codify.git
+error: Unknown subcommand: addhttps://git.heroku.com/codify.git
+usage: git remote [-v | --verbose]
+   or: git remote add [-t <branch>] [-m <master>] [-f] [--tags | --no-tags] [--mirror=<fetch|push>] <name> <url>
+   or: git remote rename <old> <new>
+   or: git remote remove <name>
+   or: git remote set-head <name> (-a | --auto | -d | --delete | <branch>)
+   or: git remote [-v | --verbose] show [-n] <name>
+   or: git remote prune [-n | --dry-run] <name>
+   or: git remote [-v | --verbose] update [-p | --prune] [(<group> | <remote>)...]
+   or: git remote set-branches [--add] <name> <branch>...
+   or: git remote get-url [--push] [--all] <name>
+   or: git remote set-url [--push] <name> <newurl> [<oldurl>]
+   or: git remote set-url --add <name> <newurl>
+   or: git remote set-url --delete <name> <url>
+
+    -v, --verbose         be verbose; must be placed before a subcommand
+
+
+pmj64@DESKTOP-H9UCQF3 MINGW64 ~/Documents/GitHub/Online-Judge (master)
+$ git remote -v
+heroku  https://git.heroku.com/safe-meadow-98845.git (fetch)
+heroku  https://git.heroku.com/safe-meadow-98845.git (push)
+origin  https://github.com/pmj642/Online-Judge.git (fetch)
+origin  https://github.com/pmj642/Online-Judge.git (push)
+
+pmj64@DESKTOP-H9UCQF3 MINGW64 ~/Documents/GitHub/Online-Judge (master)
+$ git remote rm
+usage: git remote remove <name>
+
+
+pmj64@DESKTOP-H9UCQF3 MINGW64 ~/Documents/GitHub/Online-Judge (master)
+$ git remote rm heroku
+
+pmj64@DESKTOP-H9UCQF3 MINGW64 ~/Documents/GitHub/Online-Judge (master)
+$ git remote -v
+origin  https://github.com/pmj642/Online-Judge.git (fetch)
+origin  https://github.com/pmj642/Online-Judge.git (push)
+
+pmj64@DESKTOP-H9UCQF3 MINGW64 ~/Documents/GitHub/Online-Judge (master)
+$ git remote heroku  https://git.heroku.com/codify.git
+error: Unknown subcommand: heroku
+usage: git remote [-v | --verbose]
+   or: git remote add [-t <branch>] [-m <master>] [-f] [--tags | --no-tags] [--mirror=<fetch|push>] <name> <url>
+   or: git remote rename <old> <new>
+   or: git remote remove <name>
+   or: git remote set-head <name> (-a | --auto | -d | --delete | <branch>)
+   or: git remote [-v | --verbose] show [-n] <name>
+   or: git remote prune [-n | --dry-run] <name>
+   or: git remote [-v | --verbose] update [-p | --prune] [(<group> | <remote>)...]
+   or: git remote set-branches [--add] <name> <branch>...
+   or: git remote get-url [--push] [--all] <name>
+   or: git remote set-url [--push] <name> <newurl> [<oldurl>]
+   or: git remote set-url --add <name> <newurl>
+   or: git remote set-url --delete <name> <url>
+
+    -v, --verbose         be verbose; must be placed before a subcommand
+
+
+pmj64@DESKTOP-H9UCQF3 MINGW64 ~/Documents/GitHub/Online-Judge (master)
+$ git remote add heroku  https://git.heroku.com/codify.git
+
+pmj64@DESKTOP-H9UCQF3 MINGW64 ~/Documents/GitHub/Online-Judge (master)
+$ git remote -v
+heroku  https://git.heroku.com/codify.git (fetch)
+heroku  https://git.heroku.com/codify.git (push)
+origin  https://github.com/pmj642/Online-Judge.git (fetch)
+origin  https://github.com/pmj642/Online-Judge.git (push)
+
+pmj64@DESKTOP-H9UCQF3 MINGW64 ~/Documents/GitHub/Online-Judge (master)
+$ git push heroku master
+Counting objects: 111, done.
+Delta compression using up to 4 threads.
+Compressing objects: 100% (101/101), done.
+Writing objects: 100% (111/111), 38.00 KiB | 572.00 KiB/s, done.
+Total 111 (delta 57), reused 0 (delta 0)
+remote: Compressing source files... done.
+remote: Building source:
+remote:
+remote:  !     No default language could be detected for this app.
+remote:                         HINT: This occurs when Heroku cannot detect the buildpack to use for this application automatically.
+remote:                         See https://devcenter.heroku.com/articles/buildpacks
+remote:
+remote:  !     Push failed
+remote: Verifying deploy...
+remote:
+remote: !       Push rejected to codify.
+remote:
+To https://git.heroku.com/codify.git
+ ! [remote rejected] master -> master (pre-receive hook declined)
+error: failed to push some refs to 'https://git.heroku.com/codify.git'
+
+pmj64@DESKTOP-H9UCQF3 MINGW64 ~/Documents/GitHub/Online-Judge (master)
+$ composer
+   ______
+  / ____/___  ____ ___  ____  ____  ________  _____
+ / /   / __ \/ __ `__ \/ __ \/ __ \/ ___/ _ \/ ___/
+/ /___/ /_/ / / / / / / /_/ / /_/ (__  )  __/ /
+\____/\____/_/ /_/ /_/ .___/\____/____/\___/_/
+                    /_/
+Composer version 1.6.3 2018-01-31 16:28:17
+
+Usage:
+  command [options] [arguments]
+
+Options:
+  -h, --help                     Display this help message
+  -q, --quiet                    Do not output any message
+  -V, --version                  Display this application version
+      --ansi                     Force ANSI output
+      --no-ansi                  Disable ANSI output
+  -n, --no-interaction           Do not ask any interactive question
+      --profile                  Display timing and memory usage information
+      --no-plugins               Whether to disable plugins.
+  -d, --working-dir=WORKING-DIR  If specified, use the given directory as working directory.
+  -v|vv|vvv, --verbose           Increase the verbosity of messages: 1 for normal output, 2 for more verbose output and 3 for debug
+
+Available commands:
+  about                Shows the short information about Composer.
+  archive              Creates an archive of this composer package.
+  browse               Opens the package's repository URL or homepage in your browser.
+  check-platform-reqs  Check that platform requirements are satisfied.
+  clear-cache          Clears composer's internal package cache.
+  clearcache           Clears composer's internal package cache.
+  config               Sets config options.
+  create-project       Creates new project from a package into given directory.
+  depends              Shows which packages cause the given package to be installed.
+  diagnose             Diagnoses the system to identify common errors.
+  dump-autoload        Dumps the autoloader.
+  dumpautoload         Dumps the autoloader.
+  exec                 Executes a vendored binary/script.
+  global               Allows running commands in the global composer dir ($COMPOSER_HOME).
+  help                 Displays help for a command
+  home                 Opens the package's repository URL or homepage in your browser.
+  info                 Shows information about packages.
+  init                 Creates a basic composer.json file in current directory.
+  install              Installs the project dependencies from the composer.lock file if present, or falls back on the composer.json.
+  licenses             Shows information about licenses of dependencies.
+  list                 Lists commands
+  outdated             Shows a list of installed packages that have updates available, including their latest version.
+  prohibits            Shows which packages prevent the given package from being installed.
+  remove               Removes a package from the require or require-dev.
+  require              Adds required packages to your composer.json and installs them.
+  run-script           Runs the scripts defined in composer.json.
+  search               Searches for packages.
+  self-update          Updates composer.phar to the latest version.
+  selfupdate           Updates composer.phar to the latest version.
+  show                 Shows information about packages.
+  status               Shows a list of locally modified packages.
+  suggests             Shows package suggestions.
+  update               Upgrades your dependencies to the latest version according to composer.json, and updates the composer.lock file.
+  upgrade              Upgrades your dependencies to the latest version according to composer.json, and updates the composer.lock file.
+  validate             Validates a composer.json and composer.lock.
+  why                  Shows which packages cause the given package to be installed.
+  why-not              Shows which packages prevent the given package from being installed.
+
+pmj64@DESKTOP-H9UCQF3 MINGW64 ~/Documents/GitHub/Online-Judge (master)
+$ composer init
+
+
+  Welcome to the Composer config generator
+
+
+
+This command will guide you through creating your composer.json config.
+
+Package name (<vendor>/<name>) [pmj64/online-judge]: codify
+ The package name codify is invalid, it should be lowercase and have a vendor name, a forward slash, and a package name, matching: [a-z0-9_.-]+/[a-z0-9_.-]+
+Package name (<vendor>/<name>) [pmj64/online-judge]: pmj642/codify
+Description []: An online judge
+Author [Pranshu Jethmalani <pmj642@gmail.com>, n to skip]: n
+Minimum Stability []:
+Package Type (e.g. library, project, metapackage, composer-plugin) []:
+License []:
+
+Define your dependencies.
+
+Would you like to define your dependencies (require) interactively [yes]? yes
+Search for a package: php
+Enter the version constraint to require (or leave blank to use the latest version):
+Using version ^7.2 for php
+Search for a package:
+Would you like to define your dev dependencies (require-dev) interactively [yes]? no
+
+{
+    "name": "pmj642/codify",
+    "description": "An online judge",
+    "require": {
+        "php": "^7.2"
+    }
+}
+
+Do you confirm generation [yes]? yes
+Would you like the vendor directory added to your .gitignore [yes]? no
+
+pmj64@DESKTOP-H9UCQF3 MINGW64 ~/Documents/GitHub/Online-Judge (master)
+$ li
+bash: li: command not found
+
+pmj64@DESKTOP-H9UCQF3 MINGW64 ~/Documents/GitHub/Online-Judge (master)
+$ ls
+_config.yml  cls            DB_connection.php  LICENSE       register.html      submit_test.html
+assets/      composer.json  index.html         question.php  submission_api.js
+
+pmj64@DESKTOP-H9UCQF3 MINGW64 ~/Documents/GitHub/Online-Judge (master)
+$ git buildpacks:set heroku/php
+git: 'buildpacks:set' is not a git command. See 'git --help'.
+
+pmj64@DESKTOP-H9UCQF3 MINGW64 ~/Documents/GitHub/Online-Judge (master)
+$ heroku buildpacks:set heroku/php
+Buildpack set. Next release on codify will use heroku/php.
+Run git push heroku master to create a new release using this buildpack.
+
+pmj64@DESKTOP-H9UCQF3 MINGW64 ~/Documents/GitHub/Online-Judge (master)
+$ git push heroku master
+Counting objects: 111, done.
+Delta compression using up to 4 threads.
+Compressing objects: 100% (101/101), done.
+Writing objects: 100% (111/111), 38.00 KiB | 1.36 MiB/s, done.
+Total 111 (delta 57), reused 0 (delta 0)
+remote: Compressing source files... done.
+remote: Building source:
+remote:
+remote: -----> App not compatible with buildpack: https://codon-buildpacks.s3.amazonaws.com/buildpacks/heroku/php.tgz
+remote:        More info: https://devcenter.heroku.com/articles/buildpacks#detection-failure
+remote:
+remote:  !     Push failed
+remote: Verifying deploy....
+remote:
+remote: !       Push rejected to codify.
+remote:
+To https://git.heroku.com/codify.git
+ ! [remote rejected] master -> master (pre-receive hook declined)
+error: failed to push some refs to 'https://git.heroku.com/codify.git'
+
+pmj64@DESKTOP-H9UCQF3 MINGW64 ~/Documents/GitHub/Online-Judge (master)
+$ ^C
+
+pmj64@DESKTOP-H9UCQF3 MINGW64 ~/Documents/GitHub/Online-Judge (master)
+$ heroku buildpacks -v
+ !    Unexpected argument: -v
+ !    See more help with --help
+
+pmj64@DESKTOP-H9UCQF3 MINGW64 ~/Documents/GitHub/Online-Judge (master)
+$ heroku buildpacks
+=== codify Buildpack URL
+heroku/php
+
+pmj64@DESKTOP-H9UCQF3 MINGW64 ~/Documents/GitHub/Online-Judge (master)
+$ heroku buildpacks:remove heroku/php
+Buildpack removed. Next release on codify will detect buildpack normally.
+
+pmj64@DESKTOP-H9UCQF3 MINGW64 ~/Documents/GitHub/Online-Judge (master)
+$ git push heroku master
+Counting objects: 111, done.
+Delta compression using up to 4 threads.
+Compressing objects: 100% (101/101), done.
+Writing objects: 100% (111/111), 38.00 KiB | 1.27 MiB/s, done.
+Total 111 (delta 57), reused 0 (delta 0)
+remote: Compressing source files... done.
+remote: Building source:
+remote:
+remote:  !     No default language could be detected for this app.
+remote:                         HINT: This occurs when Heroku cannot detect the buildpack to use for this application automatically.
+remote:                         See https://devcenter.heroku.com/articles/buildpacks
+remote:
+remote:  !     Push failed
+remote: Verifying deploy...
+remote:
+remote: !       Push rejected to codify.
+remote:
+To https://git.heroku.com/codify.git
+ ! [remote rejected] master -> master (pre-receive hook declined)
+error: failed to push some refs to 'https://git.heroku.com/codify.git'
+
+pmj64@DESKTOP-H9UCQF3 MINGW64 ~/Documents/GitHub/Online-Judge (master)
+$ ls
+_config.yml  cls                index.html  question.php   submission_api.js
+assets/      DB_connection.php  LICENSE     register.html  submit_test.html
+
+pmj64@DESKTOP-H9UCQF3 MINGW64 ~/Documents/GitHub/Online-Judge (master)
+$ heroku buildpacks:set heroku/php
+Buildpack set. Next release on codify will use heroku/php.
+Run git push heroku master to create a new release using this buildpack.
+
+pmj64@DESKTOP-H9UCQF3 MINGW64 ~/Documents/GitHub/Online-Judge (master)
+$ git push heroku master
+Counting objects: 111, done.
+Delta compression using up to 4 threads.
+Compressing objects: 100% (101/101), done.
+Writing objects: 100% (111/111), 38.00 KiB | 997.00 KiB/s, done.
+Total 111 (delta 57), reused 0 (delta 0)
+remote: Compressing source files... done.
+remote: Building source:
+remote:
+remote: -----> App not compatible with buildpack: https://codon-buildpacks.s3.amazonaws.com/buildpacks/heroku/php.tgz
+remote:        More info: https://devcenter.heroku.com/articles/buildpacks#detection-failure
+remote:
+remote:  !     Push failed
+remote: Verifying deploy...
+remote:
+remote: !       Push rejected to codify.
+remote:
+To https://git.heroku.com/codify.git
+ ! [remote rejected] master -> master (pre-receive hook declined)
+error: failed to push some refs to 'https://git.heroku.com/codify.git'
+
+pmj64@DESKTOP-H9UCQF3 MINGW64 ~/Documents/GitHub/Online-Judge (master)
+$ ^C
+
+pmj64@DESKTOP-H9UCQF3 MINGW64 ~/Documents/GitHub/Online-Judge (master)
+$ heroku buildpacks:clear
+Buildpacks cleared. Next release on codify will detect buildpack normally.
+
+pmj64@DESKTOP-H9UCQF3 MINGW64 ~/Documents/GitHub/Online-Judge (master)
+$ heroku buildpacks:set herokju/php
+ !    Invalid buildpack `herokju/php`
+
+pmj64@DESKTOP-H9UCQF3 MINGW64 ~/Documents/GitHub/Online-Judge (master)
+$ heroku buildpacks:set heroku/php
+Buildpack set. Next release on codify will use heroku/php.
+Run git push heroku master to create a new release using this buildpack.
+
+pmj64@DESKTOP-H9UCQF3 MINGW64 ~/Documents/GitHub/Online-Judge (master)
+$ git push heroku master
+Counting objects: 111, done.
+Delta compression using up to 4 threads.
+Compressing objects: 100% (101/101), done.
+Writing objects: 100% (111/111), 38.00 KiB | 1.08 MiB/s, done.
+Total 111 (delta 57), reused 0 (delta 0)
+remote: Compressing source files... done.
+remote: Building source:
+remote:
+remote: -----> App not compatible with buildpack: https://codon-buildpacks.s3.amazonaws.com/buildpacks/heroku/php.tgz
+remote:        More info: https://devcenter.heroku.com/articles/buildpacks#detection-failure
+remote:
+remote:  !     Push failed
+remote: Verifying deploy...
+remote:
+remote: !       Push rejected to codify.
+remote:
+To https://git.heroku.com/codify.git
+ ! [remote rejected] master -> master (pre-receive hook declined)
+error: failed to push some refs to 'https://git.heroku.com/codify.git'
+
+pmj64@DESKTOP-H9UCQF3 MINGW64 ~/Documents/GitHub/Online-Judge (master)
+$ ^C
+
+pmj64@DESKTOP-H9UCQF3 MINGW64 ~/Documents/GitHub/Online-Judge (master)
+$ git add index.php
+
+pmj64@DESKTOP-H9UCQF3 MINGW64 ~/Documents/GitHub/Online-Judge (master)
+$ git status
+On branch master
+Your branch is up to date with 'origin/master'.
+
+Changes to be committed:
+  (use "git reset HEAD <file>..." to unstage)
+
+        new file:   index.php
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+
+        cls
+
+
+pmj64@DESKTOP-H9UCQF3 MINGW64 ~/Documents/GitHub/Online-Judge (master)
+$ git commit
+[master 5bebf1f] added index.php for heroku
+ 1 file changed, 3 insertions(+)
+ create mode 100644 index.php
+
+pmj64@DESKTOP-H9UCQF3 MINGW64 ~/Documents/GitHub/Online-Judge (master)
+$ git push origin master
+Counting objects: 3, done.
+Delta compression using up to 4 threads.
+Compressing objects: 100% (2/2), done.
+Writing objects: 100% (3/3), 334 bytes | 334.00 KiB/s, done.
+Total 3 (delta 1), reused 0 (delta 0)
+remote: Resolving deltas: 100% (1/1), completed with 1 local object.
+To https://github.com/pmj642/Online-Judge.git
+   54867ff..5bebf1f  master -> master
+
+pmj64@DESKTOP-H9UCQF3 MINGW64 ~/Documents/GitHub/Online-Judge (master)
+$ git add
+Nothing specified, nothing added.
+Maybe you wanted to say 'git add .'?
+
+pmj64@DESKTOP-H9UCQF3 MINGW64 ~/Documents/GitHub/Online-Judge (master)
+$ git add composer.json
+warning: LF will be replaced by CRLF in composer.json.
+The file will have its original line endings in your working directory.
+
+pmj64@DESKTOP-H9UCQF3 MINGW64 ~/Documents/GitHub/Online-Judge (master)
+$ git status
+On branch master
+Your branch is up to date with 'origin/master'.
+
+Changes to be committed:
+  (use "git reset HEAD <file>..." to unstage)
+
+        new file:   composer.json
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+
+        cls
+
+
+pmj64@DESKTOP-H9UCQF3 MINGW64 ~/Documents/GitHub/Online-Judge (master)
+$ git commit
+[master 66de734] added composer.json
+ 1 file changed, 7 insertions(+)
+ create mode 100644 composer.json
+
+pmj64@DESKTOP-H9UCQF3 MINGW64 ~/Documents/GitHub/Online-Judge (master)
+$ git push origin master
+Counting objects: 3, done.
+Delta compression using up to 4 threads.
+Compressing objects: 100% (3/3), done.
+Writing objects: 100% (3/3), 371 bytes | 371.00 KiB/s, done.
+Total 3 (delta 1), reused 0 (delta 0)
+remote: Resolving deltas: 100% (1/1), completed with 1 local object.
+To https://github.com/pmj642/Online-Judge.git
+   5bebf1f..66de734  master -> master
+
+pmj64@DESKTOP-H9UCQF3 MINGW64 ~/Documents/GitHub/Online-Judge (master)
+$ git push heroku master
+Counting objects: 117, done.
+Delta compression using up to 4 threads.
+Compressing objects: 100% (106/106), done.
+Writing objects: 100% (117/117), 38.56 KiB | 580.00 KiB/s, done.
+Total 117 (delta 59), reused 0 (delta 0)
+remote: Compressing source files... done.
+remote: Building source:
+remote:
+remote: -----> PHP app detected
+remote:
+remote:  !     ERROR: Your 'composer.json' lists dependencies inside 'require',
+remote:        but no 'composer.lock' was found. Please run 'composer update' to
+remote:        re-generate 'composer.lock' if necessary, and commit it into your
+remote:        repository. For more information, please refer to the docs at
+remote:        https://devcenter.heroku.com/articles/php-support#activation
+remote:
+remote:  !     Push rejected, failed to compile PHP app.
+remote:
+remote:  !     Push failed
+remote: Verifying deploy....
+remote:
+remote: !       Push rejected to codify.
+remote:
+To https://git.heroku.com/codify.git
+ ! [remote rejected] master -> master (pre-receive hook declined)
+error: failed to push some refs to 'https://git.heroku.com/codify.git'
+
+pmj64@DESKTOP-H9UCQF3 MINGW64 ~/Documents/GitHub/Online-Judge (master)
+$ git add composer.json
+warning: LF will be replaced by CRLF in composer.json.
+The file will have its original line endings in your working directory.
+
+pmj64@DESKTOP-H9UCQF3 MINGW64 ~/Documents/GitHub/Online-Judge (master)
+$ git commit
+[master 8d4a54a] update composer.json
+ 1 file changed, 1 insertion(+), 4 deletions(-)
+
+pmj64@DESKTOP-H9UCQF3 MINGW64 ~/Documents/GitHub/Online-Judge (master)
+$ git push origin master
+Counting objects: 3, done.
+Delta compression using up to 4 threads.
+Compressing objects: 100% (3/3), done.
+Writing objects: 100% (3/3), 296 bytes | 296.00 KiB/s, done.
+Total 3 (delta 2), reused 0 (delta 0)
+remote: Resolving deltas: 100% (2/2), completed with 2 local objects.
+To https://github.com/pmj642/Online-Judge.git
+   66de734..8d4a54a  master -> master
+
+pmj64@DESKTOP-H9UCQF3 MINGW64 ~/Documents/GitHub/Online-Judge (master)
+$ git push heroku master
+Counting objects: 120, done.
+Delta compression using up to 4 threads.
+Compressing objects: 100% (109/109), done.
+Writing objects: 100% (120/120), 38.79 KiB | 684.00 KiB/s, done.
+Total 120 (delta 61), reused 0 (delta 0)
+remote: Compressing source files... done.
+remote: Building source:
+remote:
+remote: -----> PHP app detected
+remote: -----> Bootstrapping...
+remote: -----> Installing platform packages...
+remote:        NOTICE: No runtime required in composer.lock; using PHP ^5.5.17
+remote:        - nginx (1.8.1)
+remote:        - php (5.6.35)
+remote:        - apache (2.4.33)
+remote: -----> Installing dependencies...
+remote:        Composer version 1.6.3 2018-01-31 16:28:17
+remote:        Loading composer repositories with package information
+remote:        Updating dependencies
+remote:        Nothing to install or update
+remote:        Generating optimized autoload files
+remote: -----> Preparing runtime environment...
+remote:        NOTICE: No Procfile, using 'web: heroku-php-apache2'.
+remote: -----> Checking for additional extensions to install...
+remote: -----> Discovering process types
+remote:        Procfile declares types -> web
+remote:
+remote: -----> Compressing...
+remote:        Done: 13.8M
+remote: -----> Launching...
+remote:        Released v3
+remote:        https://codify.herokuapp.com/ deployed to Heroku
+remote:
+remote: Verifying deploy.... done.
+To https://git.heroku.com/codify.git
+ * [new branch]      master -> master
+
+pmj64@DESKTOP-H9UCQF3 MINGW64 ~/Documents/GitHub/Online-Judge (master)
+$ heroku open
+
+pmj64@DESKTOP-H9UCQF3 MINGW64 ~/Documents/GitHub/Online-Judge (master)
+$
