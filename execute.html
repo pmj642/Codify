@@ -7,28 +7,14 @@
             <script type="text/javascript" src="submission_api.js">
             </script>
         </head>
-        <body>
+
+        <body onload="getTemplate()">
 
             <!-- Header -->
 
-            <header class="container group">
+            <header id="header" class="container group">        </header>
 
-                <h1 class="logo">
-                    <a href="index.html">Codify</a>
-                </h1>
-
-                <h3 class="tagline">Turn ideas into Code !</h3>
-
-                <nav class="nav primary-nav">
-                    <ul>
-                        <li>    <a href="index.html">Home</a>   </li><!--
-                        --><li>    <a href="practice.html">Practice</a>   </li><!--
-                        --><li>    <a href="register.html">Register</a>   </li><!--
-                        --><li>    <a href="rankings.html">Rankings</a>   </li>
-                    </ul>
-                </nav>
-
-            </header>
+            <!-- Input -->
 
             <section class="row">
               <div class="grid">
@@ -38,7 +24,7 @@
                 <div>
                     <h2>Submit</h2>
                     <input type="file" id="solution"> <br/>
-                    <input type="text" id="stdin"> <br/>                        
+                    <input type="text" id="stdin"> <br/>
                     <select id="fileType">
                         <option>C++</option>
                         <option>Java</option>
@@ -48,7 +34,7 @@
                 </div>
 
                 </section>
-                      
+
                 <section id="result" class="col-2-3">
 
                 </section>
@@ -56,20 +42,9 @@
               </div>
             </section>
 
-            <footer class="primary-footer container group">
+            <!-- Footer -->
 
-                <small>&copy;Codify</small>
-
-                <nav class="nav">
-                    <ul>
-                        <li>    <a href="index.html">Home</a>   </li>
-                        <li>    <a href="practice.html">Practice</a>   </li>
-                        <li>    <a href="register.html">Register</a>   </li>
-                        <li>    <a href="rankings.html">Rankings</a>   </li>
-                    </ul>
-                </nav>
-
-            </footer>
+            <footer id="footer" class="primary-footer container group">        </footer>
 
         </body>
 </html>
