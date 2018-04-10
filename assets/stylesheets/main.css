@@ -258,6 +258,8 @@ p a {
 
 .primary-footer {
     /* border: 2px solid #fff; */
+    position: fixed;
+    bottom: 0;
     color: #fff;
     font-size: 16px;
     padding-bottom: 44px;

@@ -10,8 +10,10 @@ function getTemplate()
 
 function ajax(element)
 {
+    // change domain for the website
+    let domain = "https://codify.herokuapp.com/";
     let xhr = new XMLHttpRequest();
-    let url = "https://codify.herokuapp.com/" + element.getAttribute('id') + '.html';
+    let url = domain + element.getAttribute('id') + '.html';
 
     xhr.responseType = 'text/html';
     xhr.open("GET",url);
