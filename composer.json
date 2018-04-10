@@ -1,7 +1,4 @@
 {
     "name": "pmj642/codify",
-    "description": "An online judge",
-    "require": {
-        "php": "^7.2"
-    }
+    "description": "An online judge"
 }
