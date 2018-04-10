@@ -11,25 +11,25 @@ function submit()
 
     if(file === null)
     {
-        alert('Please select a file!');  
+        alert('Please select a file!');
         return;
     }
     else if(fileType === null)
     {
-        alert('Please select a language!');  
+        alert('Please select a language!');
         return;
     }
     if(file === null)
     {
-        alert('Please select a file!');  
+        alert('Please select a file!');
         return;
     }
     else if(stdin === null)
     {
-        alert('Please give some input for the program!');  
+        alert('Please give some input for the program!');
         return;
     }
-    
+
     switch (fileType) {
         case 'C++':
                     langType = 12;
@@ -46,13 +46,13 @@ function submit()
         let url = "https://api.judge0.com/submissions/?base64_encoded=false&wait=true";
 
         let request = {
-            "source_code": reader.result,
-            "language_id": langType,
-            "stdin": stdin
+            source_code: reader.result,
+            language_id: langType,
+            stdin: stdin
         };
 
         xhr.responseType = 'json';
-        
+
         xhr.onreadystatechange = function() {
             if(xhr.readyState === XMLHttpRequest.DONE) {
                 console.log(xhr.response);
@@ -65,12 +65,12 @@ function submit()
                 result.appendChild(outDiv);
               }
         };
-        
+
         console.log(JSON.stringify(request));
 
-        xhr.open("POST",url);        
+        xhr.open("POST",url);
         xhr.setRequestHeader("Content-type", "application/json");
-        
+
         xhr.send(JSON.stringify(request));
 
         console.log(reader.result);

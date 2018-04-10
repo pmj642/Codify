@@ -4,7 +4,7 @@
 
     if($con->connect_error)
     {
-        die("Failed to connect to database! ".$con->connect_error);
+        die("Failed to connect to database! <br> Error:".$con->connect_error);
     }
 
     // echo "Connected to database successfully<br>";
@@ -26,7 +26,10 @@
         // while() {
             echo "name: ".$row["name"]."<br>";
             $cons = $con->real_escape_string($row["constraints"]);
+
+            // nl - newline br - break
             echo nl2br($cons)."<br>";
+            
         // }
     // }
     // else {
