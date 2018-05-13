@@ -24,9 +24,10 @@
                 <section class="col-2-3">
 
                     <!-- script to fetch the question list -->
-                    
+
                     <?php
-                        $con = new mysqli("localhost","root","","oj");
+                        $con = $conn = pg_connect(getenv("DATABASE_URL"));
+                        
                         if($con->connect_error)
                         {
                             die("Failed to connect to database! ".$con->connect_error);

@@ -1095,3 +1095,377 @@ $ heroku pg:psql postgresql-spherical-45659 --app codify
  !    The local psql command could not be located. For help installing psql, see
  !    https://devcenter.heroku.com/articles/heroku-postgresql#local-setup
 
+
+
+
+-------------------13 may 2018-----------------------
+PS C:\Users\pmj64\Documents\GitHub\Online-Judge> heroku pg:psql postgresql-spherical-45659 --app codify
+--> Connecting to postgresql-spherical-45659
+psql (10.3)
+WARNING: Console code page (437) differs from Windows code page (1252)
+         8-bit characters might not work correctly. See psql reference
+         page "Notes for Windows users" for details.
+SSL connection (protocol: TLSv1.2, cipher: ECDHE-RSA-AES256-GCM-SHA384, bits: 256, compression: off)
+Type "help" for help.
+
+codify::DATABASE=> select * from questions;
+ERROR:  relation "questions" does not exist
+LINE 1: select * from questions;
+                      ^
+codify::DATABASE=> drop database;
+ERROR:  syntax error at or near ";"
+LINE 1: drop database;
+                     ^
+codify::DATABASE=> CREATE DATABASE "scratch"
+codify::DATABASE->   WITH OWNER "postgres"
+codify::DATABASE->   ENCODING 'UTF8'
+codify::DATABASE->   LC_COLLATE = 'en_US.UTF-8'
+codify::DATABASE->   LC_CTYPE = 'en_US.UTF-8';
+ERROR:  permission denied to create database
+codify::DATABASE=> CREATE TABLE COMPANY(
+codify::DATABASE(>    id serial,
+codify::DATABASE(>    name varchar(50) not null,
+codify::DATABASE(>    description text not null,
+codify::DATABASE(>    inputFormat text not null,
+codify::DATABASE(>    outputFormat text not null,
+codify::DATABASE(>    constraints text not null,
+codify::DATABASE(>    exampleIn text not null,
+codify::DATABASE(>    exampleOut text not null
+codify::DATABASE(> );
+CREATE TABLE
+codify::DATABASE=> show tables;
+ERROR:  unrecognized configuration parameter "tables"
+codify::DATABASE=> list tables;
+ERROR:  syntax error at or near "list"
+LINE 1: list tables;
+        ^
+codify::DATABASE=> show TABLES;
+ERROR:  unrecognized configuration parameter "tables"
+codify::DATABASE=> \dt
+             List of relations
+ Schema |  Name   | Type  |     Owner
+--------+---------+-------+----------------
+ public | company | table | odaqrqhpsuyehz
+(1 row)
+
+
+codify::DATABASE=> drop table company;
+DROP TABLE
+codify::DATABASE=> \dt
+Did not find any relations.
+codify::DATABASE=> CREATE TABLE questions(
+codify::DATABASE(>    id serial,
+codify::DATABASE(>    name varchar(50) not null,
+codify::DATABASE(>    description text not null,
+codify::DATABASE(>    inputFormat text not null,
+codify::DATABASE(>    outputFormat text not null,
+codify::DATABASE(>    constraints text not null,
+codify::DATABASE(>    exampleIn text not null,
+codify::DATABASE(>    exampleOut text not null
+codify::DATABASE(> );
+CREATE TABLE
+codify::DATABASE=> \dt
+              List of relations
+ Schema |   Name    | Type  |     Owner
+--------+-----------+-------+----------------
+ public | questions | table | odaqrqhpsuyehz
+(1 row)
+
+
+codify::DATABASE=> select * from questions;
+ id | name | description | inputformat | outputformat | constraints | examplein | exampleout
+----+------+-------------+-------------+--------------+-------------+-----------+------------
+(0 rows)
+
+
+codify::DATABASE=> insert into questions values();(NULL,
+ERROR:  syntax error at or near ")"
+LINE 1: insert into questions values();
+                                     ^
+codify::DATABASE(> 'Sum of Digits',
+codify::DATABASE(> 'You\'re given an integer N. Write a program to calculate the sum of all the digits of N.',
+codify::DATABASE'> 'The first line contains an integer T, total number of testcases. Then follow T lines, each line contains an integer N.',
+codify::DATABASE'> 'Calculate the sum of digits of N.',
+codify::DATABASE'> '1 ≤ T ≤ 1000\r\n1 ≤ N ≤ 1000000',
+Query buffer reset (cleared).
+Invalid command \n1. Try \? for help.
+codify::DATABASE=> '3 \r\n12345\r\n31203\r\n2123',
+codify::DATABASE-> '15\r\n9\r\n8');
+ERROR:  syntax error at or near "'3 \r\n12345\r\n31203\r\n2123'"
+LINE 1: '3 \r\n12345\r\n31203\r\n2123',
+        ^
+codify::DATABASE=> INSERT INTO questions VALUES
+codify::DATABASE-> (NULL,
+codify::DATABASE(> 'Sum of Digits',
+codify::DATABASE(> 'You\'re given an integer N. Write a program to calculate the sum of all the digits of N.',
+codify::DATABASE'> 'The first line contains an integer T, total number of testcases. Then follow T lines, each line contains an integer N.',
+codify::DATABASE'> 'Calculate the sum of digits of N.',
+codify::DATABASE'> '1 ≤ T ≤ 1000\r\n1 ≤ N ≤ 1000000',
+Query buffer reset (cleared).
+Invalid command \n1. Try \? for help.
+codify::DATABASE=> '3 \r\n12345\r\n31203\r\n2123',
+codify::DATABASE-> '15\r\n9\r\n8');
+ERROR:  syntax error at or near "'3 \r\n12345\r\n31203\r\n2123'"
+LINE 1: '3 \r\n12345\r\n31203\r\n2123',
+        ^
+codify::DATABASE=> INSERT INTO questions VALUES
+codify::DATABASE-> (NULL,
+codify::DATABASE(> 'Sum of Digits',
+codify::DATABASE(> 'You\'re given an integer N. Write a program to calculate the sum of all the digits of N.',
+codify::DATABASE'> 'The first line contains an integer T, total number of testcases. Then follow T lines, each line contains an integer N.',
+codify::DATABASE'> 'Calculate the sum of digits of N.',
+codify::DATABASE'> '1 ≤ T ≤ 1000\r\n1 ≤ N ≤ 1000000',
+Query buffer reset (cleared).
+Invalid command \n1. Try \? for help.
+codify::DATABASE=> '3\r\n12345\r\n31203\r\n2123',
+codify::DATABASE-> '15\r\n9\r\n8');
+ERROR:  syntax error at or near "'3\r\n12345\r\n31203\r\n2123'"
+LINE 1: '3\r\n12345\r\n31203\r\n2123',
+        ^
+codify::DATABASE=> INSERT INTO questions VALUES
+codify::DATABASE-> (NULL,
+codify::DATABASE(> 'Sum of Digits',
+codify::DATABASE(> 'You\'re given an integer N. Write a program to calculate the sum of all the digits of N.',
+codify::DATABASE'> 'The first line contains an integer T, total number of testcases. Then follow T lines, each line contains an integer N.',
+codify::DATABASE'> 'Calculate the sum of digits of N.',
+codify::DATABASE'> '1 ≤ T ≤ 1000 \r\n 1 ≤ N ≤ 1000000',
+Query buffer reset (cleared).
+Invalid command \n. Try \? for help.
+codify::DATABASE=> '3 \r\n 12345 \r\n 31203 \r\n 2123',
+codify::DATABASE-> '15 \r\n 9 \r\n 8');\?
+ERROR:  syntax error at or near "'3 \r\n 12345 \r\n 31203 \r\n 2123'"
+LINE 1: '3 \r\n 12345 \r\n 31203 \r\n 2123',
+        ^
+General
+  \copyright             show PostgreSQL usage and distribution terms
+  \crosstabview [COLUMNS] execute query and display results in crosstab
+  \errverbose            show most recent error message at maximum verbosity
+  \g [FILE] or ;         execute query (and send results to file or |pipe)
+  \gexec                 execute query, then execute each value in its result
+  \gset [PREFIX]         execute query and store results in psql variables
+  \gx [FILE]             as \g, but forces expanded output mode
+  \q                     quit psql
+  \watch [SEC]           execute query every SEC seconds
+
+Help
+  \? [commands]          show help on backslash commands
+  \? options             show help on psql command-line options
+  \? variables           show help on special variables
+  \h [NAME]              help on syntax of SQL commands, * for all commands
+
+Query Buffer
+  \e [FILE] [LINE]       edit the query buffer (or file) with external editor
+  \ef [FUNCNAME [LINE]]  edit function definition with external editor
+  \ev [VIEWNAME [LINE]]  edit view definition with external editor
+  \p                     show the contents of the query buffer
+  \r                     reset (clear) the query buffer
+  \w FILE                write query buffer to file
+
+Input/Output
+  \copy ...              perform SQL COPY with data stream to the client host
+  \echo [STRING]         write string to standard output
+  \i FILE                execute commands from file
+  \ir FILE               as \i, but relative to location of current script
+  \o [FILE]              send all query results to file or |pipe
+  \qecho [STRING]        write string to query output stream (see \o)
+
+Conditional
+  \if EXPR               begin conditional block
+  \elif EXPR             alternative within current conditional block
+  \else                  final alternative within current conditional block
+  \endif                 end conditional block
+
+Informational
+  (options: S = show system objects, + = additional detail)
+  \d[S+]                 list tables, views, and sequences
+^Ccodify::DATABASE=> show standard_conforming_strings;
+ standard_conforming_strings
+-----------------------------
+ on
+(1 row)
+
+
+codify::DATABASE=> 'Sum of Digits',
+codify::DATABASE-> INSERT INTO questions VALUES
+codify::DATABASE-> (NULL,
+codify::DATABASE(> 'Sum of Digits',
+codify::DATABASE(> 'You\'re given an integer N. Write a program to calculate the sum of all the digits of N.',
+codify::DATABASE'> 'The first line contains an integer T, total number of testcases. Then follow T lines, each line contains an integer N.',
+codify::DATABASE'> 'Calculate the sum of digits of N.',
+codify::DATABASE'> '1 ≤ T ≤ 1000
+codify::DATABASE(> 1 ≤ N ≤ 1000000',
+codify::DATABASE'> '3
+codify::DATABASE(> 12345
+codify::DATABASE(> 31203
+codify::DATABASE(> 2123',
+codify::DATABASE'> '15
+codify::DATABASE(> 9
+codify::DATABASE(> 8');
+codify::DATABASE'> select * from questions;
+codify::DATABASE'> select * from questions;
+codify::DATABASE'> \q
+Terminate batch job (Y/N)? ^N
+Terminate batch job (Y/N)? n
+PS C:\Users\pmj64\Documents\GitHub\Online-Judge> heroku pg:psql postgresql-spherical-45659 --app codify
+--> Connecting to postgresql-spherical-45659
+psql (10.3)
+WARNING: Console code page (437) differs from Windows code page (1252)
+         8-bit characters might not work correctly. See psql reference
+         page "Notes for Windows users" for details.
+SSL connection (protocol: TLSv1.2, cipher: ECDHE-RSA-AES256-GCM-SHA384, bits: 256, compression: off)
+Type "help" for help.
+
+codify::DATABASE=> select * from questions;
+ id | name | description | inputformat | outputformat | constraints | examplein | exampleout
+----+------+-------------+-------------+--------------+-------------+-----------+------------
+(0 rows)
+
+
+codify::DATABASE=> INSERT INTO questions VALUES
+codify::DATABASE-> (NULL,
+codify::DATABASE(> 'Sum of Digits',
+codify::DATABASE(> 'You\'re given an integer N. Write a program to calculate the sum of all the digits of N.',
+codify::DATABASE'> 'The first line contains an integer T, total number of testcases. Then follow T lines, each line contains an integer N.',
+codify::DATABASE'> 'Calculate the sum of digits of N.',
+codify::DATABASE'> '1 ≤ T ≤ 1000
+codify::DATABASE(> 1 ≤ N ≤ 1000000',
+codify::DATABASE'> '3
+codify::DATABASE(> 12345
+codify::DATABASE(> 31203
+codify::DATABASE(> 2123',
+codify::DATABASE'> '15
+codify::DATABASE(> 9
+codify::DATABASE(> 8');
+codify::DATABASE'>
+codify::DATABASE'> select * from questions;
+codify::DATABASE'> select * from questions;\q
+Terminate batch job (Y/N)? y
+PS C:\Users\pmj64\Documents\GitHub\Online-Judge> heroku pg:psql postgresql-spherical-45659 --app codify
+--> Connecting to postgresql-spherical-45659
+psql (10.3)
+WARNING: Console code page (437) differs from Windows code page (1252)
+         8-bit characters might not work correctly. See psql reference
+         page "Notes for Windows users" for details.
+SSL connection (protocol: TLSv1.2, cipher: ECDHE-RSA-AES256-GCM-SHA384, bits: 256, compression: off)
+Type "help" for help.
+
+codify::DATABASE=>
+codify::DATABASE=> INSERT INTO questions VALUES
+codify::DATABASE-> (NULL,
+codify::DATABASE(> 'Sum of Digits',
+codify::DATABASE(> 'You\'re given an integer N. Write a program to calculate the sum of all the digits of N.');
+codify::DATABASE'>
+codify::DATABASE'>
+codify::DATABASE'>
+codify::DATABASE'>
+codify::DATABASE'> ^Z
+\q
+PS C:\Users\pmj64\Documents\GitHub\Online-Judge> heroku pg:psql postgresql-spherical-45659 --app codify
+--> Connecting to postgresql-spherical-45659
+psql (10.3)
+WARNING: Console code page (437) differs from Windows code page (1252)
+         8-bit characters might not work correctly. See psql reference
+         page "Notes for Windows users" for details.
+SSL connection (protocol: TLSv1.2, cipher: ECDHE-RSA-AES256-GCM-SHA384, bits: 256, compression: off)
+Type "help" for help.
+
+codify::DATABASE=> INSERT INTO questions VALUES (NULL,'Sum of Digits','You\'re given an integer N. Write a program to calculate the sum of all the digits of N.','The first line contains an integer T, total number of testcases. Then follow T lines, each line contains an integer N.','Calculate the sum of digits of N.','1 ≤ T ≤ 1000
+codify::DATABASE(> 1 ≤ N ≤ 1000000','3
+codify::DATABASE(> 12345
+codify::DATABASE(> 31203
+codify::DATABASE(> 2123','15
+codify::DATABASE(> 9
+codify::DATABASE(> 8');
+codify::DATABASE'> '
+codify::DATABASE(> )
+codify::DATABASE->
+codify::DATABASE->
+codify::DATABASE-> select * from questions;
+ERROR:  syntax error at or near "re"
+LINE 1: ...INTO questions VALUES (NULL,'Sum of Digits','You\'re given a...
+                                                             ^
+codify::DATABASE=> INSERT INTO questions VALUES
+codify::DATABASE-> (NULL,
+codify::DATABASE(> 'Sum of Digits',
+codify::DATABASE(> 'You\'re given an integer N. Write a program to calculate the sum of all the digits of N.',
+codify::DATABASE'> 'The first line contains an integer T, total number of testcases. Then follow T lines, each line contains an integer N.',
+codify::DATABASE'> 'Calculate the sum of digits of N.',
+codify::DATABASE'> ^Z^Z
+\q
+PS C:\Users\pmj64\Documents\GitHub\Online-Judge> heroku pg:psql postgresql-spherical-45659 --app codify
+--> Connecting to postgresql-spherical-45659
+psql (10.3)
+WARNING: Console code page (437) differs from Windows code page (1252)
+         8-bit characters might not work correctly. See psql reference
+         page "Notes for Windows users" for details.
+SSL connection (protocol: TLSv1.2, cipher: ECDHE-RSA-AES256-GCM-SHA384, bits: 256, compression: off)
+Type "help" for help.
+
+codify::DATABASE=> INSERT INTO questions VALUES
+codify::DATABASE-> (NULL,
+codify::DATABASE(> 'Sum of Digits',
+codify::DATABASE(> 'Youre given an integer N. Write a program to calculate the sum of all the digits of N.',
+codify::DATABASE(> 'The first line contains an integer T, total number of testcases. Then follow T lines, each line contains an integer N.',
+codify::DATABASE(> 'Calculate the sum of digits of N.',
+codify::DATABASE(> '1 ≤ T ≤ 1000
+codify::DATABASE'> 1 ≤ N ≤ 1000000',
+codify::DATABASE(> '3
+codify::DATABASE'> 12345
+codify::DATABASE'> 31203
+codify::DATABASE'> 2123',
+codify::DATABASE(> '15
+codify::DATABASE'> 9
+codify::DATABASE'> 8');
+ERROR:  null value in column "id" violates not-null constraint
+DETAIL:  Failing row contains (null, Sum of Digits, Youre given an integer N. Write a program to calculate the sum o..., The first line contains an integer T, total number of testcases...., Calculate the sum of digits of N., 1 ó T ó 1000
+1 ó N ó 1000000, 3
+12345
+31203
+2123, 15
+9
+8).
+codify::DATABASE=> INSERT INTO questions VALUES
+codify::DATABASE-> (,
+codify::DATABASE(> 'Sum of Digits',
+codify::DATABASE(> 'Youre given an integer N. Write a program to calculate the sum of all the digits of N.',
+codify::DATABASE(> 'The first line contains an integer T, total number of testcases. Then follow T lines, each line contains an integer N.',
+codify::DATABASE(> 'Calculate the sum of digits of N.',
+codify::DATABASE(> '1 ≤ T ≤ 1000
+codify::DATABASE'> 1 ≤ N ≤ 1000000',
+codify::DATABASE(> '3
+codify::DATABASE'> 12345
+codify::DATABASE'> 31203
+codify::DATABASE'> 2123',
+codify::DATABASE(> '15
+codify::DATABASE'> 9
+codify::DATABASE'> 8');
+ERROR:  syntax error at or near ","
+LINE 2: (,
+         ^
+codify::DATABASE=> INSERT INTO questions VALUES
+codify::DATABASE-> (1,
+codify::DATABASE(> 'Sum of Digits',
+codify::DATABASE(> 'Youre given an integer N. Write a program to calculate the sum of all the digits of N.',
+codify::DATABASE(> 'The first line contains an integer T, total number of testcases. Then follow T lines, each line contains an integer N.',
+codify::DATABASE(> 'Calculate the sum of digits of N.',
+codify::DATABASE(> '1 ≤ T ≤ 1000
+codify::DATABASE'> 1 ≤ N ≤ 1000000',
+codify::DATABASE(> '3
+codify::DATABASE'> 12345
+codify::DATABASE'> 31203
+codify::DATABASE'> 2123',
+codify::DATABASE(> '15
+codify::DATABASE'> 9
+codify::DATABASE'> 8');
+INSERT 0 1
+codify::DATABASE=> select * from questions;
+ id |     name      |                                      description                                       |                                                      inputformat                                                       |           outputformat            |   constraints   | examplein | exampleout
+----+---------------+----------------------------------------------------------------------------------------+------------------------------------------------------------------------------------------------------------------------+-----------------------------------+-----------------+-----------+------------
+  1 | Sum of Digits | Youre given an integer N. Write a program to calculate the sum of all the digits of N. | The first line contains an integer T, total number of testcases. Then follow T lines, each line contains an integer N. | Calculate the sum of digits of N. | 1 ≤ T ≤ 1000   +| 3        +| 15        +
+    |               |                                                                                        |                                                                                                                        |                                   | 1 ≤ N ≤ 1000000 | 12345    +| 9         +
+    |               |                                                                                        |                                                                                                                        |                                   |                 | 31203    +| 8
+    |               |                                                                                        |                                                                                                                        |                                   |                 | 2123      |
+(1 row)
+
+
+codify::DATABASE=>
