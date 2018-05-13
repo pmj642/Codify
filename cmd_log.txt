@@ -1468,4 +1468,79 @@ codify::DATABASE=> select * from questions;
 (1 row)
 
 
-codify::DATABASE=>
+pmj64@DESKTOP-H9UCQF3 MINGW64 ~/Documents/GitHub/Online-Judge (master)
+$ git status
+On branch master
+Your branch is ahead of 'origin/master' by 9 commits.
+  (use "git push" to publish your local commits)
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git checkout -- <file>..." to discard changes in working directory)
+
+        modified:   cmd_log.txt
+        modified:   footer.html
+        modified:   header.html
+        modified:   question.php
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+
+        query_example_postgre.text
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+pmj64@DESKTOP-H9UCQF3 MINGW64 ~/Documents/GitHub/Online-Judge (master)
+$ git commit -a
+[master f23b67b] added heroku postgres questions and generating question.php 'origin/master' by 9 commits.
+ 4 files changed, 379 insertions(+), 4 deletions(-)
+
+pmj64@DESKTOP-H9UCQF3 MINGW64 ~/Documents/GitHub/Online-Judge (master)
+$ git push origin master
+To https://github.com/pmj642/Online-Judge.git
+ ! [rejected]        master -> master (fetch first)
+error: failed to push some refs to 'https://github.com/pmj642/Online-Judge.git'
+hint: Updates were rejected because the remote contains work that you do
+hint: not have locally. This is usually caused by another repository pushing
+hint: to the same ref. You may want to first integrate the remote changes
+hint: (e.g., 'git pull ...') before pushing again.
+hint: See the 'Note about fast-forwards' in 'git push --help' for details.
+
+pmj64@DESKTOP-H9UCQF3 MINGW64 ~/Documents/GitHub/Online-Judge (master)
+$ git push heroku master
+Counting objects: 9, done.
+Delta compression using up to 4 threads.
+Compressing objects: 100% (9/9), done.
+Writing objects: 100% (9/9), 3.99 KiB | 1.33 MiB/s, done.
+Total 9 (delta 7), reused 0 (delta 0)
+remote: Compressing source files... done.
+remote: Building source:
+remote:
+remote: -----> PHP app detected
+remote: -----> Bootstrapping...
+remote: -----> Installing platform packages...
+remote:        NOTICE: No runtime required in composer.lock; using PHP ^5.5.17
+remote:        - nginx (1.8.1)
+remote:        - php (5.6.36)
+remote:        - apache (2.4.33)
+remote: -----> Installing dependencies...
+remote:        Composer version 1.6.4 2018-04-13 12:04:24
+remote:        Loading composer repositories with package information
+remote:        Updating dependencies
+remote:        Nothing to install or update
+remote:        Generating optimized autoload files
+remote: -----> Preparing runtime environment...
+remote:        NOTICE: No Procfile, using 'web: heroku-php-apache2'.
+remote: -----> Checking for additional extensions to install...
+remote: -----> Discovering process types
+remote:        Procfile declares types -> web
+remote:
+remote: -----> Compressing...
+remote:        Done: 13.8M
+remote: -----> Launching...
+remote:        Released v11
+remote:        https://codify.herokuapp.com/ deployed to Heroku
+remote:
+remote: Verifying deploy... done.
+To https://git.heroku.com/codify.git
+   542b1bc..f23b67b  master -> master

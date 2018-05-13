@@ -26,10 +26,11 @@
                     <!-- script to fetch the question list -->
 
                     <?php
-                        $con = $conn = pg_connect(getenv("DATABASE_URL"));
-                        
+                        $con = pg_connect(getenv("DATABASE_URL"));
+
                         if($con->connect_error)
                         {
+                            echo "<h1>failed<h1>";
                             die("Failed to connect to database! ".$con->connect_error);
                         }
 
