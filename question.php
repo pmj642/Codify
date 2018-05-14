@@ -30,11 +30,11 @@
 
                         if($con->connect_error)
                         {
-                            echo "<h1>failed<h1>";
+                            // echo "<h1>failed<h1>";
                             die("Failed to connect to database! ".$con->connect_error);
                         }
 
-                        // echo "Connected to database successfully<br>";
+                        echo "Connected to database successfully<br>";
                         // echo "Query successful";
 
                         $color = "color: #000;";
@@ -48,7 +48,7 @@
                         $con->set_charset("utf8");
                         $sql = "select * from questions";
                         $result = $con->query($sql);
-                        // echo "Query successful<br>";
+                        echo "Query successful<br>";
 
                         $row = $result->fetch_assoc();
 
@@ -73,7 +73,7 @@
                         echo "</div>";
 
                         $con->close();
-                        // echo "Closing Connection!";
+                        echo "Closing Connection!";
                     ?>
                     <!-- </div> -->
                 </section><!--
