@@ -28,7 +28,7 @@
                     <?php
                         $con = pg_connect(getenv("DATABASE_URL"));
 
-                        if($con->connect_error)
+                        if(!$con)
                         {
                             // echo "<h1>failed<h1>";
                             die("Failed to connect to database! ".$con->connect_error);
@@ -47,10 +47,10 @@
 
                         // $con->set_charset("utf8");
                         $sql = "select * from questions";
-                        $result = $con->query($sql);
+                        $result = pg_query($sql);
                         echo "Query successful<br>";
 
-                        $row = $result->fetch_assoc();
+                        $row = pg_fetch_assoc($result);
 
                         echo "<div style = '$div'>";
                         echo "<h1 style = '$color'>".$row["name"]."</h1>";
