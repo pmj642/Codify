@@ -68,13 +68,13 @@
                         echo "<p style = '$color'>".$row["outputformat"]."</p>";
 
                         echo "<h2 style = '$color'>Constraints</h2>";
-                        echo "<p style = '$color'>".nl2br(mb_convert_encoding($row["constraints"], "UTF-8"))."</p>";
+                        echo "<p style = '$color'>".nl2br($row["constraints"])."</p>";
 
                         echo "<h2 style = '$color'>Example</h2>";
                         echo "<h3 style = '$color'>Input</h3>";
-                        echo "<p style = '$color'>".nl2br(mb_convert_encoding($row["examplein"],"UTF-8"))."</p>";
+                        echo "<p style = '$color'>".nl2br($row["examplein"])."</p>";
                         echo "<h3 style = '$color'>Output</h3>";
-                        echo "<p style = '$color'>".nl2br(mb_convert_encoding($row["exampleout"],"UTF-8"))."</p>";
+                        echo "<p style = '$color'>".nl2br($row["exampleout"])."</p>";
                         echo "</div>";
 
                         // $con->close();
