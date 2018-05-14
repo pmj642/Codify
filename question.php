@@ -5,6 +5,7 @@
         <head>
             <title></title>
             <meta charset='utf-8'>
+            <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
             <link rel="stylesheet" href="assets/stylesheets/main.css">
             <script type="text/javascript" src="submission_api.js">
             </script>
@@ -66,20 +67,19 @@
                         echo "<h2 style = '$color'>Output</h2>";
                         echo "<p style = '$color'>".$row["outputformat"]."</p>";
 
-                        // add nl2br for mysql nl2br($row["constraints"])
-
                         echo "<h2 style = '$color'>Constraints</h2>";
-                        echo "<p style = '$color'>".$row["constraints"]."</p>";
+                        echo "<p style = '$color'>".nl2br($row["constraints"])."</p>";
 
                         echo "<h2 style = '$color'>Example</h2>";
                         echo "<h3 style = '$color'>Input</h3>";
-                        echo "<p style = '$color'>".$row["examplein"]."</p>";
+                        echo "<p style = '$color'>".nl2br($row["examplein"])."</p>";
                         echo "<h3 style = '$color'>Output</h3>";
-                        echo "<p style = '$color'>".$row["exampleout"]."</p>";
+                        echo "<p style = '$color'>".nl2br($row["exampleout"])."</p>";
                         echo "</div>";
 
-                        $con->close();
-                        echo "Closing Connection!";
+                        // $con->close();
+                        pg_close($con);
+                        // echo "Closing Connection!";
                     ?>
                     <!-- </div> -->
                 </section><!--
@@ -88,16 +88,16 @@
 
                 --><section class="col-1-3">
 
-                  <div>
-                    <h2>Submit</h2>
-                    <input type="file" id="solution">
-                    <select id="fileType">
-                        <option>C++</option>
-                        <option>Java</option>
-                    </select>
+                      <div>
+                        <h2>Submit</h2>
+                        <input type="file" id="solution">
+                        <select id="fileType">
+                            <option>C++</option>
+                            <option>Java</option>
+                        </select>
 
-                    <a class="btn btn-default" onclick="submit()">Submit</a>
-                </div>
+                        <a class="btn btn-default" onclick="submit()">Submit</a>
+                    </div>
 
                 </section>
               </div>
