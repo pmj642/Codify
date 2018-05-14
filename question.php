@@ -31,7 +31,7 @@
                         if(!$con)
                         {
                             // echo "<h1>failed<h1>";
-                            die("Failed to connect to database! ".$con->connect_error);
+                            die("Failed to connect to database!");
                         }
 
                         // echo "Connected to database successfully<br>";
@@ -46,6 +46,7 @@
                                 ";
 
                         // $con->set_charset("utf8");
+                        pg_set_client_encoding($con, "UNICODE");
                         $sql = "select * from questions";
                         $result = pg_query($sql);
                         // echo "Query successful<br>";
