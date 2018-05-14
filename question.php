@@ -34,7 +34,7 @@
                             die("Failed to connect to database! ".$con->connect_error);
                         }
 
-                        echo "Connected to database successfully<br>";
+                        // echo "Connected to database successfully<br>";
                         // echo "Query successful";
 
                         $color = "color: #000;";
@@ -48,7 +48,7 @@
                         // $con->set_charset("utf8");
                         $sql = "select * from questions";
                         $result = pg_query($sql);
-                        echo "Query successful<br>";
+                        // echo "Query successful<br>";
 
                         $row = pg_fetch_assoc($result);
 
@@ -57,19 +57,19 @@
                         echo "<p style = '$color'>".$row["description"]."</p>";
 
                         echo "<h2 style = '$color'>Input</h2>";
-                        echo "<p style = '$color'>".$row["inputFormat"]."</p>";
+                        echo "<p style = '$color'>".$row["inputformat"]."</p>";
 
                         echo "<h2 style = '$color'>Output</h2>";
-                        echo "<p style = '$color'>".$row["outputFormat"]."</p>";
+                        echo "<p style = '$color'>".$row["outputformat"]."</p>";
 
                         echo "<h2 style = '$color'>Constraints</h2>";
                         echo "<p style = '$color'>".nl2br($row["constraints"])."</p>";
 
                         echo "<h2 style = '$color'>Example</h2>";
                         echo "<h3 style = '$color'>Input</h3>";
-                        echo "<p style = '$color'>".nl2br($row["exampleIn"])."</p>";
+                        echo "<p style = '$color'>".nl2br($row["examplein"])."</p>";
                         echo "<h3 style = '$color'>Output</h3>";
-                        echo "<p style = '$color'>".nl2br($row["exampleOut"])."</p>";
+                        echo "<p style = '$color'>".nl2br($row["exampleout"])."</p>";
                         echo "</div>";
 
                         $con->close();
