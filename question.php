@@ -34,7 +34,7 @@
                             die("Failed to connect to database! ".$con->connect_error);
                         }
 
-                        echo "<h1>Connected to database successfully</h1><br>";
+                        echo "Connected to database successfully<br>";
                         // echo "Query successful";
 
                         $color = "color: #000;";
