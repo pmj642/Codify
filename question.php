@@ -34,7 +34,7 @@
                             die("Failed to connect to database! ".$con->connect_error);
                         }
 
-                        echo "Connected to database successfully<br>";
+                        echo "<h1>Connected to database successfully</h1><br>";
                         // echo "Query successful";
 
                         $color = "color: #000;";
@@ -45,7 +45,7 @@
                                             0 6px 20px 0 rgba(0,0,0,0.2);
                                 ";
 
-                        $con->set_charset("utf8");
+                        // $con->set_charset("utf8");
                         $sql = "select * from questions";
                         $result = $con->query($sql);
                         echo "Query successful<br>";
