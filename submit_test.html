@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+        <head>
+            <title></title>
+            <meta charset='utf-8'>
+            <link rel="stylesheet" href="assets/stylesheets/main.css">
+            <script type="text/javascript" src="submission_api.js">
+            </script>
+        </head>
+        <body>
+
+            <!-- Header -->
+
+            <header class="container group">
+
+                <h1 class="logo">
+                    <a href="index.html">Codify</a>
+                </h1>
+
+                <h3 class="tagline">Turn ideas into Code !</h3>
+
+                <nav class="nav primary-nav">
+                    <ul>
+                        <li>    <a href="index.html">Home</a>   </li><!--
+                        --><li>    <a href="practice.html">Practice</a>   </li><!--
+                        --><li>    <a href="register.html">Register</a>   </li><!--
+                        --><li>    <a href="rankings.html">Rankings</a>   </li>
+                    </ul>
+                </nav>
+
+            </header>
+
+            <section class="row">
+              <div class="grid">
+
+                <section class="col-2-3">
+
+                <div>
+                    <h2>Submit</h2>
+                    <input type="file" id="solution"> <br/><br/>
+                    <input type="text" id="stdin" placeholder="Input"> <br/><br/>                        
+                    
+                    Language
+                    <select id="fileType">
+                        <option>C++</option>
+                        <option>Java</option>
+                    </select> <br/>
+
+                    <a class="btn btn-default" onclick="submit()">Submit</a>
+                </div>
+
+                </section>
+                      
+                <section id="result" class="col-2-3">
+
+                </section>
+
+              </div>
+            </section>
+
+            <footer class="primary-footer container group">
+
+                <small>&copy;Codify</small>
+
+                <nav class="nav">
+                    <ul>
+                        <li>    <a href="index.html">Home</a>   </li>
+                        <li>    <a href="practice.html">Practice</a>   </li>
+                        <li>    <a href="register.html">Register</a>   </li>
+                        <li>    <a href="rankings.html">Rankings</a>   </li>
+                    </ul>
+                </nav>
+
+            </footer>
+
+        </body>
+</html>

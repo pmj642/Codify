@@ -19,11 +19,14 @@ function submit()
         alert('Please select a language!');
         return;
     }
+<<<<<<< HEAD
     if(file === null)
     {
         alert('Please select a file!');
         return;
     }
+=======
+>>>>>>> refs/remotes/origin/master
     else if(stdin === null)
     {
         alert('Please give some input for the program!');
@@ -57,8 +60,10 @@ function submit()
             if(xhr.readyState === XMLHttpRequest.DONE) {
                 console.log(xhr.response);
                 let outDiv = document.createElement('div');
-                outDiv.setAttribute('class','btn-alt');
-                outDiv.style.padding = "20px";
+//                 outDiv.setAttribute('style',"border: solid 1px #000;
+//                                              padding: 20px;
+//                                              font: 400 22px Helvetica;  ");
+                                    
                 outDiv.innerHTML =    "Time: " + xhr.response.time + "<br/>"
                                     + "Memory: " + xhr.response.memory + "<br/>"
                                     + "Output: " + xhr.response.stdout + "<br/>";
