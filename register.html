@@ -8,7 +8,7 @@
 	</head>
 
 	<script type="text/javascript" src="assets/scripts/getTemplate.js">    </script>
-	
+
 	<body onload="getTemplate()">
 
 		<!-- Header -->
@@ -19,47 +19,48 @@
 
 		<section class="row">
 			<div class="container">
-				<form class="reg-form" method="post" action="">
+				<form method="post" action="register.php">
 
-					<fieldset class="register">
+					Name
+					<input type="text" id="name" placeholder="Your name..." required>
 
-					<label>
-						Name
-						<input type="text" name="name" required>
-					</label>
+					<br>Username
+					<input type="text" id="user" placeholder="Username..." required>
 
-					<label>
-						<br>Age
-						<input type="number" name="age" required>
-					</label>
+					<br>Password
+					<input type="password" id="pass" placeholder="Password..." required>
 
-					<label>
-						<br>Gender
-						<input class="rad" type="radio" name="gender" value="male" checked>Male<!--
-					 --><input class="rad" type="radio" name="gender" value="female">Female<!--
-				 	 --><input class="rad" type="radio" name="gender" value="other">Other
-					</label>
+					<br>Age
+					<input type="number" id="age" min="5" placeholder="Your age..."required>
 
-					<label>
-						<br>Email
-						<input type="email" name="email" required>
-					</label>
+					<br>Gender
+						<select id="gender" required>
 
-					<label>
-						<br>Country
-						<select name="country" required>
+							<option value="male">Male</option>
+							<option value="female">Female</option>
+							<option value="other">Other</option>
+
+						</select>
+
+						<!-- <input class="rad" type="radio" name="gender" value="male" checked>Male
+					 <input class="rad" type="radio" name="gender" value="female">Female
+					 <input class="rad" type="radio" name="gender" value="other">Other -->
+
+					<br>Email
+						<input type="email" id="email" placeholder="Your email..." required>
+
+					<br>Country
+						<select id="country" required>
 
 							<option value="india">India</option>
 							<option value="china">China</option>
 							<option value="russia">Russia</option>
 
 						</select>
-						<br>
 					</label>
 
-					<input class="btn btn-alt" type="submit" name="submit" value="Submit">
-
-				</fieldset>
+					<br>
+					<input type="submit" value="Register">
 
 				</form>
 
