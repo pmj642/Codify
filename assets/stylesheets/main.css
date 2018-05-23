@@ -395,7 +395,7 @@ p a {
   ========================================
 */
 
-form {
+.form {
     width: 500px;
     margin: 0 auto 40px;
 	padding: 30px;
@@ -406,9 +406,9 @@ form {
                 0 6px 20px 0 rgba(0,0,0,0.2);
 }
 
-input,
-select,
-textarea {
+.form input,
+.form select,
+.form textarea {
     outline: none;
     font: 300 15px/20px "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
     /* border: 2px solid #4b0082; */
@@ -420,11 +420,11 @@ textarea {
     border-radius: 20px;
 }
 
-textarea {
+.form textarea {
     border-radius: 5px;
 }
 
-input[type=submit],[type=button] {
+.form input[type=submit],[type=button] {
     border-radius: 0;
     text-align: center;
     background: #7b68ee;
