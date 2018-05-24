@@ -321,6 +321,7 @@ p a {
   padding: 11px 30px;
   font-size: 14px;
 }
+
 .btn-default:hover {
   background: #4b0082;
   color: #fff;
@@ -395,7 +396,7 @@ p a {
   ========================================
 */
 
-.form {
+form {
     width: 500px;
     margin: 0 auto 40px;
 	padding: 30px;
@@ -406,12 +407,11 @@ p a {
                 0 6px 20px 0 rgba(0,0,0,0.2);
 }
 
-.form input,
-.form select,
-.form textarea {
+input,
+select,
+textarea {
     outline: none;
     font: 300 15px/20px "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
-    /* border: 2px solid #4b0082; */
     width: 100%;
     padding: 2% 5%;
     margin: 5px 0 5px;
@@ -420,11 +420,11 @@ p a {
     border-radius: 20px;
 }
 
-.form textarea {
+textarea {
     border-radius: 5px;
 }
 
-.form input[type=submit],[type=button] {
+input[type=submit],[type=button] {
     border-radius: 0;
     text-align: center;
     background: #7b68ee;
@@ -437,11 +437,6 @@ p a {
     display: inline-block;
     margin: auto 0 20px 10px;
 }
-
-.register select {
-    margin: auto 10px 15px;
-}
-
 
 /*
   ========================================
