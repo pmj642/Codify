@@ -265,13 +265,15 @@ p a {
 }
 
 .primary-footer small {
-  float: left;
-  font-weight: 400;
+    float: left;
+    font-weight: 400;
 }
 
 .primary-footer img {
-  height: 40px;
-  width: 100px;
+    /* display: inline-block; */
+    vertical-align: middle;
+    height: 40px;
+    width: 100px;
 }
 
 /*
