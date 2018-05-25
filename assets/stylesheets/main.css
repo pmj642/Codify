@@ -259,7 +259,7 @@ p a {
 .primary-footer {
     color: #fff;
     font-size: 16px;
-    padding-bottom: 44px;
+    padding-bottom: 30px;
     padding-top: 44px;
     margin-bottom: 0;
 }
@@ -270,8 +270,6 @@ p a {
 }
 
 .primary-footer img {
-    /* display: inline-block; */
-    margin-top: 0;
     height: 40px;
     width: 100px;
 }
