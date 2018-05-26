@@ -62,19 +62,19 @@
                         echo "<p style = '$color'>".$row["description"]."</p>";
 
                         echo "<h2 style = '$color'>Input</h2>";
-                        echo "<p style = '$color'>".$row["inputformat"]."</p>";
+                        echo "<p style = '$color'>".$row["inputFormat"]."</p>";
 
                         echo "<h2 style = '$color'>Output</h2>";
-                        echo "<p style = '$color'>".$row["outputformat"]."</p>";
+                        echo "<p style = '$color'>".$row["outputFormat"]."</p>";
 
                         echo "<h2 style = '$color'>Constraints</h2>";
                         echo "<p style = '$color'>".nl2br($row["constraints"])."</p>";
 
                         echo "<h2 style = '$color'>Example</h2>";
                         echo "<h3 style = '$color'>Input</h3>";
-                        echo "<p style = '$color'>".nl2br($row["examplein"])."</p>";
+                        echo "<p style = '$color'>".nl2br($row["exampleIn"])."</p>";
                         echo "<h3 style = '$color'>Output</h3>";
-                        echo "<p style = '$color'>".nl2br($row["exampleout"])."</p>";
+                        echo "<p style = '$color'>".nl2br($row["exampleOut"])."</p>";
                         echo "</div>";
 
                         // $con->close();
