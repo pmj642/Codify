@@ -51,7 +51,7 @@
                         // $con->set_charset("utf8");
                         // echo pg_client_encoding($con);
                         // pg_set_client_encoding($con, "UNICODE");
-                        $sql = "select * from questions";
+                        $sql = "select * from question";
                         $result = pg_query($sql);
                         // echo "Query successful<br>";
 
