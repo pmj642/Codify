@@ -33,7 +33,6 @@
 
                         if(!$con)
                         {
-                            // echo "<h1>failed<h1>";
                             die("Failed to connect to database!");
                         }
 

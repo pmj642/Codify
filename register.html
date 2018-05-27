@@ -19,22 +19,35 @@
 
 		<section class="row">
 			<div class="container">
-				<form method="post" action="">
+				<form method="post" action="register.php">
+
+					<?php
+						session_start();
+
+						if(isset($_SESSION['msg']))
+						{
+							echo "<p class='reporting error'>".$_SESSION['msg']."</p>";
+							unset($_SESSION['msg']);
+						}
+					?>
+
+					<!-- <p class="reporting error">Username already exists!</p>
+					<p class="reporting success">User created!</p> -->
 
 					Name
-					<input type="text" id="name" placeholder="Your name..." required>
+					<input type="text" name="name" placeholder="Your name..." required>
 
-					<br>Username
-					<input type="text" id="user" placeholder="Username..." required>
+					<br>Email
+					<input type="email" name="email" placeholder="Your email..." required>
 
 					<br>Password
-					<input type="password" id="pass" placeholder="Password..." required>
+					<input type="password" name="pass" placeholder="Password..." required>
 
 					<br>Age
-					<input type="number" id="age" min="5" placeholder="Your age..."required>
+					<input type="number" name="age" min="5" max="100" placeholder="Your age..."required>
 
 					<br>Gender
-						<select id="gender" required>
+						<select name="gender" required>
 
 							<option value="male">Male</option>
 							<option value="female">Female</option>
@@ -42,22 +55,14 @@
 
 						</select>
 
-						<!-- <input class="rad" type="radio" name="gender" value="male" checked>Male
-					 <input class="rad" type="radio" name="gender" value="female">Female
-					 <input class="rad" type="radio" name="gender" value="other">Other -->
-
-					<br>Email
-						<input type="email" id="email" placeholder="Your email..." required>
-
 					<br>Country
-						<select id="country" required>
+						<select name="country" required>
 
 							<option value="india">India</option>
 							<option value="china">China</option>
 							<option value="russia">Russia</option>
 
 						</select>
-					</label>
 
 					<br>
 					<input type="submit" value="Register">
@@ -69,7 +74,7 @@
 
 		<!-- Footer -->
 
-		<footer id="footer" class="primary-footer container group">        </footer>
+		<footer name="footer" class="primary-footer container group">        </footer>
 
 	</body>
 </html>
