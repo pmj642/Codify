@@ -20,7 +20,7 @@
 
     // check for duplicate username and show error
 
-    $sql = "select * from userLogin";
+    $sql = "select * from userlogin";
     $result = pg_query($sql);
 
     if(pg_num_rows($result))
