@@ -74,7 +74,7 @@
 
 		<!-- Footer -->
 
-		<footer name="footer" class="primary-footer container group">        </footer>
+		<footer id="footer" class="primary-footer container group">        </footer>
 
 	</body>
 </html>
