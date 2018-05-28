@@ -7,28 +7,28 @@
     $email = $_POST["email"];
     $country = $_POST["country"];
 
-    // echo $name." ".$user." ".$pass;
-    // echo "Hello";
+    echo $name." ".$user." ".$pass;
+    echo "Hello";
 
     $con = pg_connect(getenv("DATABASE_URL"));
 
     if(!$con)
     {
-        echo "Failed to connect!";
+        // echo "Failed to connect!";
         die("Failed to connect to database!");
     }
 
     // check for duplicate username and show error
 
-    // $sql = "select * from userlogin where user=" + $email;
-    // $result = pg_query($sql);
-    //
-    // if(pg_num_rows($result))
-    // {
-    //     session_start();
-    //     $_SESSION["msg"] = 'Email already exists!';
-    //     header(Location: 'register_form.php');
-    // }
+    $sql = "select * from userlogin where user=" + $email;
+    $result = pg_query($sql);
+
+    if(pg_num_rows($result))
+    {
+        // session_start();
+        // $_SESSION["msg"] = 'Email already exists!';
+        header(Location: 'register_form.php');
+    }
     //
     // // hash the Password
     //
