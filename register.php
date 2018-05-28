@@ -17,22 +17,25 @@
         // echo "Failed to connect!";
         die("Failed to connect to database!");
     }
+    else {
+        echo "success!"
+    }
 
     // check for duplicate username and show error
 
     $sql = "select * from userlogin";
-    $result = pg_query($sql);
-
-    if($result)
-    {
-        echo "success"
-        // session_start();
-        // $_SESSION["msg"] = 'Email already exists!';
-        // header(Location: 'register_form.php');
-    }
-    else {
-        echo "failure";
-    }
+    // $result = pg_query($sql);
+    //
+    // if($result)
+    // {
+    //     echo "success"
+    //     // session_start();
+    //     // $_SESSION["msg"] = 'Email already exists!';
+    //     // header(Location: 'register_form.php');
+    // }
+    // else {
+    //     echo "failure";
+    // }
     //
     // // hash the Password
     //
