@@ -20,14 +20,18 @@
 
     // check for duplicate username and show error
 
-    $sql = "select * from userlogin where user=" + $email;
+    $sql = "select * from userlogin";
     $result = pg_query($sql);
 
-    if(pg_num_rows($result))
+    if($result)
     {
+        echo "success"
         // session_start();
         // $_SESSION["msg"] = 'Email already exists!';
-        header(Location: 'register_form.php');
+        // header(Location: 'register_form.php');
+    }
+    else {
+        echo "failure";
     }
     //
     // // hash the Password
