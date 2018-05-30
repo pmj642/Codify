@@ -7,13 +7,13 @@
 		<link rel="stylesheet" href="assets/stylesheets/main.css">
 	</head>
 
-	<script type="text/javascript" src="assets/scripts/getTemplate.js">    </script>
-
-	<body onload="getTemplate()">
+	<body>
 
 		<!-- Header -->
 
-        <header id="header" class="container group">        </header>
+		<?php
+			require('header.php');
+		?>
 
 		<!-- Register -->
 
@@ -73,8 +73,10 @@
 		</section>
 
 		<!-- Footer -->
-
-		<footer id="footer" class="primary-footer container group">        </footer>
+		
+		<?php
+			require('footer.php');
+		?>
 
 	</body>
 </html>
