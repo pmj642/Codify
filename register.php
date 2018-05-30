@@ -7,23 +7,31 @@
     $email = $_POST["email"];
     $country = $_POST["country"];
 
-    echo $name." ".$user." ".$pass;
+    echo $name." ".$pass;
     echo "Hello";
 
-    $con = pg_connect(getenv("DATABASE_URL"));
+    // $con = pg_connect(getenv("DATABASE_URL"));
+    $con = new mysqli("localhost","root","","oj");
 
-    if(!$con)
+    if($con->connect_error)
     {
-        // echo "Failed to connect!";
-        die("Failed to connect to database!");
+        die("Failed to connect to database! <br> Error:".$con->connect_error);
     }
-    else {
-        echo "success!"
-    }
+
+    // echo "Connected to database successfully<br>";
+    // echo "Query successful";
+
+    $con->set_charset("utf8");
 
     // check for duplicate username and show error
 
-    $sql = "select * from userlogin";
+    $sql = "select * from userlogin where user='$email'";
+    $result = $con->query($sql);
+
+    if($result->num_rows > 0)
+        echo "Error!";
+
+    // $row = $result->fetch_assoc();
     // $result = pg_query($sql);
     //
     // if($result)
@@ -41,4 +49,6 @@
     //
     // $hashPass = password_hash($pass, PASSWORD_DEFAULT);
     // echo $hashPass;
+
+    $con->close();
 ?>
