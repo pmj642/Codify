@@ -25,7 +25,12 @@
           <p>Code is not something which you write on paper! <br>
               It is to be run on a machine!</p>
 
-          <a class="btn btn-alt" href="register_form.php">Register Now</a>
+        <?php
+              if(!isset($_SESSION['user']))
+              {
+                  echo "<a class='btn btn-alt' href='register_form.php'>Register Now</a>";
+              }
+        ?>
 
         </section>
 
