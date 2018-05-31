@@ -35,7 +35,6 @@
         <ul>
             <li>    <a href="index.php">Home</a>   </li><!--
             --><li>    <a href="question.php">Practice</a>   </li><!--
-            --><li>    <a href="register_form.php">Register</a>   </li><!--
             --><li>    <a href="rankings.html">Rankings</a>   </li><!--
             --><li>    <a href="execute.html">Execute</a>   </li>
         </ul>

@@ -310,7 +310,7 @@ p a {
 }
 
 .btn-alt {
-  border: 1px solid #000;
+  /* border: 1px solid #000; */
   padding: 10px 30px;
   background: #5DADE2;
 }
