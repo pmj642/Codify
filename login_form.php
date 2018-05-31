@@ -22,13 +22,18 @@
 				<form method="post" action="login.php">
 
 					<?php
-						session_start();
+
+						if(isset($_SESSION['user']))
+						{
+							header('Location: index.php');
+						}
 
 						if(isset($_SESSION['msg']))
 						{
 							echo "<p class='reporting success'>".$_SESSION['msg']."</p>";
 							unset($_SESSION['msg']);
 						}
+
 					?>
 
 					<!-- <p class="reporting error">Username already exists!</p>

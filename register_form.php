@@ -22,13 +22,18 @@
 				<form method="post" action="register.php">
 
 					<?php
-						session_start();
+
+						if(isset($_SESSION['user']))
+						{
+							header('Location: index.php');
+						}
 
 						if(isset($_SESSION['msg']))
 						{
 							echo "<p class='reporting error'>".$_SESSION['msg']."</p>";
 							unset($_SESSION['msg']);
 						}
+
 					?>
 
 					<!-- <p class="reporting error">Username already exists!</p>
@@ -73,7 +78,7 @@
 		</section>
 
 		<!-- Footer -->
-		
+
 		<?php
 			require('footer.php');
 		?>
