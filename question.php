@@ -1,23 +1,30 @@
-<?php header('Content-Type: text/html; charset=utf-8'); ?>
+<?php
+    if(!isset($_GET["id"]))
+    {
+        // echo "ERROR!";
+        http_response_code(404);
+        include('404.php'); // provide your own HTML for the error page
+        die();
+    }
+?>
 
 <!DOCTYPE html>
 <html>
         <head>
             <title></title>
             <meta charset='utf-8'>
-            <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
             <link rel="stylesheet" href="assets/stylesheets/main.css">
             <script type="text/javascript" src="submission_api.js">
             </script>
         </head>
 
-        <script type="text/javascript" src="assets/scripts/getTemplate.js">    </script>
-
-    	<body onload="getTemplate()">
+    	<body>
 
     		<!-- Header -->
 
-            <header id="header" class="container group">        </header>
+            <?php
+                require('header.php');
+            ?>
 
             <section class="row">
               <div class="grid">
@@ -29,55 +36,51 @@
                     <!-- script to fetch the question list -->
 
                     <?php
-                        $con = pg_connect(getenv("DATABASE_URL"));
 
-                        if(!$con)
+                        // $con = pg_connect(getenv("DATABASE_URL"));
+                        $con = new mysqli("localhost","root","","oj");
+
+                        if($con->connect_error)
                         {
-                            die("Failed to connect to database!");
+                            die("Failed to connect to database! <br> Error:".$con->connect_error);
                         }
 
-                        // echo "Connected to database successfully<br>";
-                        // echo "Query successful";
-
-                        $color = "color: #000;";
-                        $div = "//background: #f8f9f9;
-                                //border: 1px solid #000;
-                                padding: 30px;
-                                box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),
-                                            0 6px 20px 0 rgba(0,0,0,0.2);
-                                ";
+                        $sql = "select * from questions where id=".htmlspecialchars($_GET["id"]);
+                        $result = $con->query($sql);
 
                         // $con->set_charset("utf8");
                         // echo pg_client_encoding($con);
                         // pg_set_client_encoding($con, "UNICODE");
-                        $sql = "select * from question";
-                        $result = pg_query($sql);
+                        // $sql = "select * from question";
+                        // $result = pg_query($sql);
                         // echo "Query successful<br>";
 
-                        $row = pg_fetch_assoc($result);
+                        // $row = pg_fetch_assoc($result);
 
-                        echo "<div style = '$div'>";
-                        echo "<h1 style = '$color'>".$row["name"]."</h1>";
-                        echo "<p style = '$color'>".$row["description"]."</p>";
+                        $row = $result->fetch_assoc();
 
-                        echo "<h2 style = '$color'>Input</h2>";
-                        echo "<p style = '$color'>".$row["inputFormat"]."</p>";
+                        echo "<div class='black-heading question card'>";
+                        echo "<h1>".$row["name"]."</h1>";
+                        echo "<p>".$row["description"]."</p>";
 
-                        echo "<h2 style = '$color'>Output</h2>";
-                        echo "<p style = '$color'>".$row["outputFormat"]."</p>";
+                        echo "<h2>Input</h2>";
+                        echo "<p>".$row["inputFormat"]."</p>";
 
-                        echo "<h2 style = '$color'>Constraints</h2>";
-                        echo "<p style = '$color'>".nl2br($row["constraints"])."</p>";
+                        echo "<h2>Output</h2>";
+                        echo "<p>".$row["outputFormat"]."</p>";
 
-                        echo "<h2 style = '$color'>Example</h2>";
-                        echo "<h3 style = '$color'>Input</h3>";
-                        echo "<p style = '$color'>".nl2br($row["exampleIn"])."</p>";
-                        echo "<h3 style = '$color'>Output</h3>";
-                        echo "<p style = '$color'>".nl2br($row["exampleOut"])."</p>";
+                        echo "<h2>Constraints</h2>";
+                        echo "<p>".nl2br($row["constraints"])."</p>";
+
+                        echo "<h2>Example</h2>";
+                        echo "<h3>Input</h3>";
+                        echo "<p>".nl2br($row["exampleIn"])."</p>";
+                        echo "<h3>Output</h3>";
+                        echo "<p>".nl2br($row["exampleOut"])."</p>";
                         echo "</div>";
 
-                        // $con->close();
-                        pg_close($con);
+                        $con->close();
+                        // pg_close($con);
                         // echo "Closing Connection!";
                     ?>
                     <!-- </div> -->
@@ -85,7 +88,7 @@
 
                 Submit
 
-                --><section class="col-1-3">
+            --><section class="col-1-3">
 
                       <div>
                         <h2>Submit</h2>
@@ -104,7 +107,9 @@
 
             <!-- Footer -->
 
-    		<footer id="footer" class="primary-footer container group">        </footer>
+            <?php
+                require('footer.php');
+            ?>
 
         </body>
 </html>
