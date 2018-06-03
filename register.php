@@ -7,8 +7,7 @@
     $email = $_POST["email"];
     $country = $_POST["country"];
 
-    echo $name." ".$pass;
-    echo "Hello";
+    echo $name." ".$pass."<br>";
 
     // $con = pg_connect(getenv("DATABASE_URL"));
     $con = new mysqli("localhost","root","","oj");
@@ -18,8 +17,7 @@
         die("Failed to connect to database! <br> Error:".$con->connect_error);
     }
 
-    // echo "Connected to database successfully<br>";
-    // echo "Query successful";
+    echo "Connected to database successfully<br>";
 
     $con->set_charset("utf8");
 
@@ -27,28 +25,47 @@
 
     $sql = "select * from userlogin where user='$email'";
     $result = $con->query($sql);
+    // $result = pg_query($sql);
+    session_start();
 
     if($result->num_rows > 0)
-        echo "Error!";
+    {
+        echo "Error!<br>";
+        $con->close();
+        $_SESSION["msg"] = 'Email already exists!';
+        header('Location: register_form.php');
+    }
+    else
+    {
+        echo "Success!<br>";
 
-    // $row = $result->fetch_assoc();
-    // $result = pg_query($sql);
-    //
-    // if($result)
-    // {
-    //     echo "success"
-    //     // session_start();
-    //     // $_SESSION["msg"] = 'Email already exists!';
-    //     // header(Location: 'register_form.php');
-    // }
-    // else {
-    //     echo "failure";
-    // }
-    //
-    // // hash the Password
-    //
-    // $hashPass = password_hash($pass, PASSWORD_DEFAULT);
-    // echo $hashPass;
+        // hash the Password
 
-    $con->close();
+        $hashPass = password_hash($pass, PASSWORD_DEFAULT);
+        echo $hashPass;
+
+        // start a transaction
+
+        $con->begin_transaction();
+
+        $sql1 = "insert into userlogin (user,pass) values('$email','$hashPass')";
+        $q1 = $con->query($sql1);
+
+        $sql2 = "insert into userdetails (name,age,gender,country) values('$name',$age,'$gender','$country')";
+        $q2 = $con->query($sql2);
+
+        if(!$q1 || !$q2)
+        {
+            $_SESSION["msg"] = 'User creation failed! Try again!';
+            header('Location: register_form.php');
+        }
+        else
+        {
+            $con->commit();
+            $con->close();
+            $_SESSION["msg"] = 'User created successfully!';
+            header('Location: login_form.php');
+            // echo "User creation successful!";
+        }
+    }
 ?>
