@@ -67,6 +67,10 @@ body {
   ========================================
 */
 
+.centre {
+    margin: 40px auto;
+}
+
 *,
 *:before,
 *:after {
@@ -147,11 +151,6 @@ body {
     background: -webkit-linear-gradient(to right, #bfc9ca, #d5dbdb);
     background:    -moz-linear-gradient(to right, #bfc9ca, #d5dbdb);
     background:         linear-gradient(to right, #bfc9ca, #d5dbdb);
-}
-
-.card {
-    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),
-                0 6px 20px 0 rgba(0,0,0,0.2);
 }
 
 /*
@@ -589,4 +588,52 @@ td a {
 td a:hover {
     color: inherit;
     text-decoration: underline;
+}
+
+/*
+  ========================================
+  Submit and Result Interface
+  ========================================
+*/
+
+.submit-box {
+    font: 400 18px/20px "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    padding: 40px;
+    margin-left: 40px;
+}
+
+.result-box {
+    font: 400 18px/30px "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    padding: 40px;
+    margin-left: 40px;
+}
+
+.result-box img {
+    height: 30px;
+    width: 30px;
+    margin: 0 10px 10px 0;
+    vertical-align: middle;
+}
+
+.result-div {
+    display: inline-block;
+    text-align: center;
+    width: 50%;
+    vertical-align: middle;
+}
+
+#verdict img {
+    height: 50px;
+    width: 50px;
+}
+
+/*
+  ========================================
+  General
+  ========================================
+*/
+
+.card {
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),
+                0 6px 20px 0 rgba(0,0,0,0.2);
 }
