@@ -25,49 +25,42 @@
 
                     <?php
 
-                        if(!isset($_SESSION['user']))
+                        // $con = pg_connect(getenv("DATABASE_URL"));
+                        $con = new mysqli("localhost","root","","oj");
+
+                        if($con->connect_error)
                         {
-                            echo "<p class='reporting error'>You need to login first!</p>";
+                            die("Failed to connect to database! <br> Error:".$con->connect_error);
                         }
-                        else
+
+                        // echo "Connected to database successfully<br>";
+
+                        // check for valid credentials and show error
+
+                        $sql = "select * from questions";
+                        $result = $con->query($sql);
+
+                        echo "<table>";
+                        echo "<tr>";
+                        echo "<th>Name</th>";
+                        echo "<th>TBD</th>";
+                        echo "<th>TBD</th>";
+                        echo "</tr>";
+
+                        while($row = $result->fetch_assoc())
                         {
-                            // $con = pg_connect(getenv("DATABASE_URL"));
-                            $con = new mysqli("localhost","root","","oj");
-
-                            if($con->connect_error)
-                            {
-                                die("Failed to connect to database! <br> Error:".$con->connect_error);
-                            }
-
-                            // echo "Connected to database successfully<br>";
-
-                            // check for valid credentials and show error
-
-                            $sql = "select * from questions";
-                            $result = $con->query($sql);
-
-                            echo "<table>";
                             echo "<tr>";
-                            echo "<th>Name</th>";
-                            echo "<th>TBD</th>";
-                            echo "<th>TBD</th>";
+                                echo "<td>";
+                                    echo "<a href='question.php?id=".$row["id"]."'>";
+                                        echo $row["name"];
+                                    echo "</a>";
+                                echo "</td>";
+                                echo "<td>TBD</td>";
+                                echo "<td>TBD</td>";
                             echo "</tr>";
-
-                            while($row = $result->fetch_assoc())
-                            {
-                                echo "<tr>";
-                                    echo "<td>";
-                                        echo "<a href='question.php?id=".$row["id"]."'>";
-                                            echo $row["name"];
-                                        echo "</a>";
-                                    echo "</td>";
-                                    echo "<td>TBD</td>";
-                                    echo "<td>TBD</td>";
-                                echo "</tr>";
-                            }
-
-                            echo "</table>";
                         }
+
+                        echo "</table>";
                     ?>
 
                     <!-- </div> -->

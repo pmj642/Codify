@@ -32,7 +32,7 @@
     {
         echo "Error!<br>";
         $con->close();
-        $_SESSION["msg"] = 'Email already exists!';
+        $_SESSION["errorMsg"] = 'Email already exists!';
         header('Location: register_form.php');
     }
     else
@@ -56,14 +56,14 @@
 
         if(!$q1 || !$q2)
         {
-            $_SESSION["msg"] = 'User creation failed! Try again!';
+            $_SESSION["errorMsg"] = 'User creation failed! Try again!';
             header('Location: register_form.php');
         }
         else
         {
             $con->commit();
             $con->close();
-            $_SESSION["msg"] = 'User created successfully!';
+            $_SESSION["successMsg"] = 'User created successfully!';
             header('Location: login_form.php');
             // echo "User creation successful!";
         }

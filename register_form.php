@@ -28,9 +28,9 @@
 							header('Location: index.php');
 						}
 
-						if(isset($_SESSION['msg']))
+						if(isset($_SESSION['errorMsg']))
 						{
-							echo "<p class='reporting error'>".$_SESSION['msg']."</p>";
+							echo "<p class='reporting error'>".$_SESSION['errorMsg']."</p>";
 							unset($_SESSION['msg']);
 						}
 

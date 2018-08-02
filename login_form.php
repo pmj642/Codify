@@ -28,12 +28,17 @@
 							header('Location: index.php');
 						}
 
-						if(isset($_SESSION['msg']))
+						if(isset($_SESSION['successMsg']))
 						{
-							echo "<p class='reporting success'>".$_SESSION['msg']."</p>";
+							echo "<p class='reporting success'>".$_SESSION['successMsg']."</p>";
 							unset($_SESSION['msg']);
 						}
 
+						if(isset($_SESSION['errorMsg']))
+						{
+							echo "<p class='reporting success'>".$_SESSION['errorMsg']."</p>";
+							unset($_SESSION['errorMsg']);
+						}
 					?>
 
 					<!-- <p class="reporting error">Username already exists!</p>

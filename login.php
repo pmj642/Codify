@@ -44,7 +44,7 @@
     {
         echo "Error!<br>";
         $con->close();
-        $_SESSION["msg"] = 'Incorrect credentials!';
+        $_SESSION["errorMsg"] = 'Incorrect credentials!';
         header('Location: login_form.php');
     }
 
