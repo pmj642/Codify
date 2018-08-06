@@ -25,6 +25,3 @@ Codify is an _**Online Interface**_ for code evaluation. It executes the code su
 ### How it works?
 
 Codify uses __[Judge0](https://api.judge0.com/) API__ to evaluate code and displays the result obtained from the API. Hence, it is __only an interface__.
-
-![Judge0 Logo](assets/images/judge_logo_black.png)
-Format: ![Judge0 Logo](https://api.judge0.com/)
