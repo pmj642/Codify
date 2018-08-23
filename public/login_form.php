@@ -4,7 +4,7 @@
 	<head>
 		<title> Log-in </title>
 		<meta charset="utf-8">
-		<link rel="stylesheet" href="assets/stylesheets/main.css">
+		<link rel="stylesheet" href="/public/stylesheets/main.css">
 	</head>
 
 	<body>
@@ -12,20 +12,20 @@
 		<!-- Header -->
 
 		<?php
-            require('header.php');
+            require('/public/templates/header.php');
         ?>
 
 		<!-- Log-in -->
 
 		<section class="row">
 			<div class="container">
-				<form method="post" action="login.php">
+				<form method="post" action="/app/login.php">
 
 					<?php
 
 						if(isset($_SESSION['user']))
 						{
-							header('Location: index.php');
+							header('Location: /public/index.php');
 						}
 
 						if(isset($_SESSION['successMsg']))
@@ -61,7 +61,7 @@
 		<!-- Footer -->
 
 		<?php
-            require('footer.php');
+            require('/public/templates/footer.php');
         ?>
 
 	</body>

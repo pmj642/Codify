@@ -3,7 +3,7 @@
         <head>
             <title>Page not found</title>
             <meta charset='utf-8'>
-            <link rel="stylesheet" href="~/public/stylesheets/main.css">
+            <link rel="stylesheet" href="/public/stylesheets/main.css">
         </head>
 
     	<body>
@@ -11,7 +11,7 @@
     		<!-- Header -->
 
             <?php
-                require('~/public/templates/header.php');
+                require('/public/templates/header.php');
             ?>
 
             <section class="row">
@@ -26,7 +26,7 @@
                     <br>
                     <h2>Page not found</h2>
 
-                    <img src='~/public/images/broken-link.png'>
+                    <img src='/public/images/broken-link.png'>
 
                 </section>
 
@@ -36,7 +36,7 @@
             <!-- Footer -->
 
             <?php
-                require('~/public/templates/footer.php');
+                require('/public/templates/footer.php');
             ?>
 
         </body>

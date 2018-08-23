@@ -5,7 +5,7 @@
     <head>
         <title>Home</title>
         <meta charset="utf-8">
-        <link rel="stylesheet" href="assets/stylesheets/main.css">
+        <link rel="stylesheet" href="/public/stylesheets/main.css">
     </head>
 
     <body>
@@ -13,7 +13,7 @@
         <!-- Header -->
 
         <?php
-            require('header.php');
+            require('/public/templates/header.php');
         ?>
 
         <!-- Hero -->
@@ -28,7 +28,7 @@
         <?php
               if(!isset($_SESSION['user']))
               {
-                  echo "<a class='btn btn-alt' href='register_form.php'>Register Now</a>";
+                  echo "<a class='btn btn-alt' href='/public/register_form.php'>Register Now</a>";
               }
         ?>
 
@@ -43,11 +43,11 @@
 
             <section class="teaser col-1-3">
 
-              <a href="rankings.html">
+              <a href="/public/rankings.html">
                 <h2>Leaderboard</h2>
                 <p>See where you stand among your friends.
                     After all competition is good for your brain!</p>
-                <a class="btn btn-default" href="rankings.html">Rankings</a>
+                <a class="btn btn-default" href="/public/rankings.html">Rankings</a>
               </a>
 
             </section><!--
@@ -56,11 +56,11 @@
 
             --><section class="teaser col-1-3">
 
-              <a href="practice.php">
+              <a href="/public/practice.php">
                 <h2>Workout for your brain</h2>
                 <p>Everyone starts with a brute force solution.
                     But with practice you will rise above arrays!</p>
-                <a class="btn btn-default" href="practice.php">Practice</a>
+                <a class="btn btn-default" href="/public/practice.php">Practice</a>
               </a>
 
             </section><!--
@@ -69,10 +69,10 @@
 
             --><section class="teaser col-1-3">
 
-              <a href="about.html">
+              <a href="/public/about.html">
                 <h2>Know more about us</h2>
                 <p>More about our mission and what we stand for. And how to reach us!</p>
-                <a class="btn btn-default" href="about.html">About Us</a>
+                <a class="btn btn-default" href="/public/about.html">About Us</a>
               </a>
 
             </section>
@@ -81,7 +81,7 @@
         </section>
 
         <?php
-            require('footer.php');
+            require('/public/templates/footer.php');
         ?>
 
     </body>
