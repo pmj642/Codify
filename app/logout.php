@@ -8,6 +8,6 @@
         if(isset($r))
             header('Location: '.$r);
         else
-            header('Location: index.php');
+            header('Location: ../public/home.php');
 
 ?>

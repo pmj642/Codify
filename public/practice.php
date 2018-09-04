@@ -3,7 +3,7 @@
         <head>
             <title>Practice</title>
             <meta charset='utf-8'>
-            <link rel="stylesheet" href="/public/stylesheets/main.css">
+            <link rel="stylesheet" href="../public/stylesheets/main.css">
         </head>
 
     	<body>
@@ -11,7 +11,7 @@
     		<!-- Header -->
 
             <?php
-                require('/public/templates/header.php');
+                require('../public/templates/header.php');
             ?>
 
             <section class="row">
@@ -51,7 +51,7 @@
                         {
                             echo "<tr>";
                                 echo "<td>";
-                                    echo "<a href='question.php?id=".$row["id"]."'>";
+                                    echo "<a href='../app/question.php?id=".$row["id"]."'>";
                                         echo $row["name"];
                                     echo "</a>";
                                 echo "</td>";
@@ -72,7 +72,7 @@
             <!-- Footer -->
 
             <?php
-                require('/public/templates/footer.php');
+                require('../public/templates/footer.php');
             ?>
 
         </body>

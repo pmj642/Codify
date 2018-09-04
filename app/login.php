@@ -38,14 +38,14 @@
         $con->close();
 
         $_SESSION["user"] = $row2["name"];
-        header('Location: index.php');
+        header('Location: ../public/home.php');
     }
     else
     {
         echo "Error!<br>";
         $con->close();
         $_SESSION["errorMsg"] = 'Incorrect credentials!';
-        header('Location: login_form.php');
+        header('Location: ../public/login_form.php');
     }
 
 ?>

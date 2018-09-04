@@ -3,7 +3,7 @@
     {
         // echo "ERROR!";
         http_response_code(404);
-        include('404.php'); // provide your own HTML for the error page
+        include('../public/templates/404.php'); // provide your own HTML for the error page
         die();
     }
 ?>
@@ -13,8 +13,8 @@
         <head>
             <title></title>
             <meta charset='utf-8'>
-            <link rel="stylesheet" href="assets/stylesheets/main.css">
-            <script type="text/javascript" src="submission_api.js">
+            <link rel="stylesheet" href="../public/stylesheets/main.css">
+            <script type="text/javascript" src="../public/scripts/submission_api.js">
             </script>
         </head>
 
@@ -23,7 +23,7 @@
     		<!-- Header -->
 
             <?php
-                require('header.php');
+                require('../public/templates/header.php');
             ?>
 
             <section class="row">
@@ -108,7 +108,7 @@
             <!-- Footer -->
 
             <?php
-                require('footer.php');
+                require('../public/templates/footer.php');
             ?>
 
         </body>

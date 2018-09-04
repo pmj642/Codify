@@ -4,7 +4,7 @@
 	<head>
 		<title> Register </title>
 		<meta charset="utf-8">
-		<link rel="stylesheet" href="/public/stylesheets/main.css">
+		<link rel="stylesheet" href="../public/stylesheets/main.css">
 	</head>
 
 	<body>
@@ -12,20 +12,20 @@
 		<!-- Header -->
 
 		<?php
-			require('/public/templates/header.php');
+			require('../public/templates/header.php');
 		?>
 
 		<!-- Register -->
 
 		<section class="row">
 			<div class="container">
-				<form method="post" action="/app/register.php">
+				<form method="post" action="../app/register.php">
 
 					<?php
 
 						if(isset($_SESSION['user']))
 						{
-							header('Location: /public/index.php');
+							header('Location: ../public/home.php');
 						}
 
 						if(isset($_SESSION['errorMsg']))
@@ -80,7 +80,7 @@
 		<!-- Footer -->
 
 		<?php
-			require('/public/templates/footer.php');
+			require('../public/templates/footer.php');
 		?>
 
 	</body>

@@ -3,8 +3,8 @@
         <head>
             <title>IDE</title>
             <meta charset='utf-8'>
-            <link rel="stylesheet" href="/public/stylesheets/main.css">
-            <script type="text/javascript" src="/public/scripts/submission_api.js">
+            <link rel="stylesheet" href="../public/stylesheets/main.css">
+            <script type="text/javascript" src="../public/scripts/submission_api.js">
             </script>
         </head>
         <body>
@@ -12,7 +12,7 @@
             <!-- Header -->
 
             <?php
-                require('/public/templates/header.php');
+                require('../public/templates/header.php');
             ?>
 
             <section class="row black-heading">
@@ -61,7 +61,7 @@
             </section>
 
             <?php
-                require('/public/templates/footer.php');
+                require('../public/templates/footer.php');
             ?>
 
         </body>
