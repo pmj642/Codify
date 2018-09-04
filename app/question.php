@@ -88,11 +88,13 @@
 
                 Submit
 
-            --><section class="col-1-3">
+            --><section class="col-1-3 card submit-box" style="margin-left: 0;">
 
-                      <div>
-                        <h2>Submit</h2>
+                    <div>
+                        File
                         <input type="file" id="solution">
+
+                        <br>Language
                         <select id="fileType">
                             <option>C++</option>
                             <option>Java</option>
