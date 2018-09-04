@@ -69,10 +69,11 @@
 
             --><section class="teaser col-1-3">
 
-              <a href="../public/about.html">
-                <h2>Know more about us</h2>
-                <p>More about our mission and what we stand for. And how to reach us!</p>
-                <a class="btn btn-default" href="../public/about.html">About Us</a>
+              <a href="../public/IDE.php">
+                <h2>Test your code</h2>
+                <p>The Codify IDE lets you to submit your code,
+                    provide input to the code and displays the result!</p>
+                <a class="btn btn-default" href="../public/IDE.php">Codify IDE</a>
               </a>
 
             </section>
