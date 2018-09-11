@@ -14,7 +14,7 @@
             <title></title>
             <meta charset='utf-8'>
             <link rel="stylesheet" href="../public/stylesheets/main.css">
-            <script type="text/javascript" src="../public/scripts/submission_api.js">
+            <script type="text/javascript" src="../public/scripts/submit_server.js">
             </script>
         </head>
 
