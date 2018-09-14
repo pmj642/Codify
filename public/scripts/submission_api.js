@@ -7,31 +7,9 @@ function submit()
     let reader = new FileReader();
     let stdin = document.getElementById('stdin').value;
     let result = document.getElementById('result');
+    let verdict = document.getElementById('verdict');
+    let expected_out = document.getElementById('stdout');
     let langType;
-
-    if(file === null)
-    {
-        alert('Please select a file!');
-        return;
-    }
-    else if(fileType === null)
-    {
-        alert('Please select a language!');
-        return;
-    }
-<<<<<<< HEAD
-    if(file === null)
-    {
-        alert('Please select a file!');
-        return;
-    }
-=======
->>>>>>> refs/remotes/origin/master
-    else if(stdin === null)
-    {
-        alert('Please give some input for the program!');
-        return;
-    }
 
     switch (fileType) {
         case 'C++':
@@ -54,36 +32,62 @@ function submit()
             stdin: stdin
         };
 
+        if(expected_out.value)
+            request.expected_output = expected_out.value;
+
         xhr.responseType = 'json';
 
         xhr.onreadystatechange = function() {
             if(xhr.readyState === XMLHttpRequest.DONE) {
+
                 console.log(xhr.response);
-                let outDiv = document.createElement('div');
-//                 outDiv.setAttribute('style',"border: solid 1px #000;
-//                                              padding: 20px;
-//                                              font: 400 22px Helvetica;  ");
-                                    
-                outDiv.innerHTML =    "Time: " + xhr.response.time + "<br/>"
-                                    + "Memory: " + xhr.response.memory + "<br/>"
-                                    + "Output: " + xhr.response.stdout + "<br/>";
-                result.appendChild(outDiv);
+                // let outDiv = document.createElement('div');
+
+                let status = xhr.response.status;
+                let verdict_img;
+
+                if(status.description === "Accepted")
+                    verdict_img = "<img src='../public/images/correct-icon.png'>";
+                else if(status.description === "Compilation Error")
+                    verdict_img = "<img src='../public/images/compilation-icon.png'>";
+                else if(status.description === "Wrong Answer")
+                    verdict_img = "<img src='../public/images/wrong-icon.png'>";
+
+                verdict.innerHTML = "<h1>" + status.description + "</h1>" + verdict_img;
+
+                if(status.description === "Accepted")
+                {
+                    result.innerHTML =    "<img src='../public/images/clock-icon.png'>" + xhr.response.time + " sec<br/>"
+                                        + "<img src='../public/images/memory-icon.png'>" + xhr.response.memory + " kB<br/>"
+                                        + "<img src='../public/images/output-icon.png'>" + xhr.response.stdout;
+
+
+                    verdict.style.width = result.style.width = "50%";
+                }
+                else
+                {
+                    result.innerHTML = "";
+                    verdict.style.width = "100%";
+                    result.style.width = "0";
+                }
+
+                // result.appendChild(outDiv);
               }
         };
 
-        console.log(JSON.stringify(request));
+        // console.log(JSON.stringify(request));
 
         xhr.open("POST",url);
         xhr.setRequestHeader("Content-type", "application/json");
 
         xhr.send(JSON.stringify(request));
 
-        console.log(reader.result);
+        // console.log(reader.result);
     };
 
     reader.readAsText(file);
 
-    console.log("Hello");
-    console.log(langType);
-    console.log(file.type);
+    // console.log("Hello");
+    // console.log(langType);
+    // console.log(file.type);
 }
