@@ -1,4 +1,7 @@
 {
     "name": "pmj642/codify",
-    "description": "An online judge"
+    "description": "An online judge",
+    "require": {
+        "guzzlehttp/guzzle": "^6.3"
+    }
 }
