@@ -36,7 +36,7 @@
 
 						if(isset($_SESSION['errorMsg']))
 						{
-							echo "<p class='reporting success'>".$_SESSION['errorMsg']."</p>";
+							echo "<p class='reporting error'>".$_SESSION['errorMsg']."</p>";
 							unset($_SESSION['errorMsg']);
 						}
 					?>
