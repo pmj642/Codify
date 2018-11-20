@@ -4,6 +4,7 @@ function submit()
 {
     let file = document.getElementById('solution').files[0];
     let fileType = document.getElementById('fileType').value;
+    let questionId;
     let reader = new FileReader();
     let langType;
 
@@ -29,13 +30,19 @@ function submit()
                     langType = 43;
     }
 
+//  get the question id from the url
+
+    let urlParams = new URLSearchParams(location.search);
+    questionId = urlParams.get('id');
+
     reader.onload = function () {
         let xhr = new XMLHttpRequest();
         let url = "../app/submit.php";
 
         let request = {
             source_code: reader.result,
-            language_id: langType
+            language_id: langType,
+            question_id: questionId
         };
 
         xhr.responseType = 'application/json';
