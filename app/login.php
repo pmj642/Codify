@@ -37,14 +37,18 @@
         $row2 = $result->fetch_assoc();
         $con->close();
 
-        $_SESSION["user"] = $row2["name"];
+        $_SESSION["user_name"] = $row2["name"];
+        $_SESSION["user_id"] = $row2["id"];
+
         header('Location: ../public/home.php');
     }
     else
     {
         echo "Error!<br>";
         $con->close();
+
         $_SESSION["errorMsg"] = 'Incorrect credentials!';
+
         header('Location: ../public/login_form.php');
     }
 

@@ -15,9 +15,9 @@
 
         <?php
 
-            if(isset($_SESSION['user']))
+            if(isset($_SESSION['user_id']))
             {
-                echo "Hey, ".$_SESSION['user']." | ";
+                echo "Hey, ".$_SESSION['user_name']." | ";
                 echo "<a href='../app/logout.php' class='nav primary-nav'> Log-out </a>";
             }
             else
