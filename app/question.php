@@ -15,6 +15,7 @@
             <meta charset='utf-8'>
             <link rel="stylesheet" href="../public/stylesheets/main.css">
             <script type="text/javascript" src="../public/scripts/submit_server.js">
+            <script type="text/javascript" src="../public/scripts/submission_api.js">
             </script>
         </head>
 
@@ -103,7 +104,24 @@
                         <a class="btn btn-default" onclick="submit()">Submit</a>
                     </div>
 
+                </section><!--
+
+                    Result
+
+                --><section class="col-1-3 card result-box centre">
+
+                    <div class="result-div" id="verdict">
+
+                    </div><!--
+
+                    Verdict
+
+                    --><div class="result-div" id="result">
+
+                    </div>
+
                 </section>
+
               </div>
             </section>
 
