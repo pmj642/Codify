@@ -9,6 +9,7 @@ function submit()
     let result = document.getElementById('result');
     let verdict = document.getElementById('verdict');
     let expected_out = document.getElementById('stdout');
+    let resultBox = document.getElementsByClassName('result-box');
     let langType;
 
     switch (fileType) {
@@ -71,6 +72,7 @@ function submit()
                     result.style.width = "0";
                 }
 
+                resultBox[0].style.visibility = "visible";
                 // result.appendChild(outDiv);
               }
         };

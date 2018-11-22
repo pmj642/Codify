@@ -606,6 +606,7 @@ td a:hover {
     font: 400 18px/30px "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
     padding: 40px;
     margin-left: 40px;
+    visibility: hidden;
 }
 
 .result-box img {
