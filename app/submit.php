@@ -17,6 +17,9 @@
 
         $questionId = $req->question_id;
 
+        $responseObj = [];
+        $debug = "";
+
         // get testcases from database
 
         $con = new mysqli("localhost","root","","oj");
@@ -28,17 +31,15 @@
 
         $sql = "select * from testcases where que_id='$questionId'";
 
-        echo $sql . "\n";
-
         $result = $con->query($sql);
 
         if($result->num_rows == 0)
         {
-            echo "Testcases not found!\n";
+            $debug .= "Testcases not found!\n";
         }
         else
         {
-            echo "Testcases found!\n";
+            $debug .= "Testcases found!\n";
 
             $row = $result->fetch_assoc();
 
@@ -61,34 +62,42 @@
                 'expected_output' => $output
             ]]);
 
-            echo "THIS IS RESULT\n";
-            echo $result->getStatusCode() . "\n";
+            $debug .= "THIS IS RESULT\n";
+            $debug .= $result->getStatusCode() . "\n";
 
             $response = json_decode($result->getBody());
 
-            echo $response->time . "\n";
-            echo $response->status->description . "\n";
-            echo $ctime . "\n";
-            echo $_SESSION["user_id"] . "\n";
+            $debug .= $response->time . "\n";
+            $debug .= $response->status->description . "\n";
+            $debug .= $ctime . "\n";
+            $debug .= $_SESSION["user_id"] . "\n";
 
             // make submission entry in database
 
             $responseTime = $response->time;
             $responseStatus = $response->status->description;
 
+            $responseObj['time'] = $responseTime;
+            $responseObj['memory'] = $response->memory;
+            $responseObj['stdout'] = $response->stdout;
+            $responseObj['status'] = $response->status;
+
             $sql = "insert into submissions values(
                     '$ctime','$userId','$questionId','$responseTime','$responseStatus')";
 
-            echo $sql . "\n";
-
             $result = $con->query($sql);
 
-            echo $con -> error . "\n";
+            $debug .= ($con -> error . "\n");
 
             if($result)
-                echo "Succesful database entry!\n";
+                $debug .= "Succesful database entry!<br>";
             else
-                echo "Failed database entry!\n";
+                $debug .= "Failed database entry!<br>";
+
+            $responseObj['debug'] = $debug;
+
+            $responseObj = json_encode((object) $responseObj);
+            echo $responseObj;
         }
     }
     else

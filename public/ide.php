@@ -49,7 +49,7 @@
 
                     </div><!--
 
-                    Arrow
+                    Verdict
 
                     --><div class="result-div" id="result">
 

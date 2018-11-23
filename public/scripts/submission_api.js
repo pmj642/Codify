@@ -1,15 +1,53 @@
 //  JavaScript to make submissions
 
+function displayResult(responseObj)
+{
+    console.log(responseObj);
+
+    let result = document.getElementById('result');
+    let verdict = document.getElementById('verdict');
+    let resultBox = document.getElementsByClassName('result-box');
+
+    // let status = xhr.response.status;
+    let verdict_img;
+
+    if(responseObj.status.description === "Accepted")
+        verdict_img = "<img src='../public/images/correct-icon.png'>";
+    else if(responseObj.status.description === "Compilation Error")
+        verdict_img = "<img src='../public/images/compilation-icon.png'>";
+    else if(responseObj.status.description === "Wrong Answer")
+        verdict_img = "<img src='../public/images/wrong-icon.png'>";
+
+    verdict.innerHTML = "<h1>" + responseObj.status.description + "</h1>" + verdict_img;
+
+    if(responseObj.status.description === "Accepted")
+    {
+        result.innerHTML =    "<img src='../public/images/clock-icon.png'>" + responseObj.time + " sec<br/>"
+                            + "<img src='../public/images/memory-icon.png'>" + responseObj.memory + " kB<br/>"
+                            + "<img src='../public/images/output-icon.png'>" + responseObj.stdout;
+
+        verdict.style.width = result.style.width = "50%";
+    }
+    else
+    {
+        result.innerHTML = "";
+        verdict.style.width = "100%";
+        result.style.width = "0";
+    }
+
+    resultBox[0].style.visibility = "visible";
+}
+
 function submit()
 {
     let file = document.getElementById('solution').files[0];
     let fileType = document.getElementById('fileType').value;
     let reader = new FileReader();
     let stdin = document.getElementById('stdin').value;
-    let result = document.getElementById('result');
-    let verdict = document.getElementById('verdict');
+    // let result = document.getElementById('result');
+    // let verdict = document.getElementById('verdict');
+    // let resultBox = document.getElementsByClassName('result-box');
     let expected_out = document.getElementById('stdout');
-    let resultBox = document.getElementsByClassName('result-box');
     let langType;
 
     switch (fileType) {
@@ -41,38 +79,37 @@ function submit()
         xhr.onreadystatechange = function() {
             if(xhr.readyState === XMLHttpRequest.DONE) {
 
-                console.log(xhr.response);
                 // let outDiv = document.createElement('div');
 
-                let status = xhr.response.status;
-                let verdict_img;
-
-                if(status.description === "Accepted")
-                    verdict_img = "<img src='../public/images/correct-icon.png'>";
-                else if(status.description === "Compilation Error")
-                    verdict_img = "<img src='../public/images/compilation-icon.png'>";
-                else if(status.description === "Wrong Answer")
-                    verdict_img = "<img src='../public/images/wrong-icon.png'>";
-
-                verdict.innerHTML = "<h1>" + status.description + "</h1>" + verdict_img;
-
-                if(status.description === "Accepted")
-                {
-                    result.innerHTML =    "<img src='../public/images/clock-icon.png'>" + xhr.response.time + " sec<br/>"
-                                        + "<img src='../public/images/memory-icon.png'>" + xhr.response.memory + " kB<br/>"
-                                        + "<img src='../public/images/output-icon.png'>" + xhr.response.stdout;
-
-
-                    verdict.style.width = result.style.width = "50%";
-                }
-                else
-                {
-                    result.innerHTML = "";
-                    verdict.style.width = "100%";
-                    result.style.width = "0";
-                }
-
-                resultBox[0].style.visibility = "visible";
+                displayResult(xhr.response);
+                // let status = xhr.response.status;
+                // let verdict_img;
+                //
+                // if(status.description === "Accepted")
+                //     verdict_img = "<img src='../public/images/correct-icon.png'>";
+                // else if(status.description === "Compilation Error")
+                //     verdict_img = "<img src='../public/images/compilation-icon.png'>";
+                // else if(status.description === "Wrong Answer")
+                //     verdict_img = "<img src='../public/images/wrong-icon.png'>";
+                //
+                // verdict.innerHTML = "<h1>" + status.description + "</h1>" + verdict_img;
+                //
+                // if(status.description === "Accepted")
+                // {
+                //     result.innerHTML =    "<img src='../public/images/clock-icon.png'>" + xhr.response.time + " sec<br/>"
+                //                         + "<img src='../public/images/memory-icon.png'>" + xhr.response.memory + " kB<br/>"
+                //                         + "<img src='../public/images/output-icon.png'>" + xhr.response.stdout;
+                //
+                //     verdict.style.width = result.style.width = "50%";
+                // }
+                // else
+                // {
+                //     result.innerHTML = "";
+                //     verdict.style.width = "100%";
+                //     result.style.width = "0";
+                // }
+                //
+                // resultBox[0].style.visibility = "visible";
                 // result.appendChild(outDiv);
               }
         };

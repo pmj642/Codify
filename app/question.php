@@ -15,7 +15,6 @@
             <meta charset='utf-8'>
             <link rel="stylesheet" href="../public/stylesheets/main.css">
             <script type="text/javascript" src="../public/scripts/submit_server.js">
-            <script type="text/javascript" src="../public/scripts/submission_api.js">
             </script>
         </head>
 
@@ -89,7 +88,7 @@
 
                 Submit
 
-            --><section class="col-1-3 card submit-box" style="margin-left: 0;">
+            --><section class="col-1-3 card submit-box">
 
                     <div>
                         File

@@ -1,5 +1,44 @@
 //  JavaScript to make submissions
 
+function displayResult(responseObj)
+{
+    responseObj = JSON.parse(responseObj);
+    console.log(responseObj);
+
+    let result = document.getElementById('result');
+    let verdict = document.getElementById('verdict');
+    let resultBox = document.getElementsByClassName('result-box');
+
+    // let status = xhr.response.status;
+    let verdict_img;
+
+    if(responseObj.status.description === "Accepted")
+        verdict_img = "<img src='../public/images/correct-icon.png'>";
+    else if(responseObj.status.description === "Compilation Error")
+        verdict_img = "<img src='../public/images/compilation-icon.png'>";
+    else if(responseObj.status.description === "Wrong Answer")
+        verdict_img = "<img src='../public/images/wrong-icon.png'>";
+
+    verdict.innerHTML = "<h1>" + responseObj.status.description + "</h1>" + verdict_img;
+
+    if(responseObj.status.description === "Accepted")
+    {
+        result.innerHTML =    "<img src='../public/images/clock-icon.png'>" + responseObj.time + " sec<br/>"
+                            + "<img src='../public/images/memory-icon.png'>" + responseObj.memory + " kB<br/>"
+                            + "<img src='../public/images/output-icon.png'>" + responseObj.stdout;
+
+        verdict.style.width = result.style.width = "50%";
+    }
+    else
+    {
+        result.innerHTML = "";
+        verdict.style.width = "100%";
+        result.style.width = "0";
+    }
+
+    resultBox[0].style.visibility = "visible";
+}
+
 function submit()
 {
     let file = document.getElementById('solution').files[0];
@@ -49,16 +88,9 @@ function submit()
 
         xhr.onreadystatechange = function() {
             if(xhr.readyState === XMLHttpRequest.DONE) {
-                console.log("THIS IS THE RESPONSE\n" + xhr.response);
-                // let outDiv = document.createElement('div');
-//                 outDiv.setAttribute('style',"border: solid 1px #000;
-//                                              padding: 20px;
-//                                              font: 400 22px Helvetica;  ");
+                console.log("THIS IS THE RESPONSE\n");
 
-                // outDiv.innerHTML =    "Time: " + xhr.response.time + "<br/>"
-                //                     + "Memory: " + xhr.response.memory + "<br/>"
-                //                     + "Output: " + xhr.response.stdout + "<br/>";
-                // result.appendChild(outDiv);
+                displayResult(xhr.response);
               }
         };
 
