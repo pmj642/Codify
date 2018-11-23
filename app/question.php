@@ -88,9 +88,9 @@
 
                 Submit
 
-            --><section class="col-1-3 card submit-box">
+            --><section class="col-1-3">
 
-                    <div>
+                    <div class="card submit-box">
                         File
                         <input type="file" id="solution">
 
@@ -103,20 +103,18 @@
                         <a class="btn btn-default" onclick="submit()">Submit</a>
                     </div>
 
-                </section><!--
+                <!-- </section><section class="col-1-3"> -->
 
-                    Result
+                    <div class="card result-box black-heading">
+                        <div class="result-div centre" id="verdict">
 
-                --><section class="col-1-3 card result-box centre">
+                        </div><!--
 
-                    <div class="result-div" id="verdict">
+                        Verdict
 
-                    </div><!--
+                    --><div class="result-div centre" id="result">
 
-                    Verdict
-
-                    --><div class="result-div" id="result">
-
+                        </div>
                     </div>
 
                 </section>
