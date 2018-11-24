@@ -26,7 +26,7 @@
               It is to be run on a machine!</p>
 
         <?php
-              if(!isset($_SESSION['user']))
+              if(!isset($_SESSION['user_id']))
               {
                   echo "<a class='btn btn-alt' href='../public/register_form.php'>Register Now</a>";
               }
@@ -39,16 +39,21 @@
         <section class="row">
           <div class="grid">
 
-            <!-- Register -->
+            <!-- Leaderboard -->
 
             <section class="teaser col-1-3">
 
-              <a href="../public/rankings.html">
-                <h2>Leaderboard</h2>
-                <p>See where you stand among your friends.
-                    After all competition is good for your brain!</p>
-                <a class="btn btn-default" href="../public/rankings.html">Rankings</a>
-              </a>
+              <div class="teaser-div card">
+                    <h2>Leaderboard</h2>
+                    <p>See where you stand among your friends.
+                        After all competition is good for your brain!</p>
+
+                    <div class="centre-wrapper">
+                        <a class="btn btn-default" href="../public/rankings.html">
+                            Rankings
+                        </a>
+                    </div>
+              </div>
 
             </section><!--
 
@@ -56,25 +61,35 @@
 
             --><section class="teaser col-1-3">
 
-              <a href="../public/practice.php">
-                <h2>Workout for your brain</h2>
-                <p>Everyone starts with a brute force solution.
-                    But with practice you will rise above arrays!</p>
-                <a class="btn btn-default" href="../public/practice.php">Practice</a>
-              </a>
+              <div class="teaser-div card">
+                    <h2>Workout for your brain</h2>
+                    <p>Everyone starts with a brute force solution.
+                        But with practice you will rise above arrays!</p>
+
+                    <div class="centre-wrapper">
+                        <a class="btn btn-default" href="../public/practice.php">
+                            Practice
+                        </a>
+                    </div>
+              </div>
 
             </section><!--
 
-            About Us
+            Codify IDE
 
             --><section class="teaser col-1-3">
 
-              <a href="../public/IDE.php">
-                <h2>Test your code</h2>
-                <p>The Codify IDE lets you to submit your code,
-                    provide input to the code and displays the result!</p>
-                <a class="btn btn-default" href="../public/IDE.php">Codify IDE</a>
-              </a>
+              <div class="teaser-div card">
+                    <h2>Test your code</h2>
+                    <p>The Codify IDE lets you to run your code with
+                        input and displays the result!</p>
+
+                    <div class="centre-wrapper">
+                        <a class="btn btn-default" href="../public/IDE.php">
+                            Codify IDE
+                        </a>
+                    </div>
+              </div>
 
             </section>
 

@@ -71,6 +71,10 @@ body {
     margin: 40px auto;
 }
 
+.centre-wrapper {
+    text-align: center;
+}
+
 *,
 *:before,
 *:after {
@@ -143,7 +147,7 @@ body {
 
 .row {
     background: #fff;
-    padding: 50px 0 30px 0;
+    padding: 40px 0;
 }
 
 .row-alt {
@@ -314,7 +318,7 @@ p a {
 
 .btn {
   border-radius: 5px;
-  color: #000;
+  color: #fff;
   cursor: pointer;
   display: inline-block;
   font-weight: 400;
@@ -356,7 +360,7 @@ p a {
 .hero {
     color: #fff;
     line-height: 44px;
-    padding: 22px 80px 66px 80px;
+    padding: 22px 80px 40px 80px;
     text-align: center;
 }
 
@@ -375,19 +379,17 @@ p a {
 } */
 
 .teaser h2 {
+    /* font-size: 28px; */
     color: #000;
     text-align: center;
 }
 
 .teaser p {
+   margin-top: 10px;
    color: #000;
-   font-weight: 300;
-   font-size: 18px;
+   font-weight: 100;
+   font-size: 16px;
    text-align: center;
-}
-
-.teaser .btn {
-   margin: 0 30% 0;
 }
 
 .teaser img{
@@ -395,6 +397,10 @@ p a {
   display: block;
   margin-bottom: 22px;
   border-radius: 5px;
+}
+
+.teaser-div {
+  padding: 20px;
 }
 
 /*
