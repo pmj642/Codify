@@ -6,7 +6,7 @@
         <ul>
             <li>    <a href="../public/home.php">Home</a>           </li>
             <li>    <a href="../public/practice.php">Practice</a>   </li>
-            <li>    <a href="../public/rankings.html">Rankings</a>  </li>
+            <li>    <a href="../public/rankings.php">Rankings</a>  </li>
             <li>    <a href="../public/ide.php">IDE</a>             </li>
         </ul>
     </nav>

@@ -89,6 +89,40 @@
 
             $debug .= ($con -> error . "\n");
 
+            if($responseStatus == 'Accepted')
+            {
+                // check if question previously solved
+
+                $sql = "select user_id from solved where que_id='$questionId' and user_id='$userId'";
+                $result = $con->query($sql);
+                $debug .= ($con -> error . "\n");
+
+                if($result -> num_rows == 0)
+                {
+                    $sql = "insert into solved values('$userId','$questionId')";
+                    $result = $con->query($sql);
+                    $debug .= ($con -> error . "\n");
+
+                    $sql = "select user_id from ranks where user_id='$userId'";
+                    $result = $con->query($sql);
+                    $debug .= ($con -> error . "\n");
+
+                    if($result -> num_rows == 0)
+                    {
+                        $sql = "insert into ranks values('$userId','1')";
+                        $result = $con->query($sql);
+                        $debug .= ($con -> error . "\n");
+                    }
+                    else
+                    {
+                        $sql = "update ranks set question_count = question_count + 1";
+                        $result = $con->query($sql);
+                        $debug .= ($con -> error . "\n");
+                    }
+                }
+
+            }
+
             if($result)
                 $debug .= "Succesful database entry!<br>";
             else
