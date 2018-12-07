@@ -25,6 +25,20 @@
 
                     <?php
 
+                        // show message for question
+
+                        if(isset($_SESSION['successMsg']))
+                        {
+                            echo "<p class='reporting success' style='margin-left: 40px'>".$_SESSION['successMsg']."</p>";
+                            unset($_SESSION['msg']);
+                        }
+
+                        if(isset($_SESSION['errorMsg']))
+                        {
+                            echo "<p class='reporting error' style='margin-left: 40px'>".$_SESSION['errorMsg']."</p>";
+                            unset($_SESSION['errorMsg']);
+                        }
+
                         // $con = pg_connect(getenv("DATABASE_URL"));
                         $con = new mysqli("localhost","root","","oj");
 
