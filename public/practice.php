@@ -77,7 +77,16 @@
                         echo "</table>";
                     ?>
 
-                    <!-- </div> -->
+                </section><!--
+
+                    Upload Question
+
+                --><section class="col-1-3">
+
+                    <div class="upload-question">
+                        <a href="../public/upload_question.php"> Upload a question </a>
+                    </div>
+
                 </section>
 
               </div>

@@ -143,6 +143,7 @@ body {
 .row,
 .row-alt {
     min-width: 100%;
+    min-height: 500px;
 }
 
 .row {
@@ -470,6 +471,31 @@ textarea:focus {
 
 /*
   ========================================
+  Upload question
+  ========================================
+*/
+
+.upload-question {
+    margin: 20% 2.5%;
+    padding: 5px;
+    border: 1px solid #7b68ee;
+    text-align: center;
+    font: 300 18px/24px "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+.upload-question a {
+    color: #00c;
+}
+
+.upload-question:hover {
+    background-color: #f1eeed;
+}
+
+.upload-question a:hover {
+    text-decoration: underline;
+}
+/*
+  ========================================
   Error
   ========================================
 */
@@ -526,8 +552,8 @@ textarea:focus {
 } */
 
 table {
-    margin: 40px;
-    width: 100%;
+    margin: 2.5% 5%;
+    width: 90%;
     /* border: 2px solid #7b68ee; */
     /* padding: 30px; */
     font: 300 18px/24px "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -545,7 +571,7 @@ table {
 
 tr {
     /* display: block; */
-    border: 1px solid #000;
+    border: 1px solid #7b68ee;
     /* padding: 5px; */
     height: 40px;
     /* margin: 20px; */
