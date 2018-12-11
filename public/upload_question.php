@@ -27,36 +27,36 @@
                             Name
         					<input type="text" name="name" placeholder="Question name..." required>
 
-        					<br>Description
-        					<textarea name="description" rows="5" required>Give a detailed description of the question...
+        					<br>Description of the question
+        					<textarea name="description" rows="5" required>
                             </textarea>
 
-                            <br>InputFormat
-        					<textarea name="inputformat" rows="5" required>The input to the program...
+                            <br>Input Format (What will be the input to the program?)
+        					<textarea name="inputformat" rows="5" required>
                             </textarea>
 
-                            <br>OutputFormat
-        					<textarea name="outputformat" rows="5" required>The output to the program...
+                            <br>Output Format (What should be the output of the program?)
+        					<textarea name="outputformat" rows="5" required>
                             </textarea>
 
-                            <br>Constraints
-        					<textarea name="contraints" rows="5" required>Memory and time Constraints
+                            <br>Memory and Time constraints (if any)
+        					<textarea name="contraints" rows="5" required>
                             </textarea>
 
                             <br>Example Input
-        					<textarea name="examplein" rows="5" required>Example Input
+        					<textarea name="examplein" rows="5" required>
                             </textarea>
 
                             <br>Example Output
-        					<textarea name="exampleout" rows="5" required>Example Output
+        					<textarea name="exampleout" rows="5" required>
                             </textarea>
 
-                            <br>Input Testcases
-        					<textarea name="inputtest" rows="5" required>Input Testcases
+                            <br>Input Testcases (These will be feeded to the program)
+        					<textarea name="inputtest" rows="5" required>
                             </textarea>
 
-                            <br>Output Testcases
-        					<textarea name="outputtest" rows="5" required>Output Testcases
+                            <br>Output Testcases (To check the program output)
+        					<textarea name="outputtest" rows="5" required>
                             </textarea>
 
         					<br>
