@@ -10,62 +10,78 @@
     echo $name." ".$pass."<br>";
 
     // $con = pg_connect(getenv("DATABASE_URL"));
-    $con = new mysqli("localhost","root","","oj");
+    // $con = new mysqli("localhost","root","","oj");
+    //
+    // if($con->connect_error)
+    // {
+    //     die("Failed to connect to database! <br> Error:".$con->connect_error);
+    // }
+    //
+    // echo "Connected to database successfully<br>";
+    //
+    // $con->set_charset("utf8");
 
-    if($con->connect_error)
+    $servername = "localhost";
+    $username = "root";
+    $password = "";
+
+    try
     {
-        die("Failed to connect to database! <br> Error:".$con->connect_error);
-    }
+        $con = new PDO("mysql:host=$servername;dbname=oj", $username, $password);
+        $con->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-    echo "Connected to database successfully<br>";
+        // check for duplicate username and show error
 
-    $con->set_charset("utf8");
+        $sql = "select * from userlogin where user='$email'";
+        $result = $con->query($sql);
+        // $result = pg_query($sql);
+        session_start();
 
-    // check for duplicate username and show error
-
-    $sql = "select * from userlogin where user='$email'";
-    $result = $con->query($sql);
-    // $result = pg_query($sql);
-    session_start();
-
-    if($result->num_rows > 0)
-    {
-        echo "Error!<br>";
-        $con->close();
-        $_SESSION["errorMsg"] = 'Email already exists!';
-        header('Location: ../public/register_form.php');
-    }
-    else
-    {
-        echo "Success!<br>";
-
-        // hash the Password
-
-        $hashPass = password_hash($pass, PASSWORD_DEFAULT);
-        echo $hashPass;
-
-        // start a transaction
-
-        $con->begin_transaction();
-
-        $sql1 = "insert into userlogin (user,pass) values('$email','$hashPass')";
-        $q1 = $con->query($sql1);
-
-        $sql2 = "insert into userdetails (name,age,gender,country) values('$name',$age,'$gender','$country')";
-        $q2 = $con->query($sql2);
-
-        if(!$q1 || !$q2)
+        if($result->rowCount() > 0)
         {
-            $_SESSION["errorMsg"] = 'User creation failed! Try again!';
+            echo "Error!<br>";
+            $con = null;
+            $_SESSION["errorMsg"] = 'Email already exists!';
             header('Location: ../public/register_form.php');
         }
         else
         {
-            $con->commit();
-            $con->close();
-            $_SESSION["successMsg"] = 'User created successfully!';
-            header('Location: ../public/login_form.php');
-            // echo "User creation successful!";
+            echo "Success!<br>";
+
+            // hash the Password
+
+            $hashPass = password_hash($pass, PASSWORD_DEFAULT);
+            echo $hashPass;
+
+            // start a transaction
+
+            $con->begin_transaction();
+
+            $sql1 = "insert into userlogin (user,pass) values('$email','$hashPass')";
+            $q1 = $con->query($sql1);
+
+            $sql2 = "insert into userdetails (name,age,gender,country) values('$name',$age,'$gender','$country')";
+            $q2 = $con->query($sql2);
+
+            if(!$q1 || !$q2)
+            {
+                $_SESSION["errorMsg"] = 'User creation failed! Try again!';
+                header('Location: ../public/register_form.php');
+            }
+            else
+            {
+                $con->commit();
+                $con = null;
+                $_SESSION["successMsg"] = 'User created successfully!';
+                header('Location: ../public/login_form.php');
+                // echo "User creation successful!";
+            }
         }
     }
+    catch(PDOException $e)
+    {
+        echo $sql . "<br>" . $e->getMessage();
+    }
+
+    $con = null;
 ?>

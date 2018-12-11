@@ -26,47 +26,64 @@
                     <?php
 
                         // $con = pg_connect(getenv("DATABASE_URL"));
-                        $con = new mysqli("localhost","root","","oj");
+                        // $con = new mysqli("localhost","root","","oj");
+                        //
+                        // if($con->connect_error)
+                        // {
+                        //     die("Failed to connect to database! <br> Error:".$con->connect_error);
+                        // }
 
-                        if($con->connect_error)
+                        $servername = "localhost";
+                        $username = "root";
+                        $password = "";
+
+                        try
                         {
-                            die("Failed to connect to database! <br> Error:".$con->connect_error);
+                            $con = new PDO("mysql:host=$servername;dbname=oj", $username, $password);
+                            $con->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+                            // obtain names and user_ids in an assoc array
+
+                            $sql = "select id,name from userdetails";
+                            $result = $con->query($sql);
+
+                            while($row = $result->fetch())
+                            {
+                                $idToName[$row['id']] = $row['name'];
+                                // echo $idToName[$id];
+                            }
+
+                            echo "<table>";
+                            echo    "<tr>";
+                            echo        "<th></th>";
+                            echo        "<th>Name</th>";
+                            echo        "<th>Problems Solved</th>";
+                            echo    "</tr>";
+
+                            $sql = "select * from ranks";
+                            $result = $con->query($sql);
+                            $i = 0;
+
+                            while($row = $result->fetch())
+                            {
+                                ++$i;
+
+                                echo "<tr>";
+                                echo    "<td> $i </td>";
+                                echo    "<td>" . $idToName[$row['user_id']] . "</td>";
+                                echo    "<td>" . $row['question_count'] . "</td>";
+                                echo "</tr>";
+                            }
+
+                            echo "</table>";
+                        }
+                        catch(PDOException $e)
+                        {
+                            echo $sql . "<br>" . $e->getMessage();
                         }
 
-                        // obtain names and user_ids in an assoc array
+                        $conn = null;
 
-                        $sql = "select id,name from userdetails";
-                        $result = $con->query($sql);
-
-                        while($row = $result->fetch_assoc())
-                        {
-                            $idToName[$row['id']] = $row['name'];
-                            // echo $idToName[$id];
-                        }
-
-                        echo "<table>";
-                        echo    "<tr>";
-                        echo        "<th></th>";
-                        echo        "<th>Name</th>";
-                        echo        "<th>Problems Solved</th>";
-                        echo    "</tr>";
-
-                        $sql = "select * from ranks";
-                        $result = $con->query($sql);
-                        $i = 0;
-
-                        while($row = $result->fetch_assoc())
-                        {
-                            ++$i;
-
-                            echo "<tr>";
-                            echo    "<td> $i </td>";
-                            echo    "<td>" . $idToName[$row['user_id']] . "</td>";
-                            echo    "<td>" . $row['question_count'] . "</td>";
-                            echo "</tr>";
-                        }
-
-                        echo "</table>";
                     ?>
 
                     <!-- </div> -->

@@ -143,7 +143,6 @@ body {
 .row,
 .row-alt {
     min-width: 100%;
-    min-height: 500px;
 }
 
 .row {

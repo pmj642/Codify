@@ -29,52 +29,68 @@
 
                         if(isset($_SESSION['successMsg']))
                         {
-                            echo "<p class='reporting success' style='margin-left: 40px'>".$_SESSION['successMsg']."</p>";
+                            echo "<p class='reporting success' style='margin: 0% 5%; width: 90%;'>".$_SESSION['successMsg']."</p>";
                             unset($_SESSION['msg']);
                         }
 
                         if(isset($_SESSION['errorMsg']))
                         {
-                            echo "<p class='reporting error' style='margin-left: 40px'>".$_SESSION['errorMsg']."</p>";
+                            echo "<p class='reporting error' style='margin: 0% 5%; width: 90%;'>".$_SESSION['errorMsg']."</p>";
                             unset($_SESSION['errorMsg']);
                         }
 
                         // $con = pg_connect(getenv("DATABASE_URL"));
-                        $con = new mysqli("localhost","root","","oj");
+                        // $con = new mysqli("localhost","root","","oj");
+                        //
+                        // if($con->connect_error)
+                        // {
+                        //     die("Failed to connect to database! <br> Error:".$con->connect_error);
+                        // }
 
-                        if($con->connect_error)
+                        $servername = "localhost";
+                        $username = "root";
+                        $password = "";
+
+                        try
                         {
-                            die("Failed to connect to database! <br> Error:".$con->connect_error);
+                            $con = new PDO("mysql:host=$servername;dbname=oj", $username, $password);
+                            $con->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+                            // echo "Connected to database successfully<br>";
+
+                            // check for valid credentials and show error
+
+                            $sql = "select * from questions";
+                            $result = $con->query($sql);
+
+                            echo "<table>";
+                            echo    "<tr>";
+                            echo       "<th>Name</th>";
+                            echo       "<th>TBD</th>";
+                            echo       "<th>TBD</th>";
+                            echo    "</tr>";
+
+                            while($row = $result->fetch())
+                            {
+                                echo "<tr>";
+                                echo    "<td>";
+                                echo        "<a href='../app/question.php?id=".$row["id"]."'>";
+                                echo            $row["name"];
+                                echo        "</a>";
+                                echo    "</td>";
+                                echo    "<td>TBD</td>";
+                                echo    "<td>TBD</td>";
+                                echo "</tr>";
+                            }
+
+                            echo "</table>";
+                        }
+                        catch(PDOException $e)
+                        {
+                            echo $sql . "<br>" . $e->getMessage();
                         }
 
-                        // echo "Connected to database successfully<br>";
-
-                        // check for valid credentials and show error
-
-                        $sql = "select * from questions";
-                        $result = $con->query($sql);
-
-                        echo "<table>";
-                        echo "<tr>";
-                        echo "<th>Name</th>";
-                        echo "<th>TBD</th>";
-                        echo "<th>TBD</th>";
-                        echo "</tr>";
-
-                        while($row = $result->fetch_assoc())
-                        {
-                            echo "<tr>";
-                                echo "<td>";
-                                    echo "<a href='../app/question.php?id=".$row["id"]."'>";
-                                        echo $row["name"];
-                                    echo "</a>";
-                                echo "</td>";
-                                echo "<td>TBD</td>";
-                                echo "<td>TBD</td>";
-                            echo "</tr>";
-                        }
-
-                        echo "</table>";
+                        $conn = null;
                     ?>
 
                 </section><!--

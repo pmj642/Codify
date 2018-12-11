@@ -13,54 +13,70 @@
     echo $name." ".$description."<br>";
 
     // $con = pg_connect(getenv("DATABASE_URL"));
-    $con = new mysqli("localhost","root","","oj");
+    // $con = new mysqli("localhost","root","","oj");
+    //
+    // if($con->connect_error)
+    // {
+    //     die("Failed to connect to database! <br> Error:".$con->connect_error);
+    // }
+    //
+    // echo "Connected to database successfully<br>";
+    //
+    // $con->set_charset("utf8");
 
-    if($con->connect_error)
+    $servername = "localhost";
+    $username = "root";
+    $password = "";
+
+    try
     {
-        die("Failed to connect to database! <br> Error:".$con->connect_error);
-    }
+        $con = new PDO("mysql:host=$servername;dbname=oj", $username, $password);
+        $con->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-    echo "Connected to database successfully<br>";
+        session_start();
 
-    $con->set_charset("utf8");
+        // start a transaction
 
-    session_start();
+        $con->beginTransaction();
 
-    // start a transaction
-
-    $con->begin_transaction();
-
-    $sql = "insert into questions values('','$name','$description','$inputformat',
-    '$outputformat','$constraints','$examplein','$exampleout')";
-    $result = $con->query($sql);
-    // $result = pg_query($sql);
-
-    $ai = mysqli_insert_id($con);
-
-    // inserted or not
-
-    if($ai)
-    {
-        $sql = "insert into testcases values('$ai','$inputtest','$outputtest')";
+        $sql = "insert into questions values('','$name','$description','$inputformat',
+        '$outputformat','$constraints','$examplein','$exampleout')";
         $result = $con->query($sql);
         // $result = pg_query($sql);
 
-        if(!$result)
+        $ai = $con -> lastInsertId();
+
+        // inserted or not
+
+        if($ai)
         {
-            // testcase insert Failed show error
+            $sql = "insert into testcases values('$ai','$inputtest','$outputtest')";
+            $result = $con->query($sql);
+            // $result = pg_query($sql);
 
-            // can we add functionality to redirect to question upload page
-            // with the question info filled in
-            $_SESSION["errorMsg"] = 'Question upload failed! Try again!';
+            if(!$result)
+            {
+                // testcase insert Failed show error
+
+                // can we add functionality to redirect to question upload page
+                // with the question info filled in
+                $_SESSION["errorMsg"] = 'Question upload failed! Try again!';
+            }
+            else
+            {
+                $_SESSION["successMsg"] = 'Question uploaded successfully!';
+                $con->commit();
+            }
+
+            $con = null;
+            header('Location: ../public/practice.php');
+
         }
-        else
-        {
-            $_SESSION["successMsg"] = 'Question uploaded successfully!';
-            $con->commit();
-        }
-
-        $con->close();
-        header('Location: ../public/practice.php');
-
     }
+    catch(PDOException $e)
+    {
+        echo $sql . "<br>" . $e->getMessage();
+    }
+
+    $con = null;
 ?>

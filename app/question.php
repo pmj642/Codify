@@ -1,9 +1,8 @@
 <?php
     if(!isset($_GET["id"]))
     {
-        // echo "ERROR!";
         http_response_code(404);
-        include('../public/templates/404.php'); // provide your own HTML for the error page
+        include('../public/templates/404.php');
         die();
     }
 ?>
@@ -38,15 +37,56 @@
                     <?php
 
                         // $con = pg_connect(getenv("DATABASE_URL"));
-                        $con = new mysqli("localhost","root","","oj");
+                        // $con = new mysqli("localhost","root","","oj");
 
-                        if($con->connect_error)
+                        $servername = "localhost";
+                        $username = "root";
+                        $password = "";
+
+                        try
                         {
-                            die("Failed to connect to database! <br> Error:".$con->connect_error);
+                            $conn = new PDO("mysql:host=$servername;dbname=oj", $username, $password);
+                            $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+                            $sql = "select * from questions where id=".htmlspecialchars($_GET["id"]);
+
+                            $result = $conn->query($sql);
+                            $row = $result->fetch();
+                            // $row = $result->fetch_assoc();
+
+                            echo "<div class='black-heading question card'>";
+                            echo "<h1>".$row["name"]."</h1>";
+                            echo "<p>".$row["description"]."</p>";
+
+                            echo "<h2>Input</h2>";
+                            echo "<p>".$row["inputFormat"]."</p>";
+
+                            echo "<h2>Output</h2>";
+                            echo "<p>".$row["outputFormat"]."</p>";
+
+                            echo "<h2>Constraints</h2>";
+                            echo "<p>".nl2br($row["constraints"])."</p>";
+
+                            echo "<h2>Example</h2>";
+                            echo "<h3>Input</h3>";
+                            echo "<p>".nl2br($row["exampleIn"])."</p>";
+                            echo "<h3>Output</h3>";
+                            echo "<p>".nl2br($row["exampleOut"])."</p>";
+                            echo "</div>";
+                        }
+                        catch(PDOException $e)
+                        {
+                            echo $sql . "<br>" . $e->getMessage();
                         }
 
-                        $sql = "select * from questions where id=".htmlspecialchars($_GET["id"]);
-                        $result = $con->query($sql);
+                        $con = null;
+
+                        // if($con->connect_error)
+                        // {
+                        //     die("Failed to connect to database! <br> Error:".$con->connect_error);
+                        // }
+                        //
+                        // $sql = "select * from questions where id=".htmlspecialchars($_GET["id"]);
+                        // $result = $con->query($sql);
 
                         // $con->set_charset("utf8");
                         // echo pg_client_encoding($con);
@@ -57,29 +97,9 @@
 
                         // $row = pg_fetch_assoc($result);
 
-                        $row = $result->fetch_assoc();
 
-                        echo "<div class='black-heading question card'>";
-                        echo "<h1>".$row["name"]."</h1>";
-                        echo "<p>".$row["description"]."</p>";
 
-                        echo "<h2>Input</h2>";
-                        echo "<p>".$row["inputFormat"]."</p>";
-
-                        echo "<h2>Output</h2>";
-                        echo "<p>".$row["outputFormat"]."</p>";
-
-                        echo "<h2>Constraints</h2>";
-                        echo "<p>".nl2br($row["constraints"])."</p>";
-
-                        echo "<h2>Example</h2>";
-                        echo "<h3>Input</h3>";
-                        echo "<p>".nl2br($row["exampleIn"])."</p>";
-                        echo "<h3>Output</h3>";
-                        echo "<p>".nl2br($row["exampleOut"])."</p>";
-                        echo "</div>";
-
-                        $con->close();
+                        // $con->close();
                         // pg_close($con);
                         // echo "Closing Connection!";
                     ?>
