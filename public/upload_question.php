@@ -28,36 +28,28 @@
         					<input type="text" name="name" placeholder="Question name..." required>
 
         					<br>Description of the question
-        					<textarea name="description" rows="5" required>
-                            </textarea>
+        					<textarea name="description" rows="5" required></textarea>
 
                             <br>Input Format (What will be the input to the program?)
-        					<textarea name="inputformat" rows="5" required>
-                            </textarea>
+        					<textarea name="inputformat" rows="5" required></textarea>
 
                             <br>Output Format (What should be the output of the program?)
-        					<textarea name="outputformat" rows="5" required>
-                            </textarea>
+        					<textarea name="outputformat" rows="5" required></textarea>
 
                             <br>Memory and Time constraints (if any)
-        					<textarea name="contraints" rows="5" required>
-                            </textarea>
+        					<textarea name="contraints" rows="5" required></textarea>
 
                             <br>Example Input
-        					<textarea name="examplein" rows="5" required>
-                            </textarea>
+        					<textarea name="examplein" rows="5" required></textarea>
 
                             <br>Example Output
-        					<textarea name="exampleout" rows="5" required>
-                            </textarea>
+        					<textarea name="exampleout" rows="5" required></textarea>
 
-                            <br>Input Testcases (These will be feeded to the program)
-        					<textarea name="inputtest" rows="5" required>
-                            </textarea>
+                            <br>Testcase Input (These will be feeded to the program)
+        					<textarea name="inputtest" rows="5" required></textarea>
 
-                            <br>Output Testcases (To check the program output)
-        					<textarea name="outputtest" rows="5" required>
-                            </textarea>
+                            <br>Testcase Output (To check the program output)
+        					<textarea name="outputtest" rows="5" required></textarea>
 
         					<br>
         					<input type="Submit" name="upload" value="Upload">

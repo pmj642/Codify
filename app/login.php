@@ -28,9 +28,9 @@
 
         // check for valid credentials and show error
 
-        $sql1 = "select * from userlogin where user='$email'";
-        $result = $con->query($sql1);
-        $row1 = $result->fetch();
+        $stat = $con->prepare("select * from userlogin where user=?");
+        $stat->execute(array($email));
+        $row1 = $stat->fetch();
 
         // $hashPass = password_hash($pass, PASSWORD_DEFAULT);
 
@@ -41,9 +41,9 @@
             echo "Valid";
             $id = $row1["id"];
 
-            $sql2 = "select * from userdetails where id='$id'";
-            $result = $con->query($sql2);
-            $row2 = $result->fetch();
+            $stat = $con->prepare("select * from userdetails where id=?");
+            $stat->execute(array($id));
+            $row2 = $stat->fetch();
             // $con->close();
             $con = null;
 
@@ -65,7 +65,7 @@
     }
     catch(PDOException $e)
     {
-        echo $sql . "<br>" . $e->getMessage();
+        echo $e->getMessage() . "\n";
         $con = null;
     }
 

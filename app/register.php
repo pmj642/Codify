@@ -32,12 +32,13 @@
 
         // check for duplicate username and show error
 
-        $sql = "select * from userlogin where user='$email'";
-        $result = $con->query($sql);
+        $stat = $con->prepare("select * from userlogin where user=?");
+        $stat->execute(array($email));
+
         // $result = pg_query($sql);
         session_start();
 
-        if($result->rowCount() > 0)
+        if($stat->rowCount() > 0)
         {
             echo "Error!<br>";
             $con = null;
@@ -55,15 +56,15 @@
 
             // start a transaction
 
-            $con->begin_transaction();
+            $con->beginTransaction();
 
-            $sql1 = "insert into userlogin (user,pass) values('$email','$hashPass')";
-            $q1 = $con->query($sql1);
+            $stat1 = $con->prepare("insert into userlogin (user,pass) values(?,?)");
+            $stat1->execute(array($email,$hashPass));
 
-            $sql2 = "insert into userdetails (name,age,gender,country) values('$name',$age,'$gender','$country')";
-            $q2 = $con->query($sql2);
+            $stat2 = $con->prepare("insert into userdetails (name,age,gender,country) values(?,?,?,?)");
+            $stat2->execute(array($name,$age,$gender,$country));
 
-            if(!$q1 || !$q2)
+            if(!$stat1 || !$stat2)
             {
                 $_SESSION["errorMsg"] = 'User creation failed! Try again!';
                 header('Location: ../public/register_form.php');
@@ -80,7 +81,7 @@
     }
     catch(PDOException $e)
     {
-        echo $sql . "<br>" . $e->getMessage();
+        echo $e->getMessage() . "\n";
     }
 
     $con = null;

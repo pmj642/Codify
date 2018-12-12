@@ -38,11 +38,10 @@
             $con = new PDO("mysql:host=$servername;dbname=oj", $username, $password);
             $con->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-            $sql = "select * from testcases where que_id='$questionId'";
+            $stat = $con->prepare("select * from testcases where que_id=?");
+            $stat->execute(array($questionId));
 
-            $result = $con->query($sql);
-
-            if($result->rowCount() == 0)
+            if($stat->rowCount() == 0)
             {
                 $debug .= "Testcases not found!\n";
             }
@@ -50,7 +49,7 @@
             {
                 $debug .= "Testcases found!\n";
 
-                $row = $result->fetch();
+                $row = $stat->fetch();
 
                 $input = $row["input"];
                 $output = $row["output"];
@@ -91,47 +90,45 @@
                 $responseObj['stdout'] = $response->stdout;
                 $responseObj['status'] = $response->status;
 
-                $sql = "insert into submissions values(
-                        '$ctime','$userId','$questionId','$responseTime','$responseStatus')";
+                $stat = $con->prepare("insert into submissions values(?,?,?,?,?)");
+                $stat->execute(array($ctime,$userId,$questionId,$responseTime,$responseStatus));
 
-                $result = $con->query($sql);
-
-                $err = $con -> errorInfo();
+                $err = $stat -> errorInfo();
                 $debug .= ($err[2] . "\n");
 
                 if($responseStatus == 'Accepted')
                 {
                     // check if question previously solved
 
-                    $sql = "select user_id from solved where que_id='$questionId' and user_id='$userId'";
-                    $result = $con->query($sql);
-                    $err = $con -> errorInfo();
+                    $stat = $con->prepare("select user_id from solved where que_id=? and user_id=?");
+                    $stat->execute(array($questionId,$userId));
+                    $err = $stat -> errorInfo();
                     $debug .= ($err[2] . "\n");
 
-                    if($result -> rowCount() == 0)
+                    if($stat -> rowCount() == 0)
                     {
-                        $sql = "insert into solved values('$userId','$questionId')";
-                        $result = $con->query($sql);
-                        $err = $con -> errorInfo();
+                        $stat = $con->prepare("insert into solved values(?,?)");
+                        $stat->execute(array($userId,$questionId));
+                        $err = $stat -> errorInfo();
                         $debug .= ($err[2] . "\n");
 
-                        $sql = "select user_id from ranks where user_id='$userId'";
-                        $result = $con->query($sql);
-                        $err = $con -> errorInfo();
+                        $stat = $con->prepare("select user_id from ranks where user_id=?");
+                        $stat->execute(array($userId));
+                        $err = $stat -> errorInfo();
                         $debug .= ($err[2] . "\n");
 
-                        if($result -> rowCount() == 0)
+                        if($stat -> rowCount() == 0)
                         {
-                            $sql = "insert into ranks values('$userId','1')";
-                            $result = $con->query($sql);
-                            $err = $con -> errorInfo();
+                            $stat = $con->prepare("insert into ranks values(?,?)");
+                            $stat->execute(array($userId,1));
+                            $err = $stat -> errorInfo();
                             $debug .= ($err[2] . "\n");
                         }
                         else
                         {
-                            $sql = "update ranks set question_count = question_count + 1";
-                            $result = $con->query($sql);
-                            $err = $con -> errorInfo();
+                            $stat = $con->prepare("update ranks set question_count = question_count + 1");
+                            $stat->execute();
+                            $err = $stat -> errorInfo();
                             $debug .= ($err[2] . "\n");
                         }
                     }

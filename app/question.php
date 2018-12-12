@@ -45,12 +45,13 @@
 
                         try
                         {
-                            $conn = new PDO("mysql:host=$servername;dbname=oj", $username, $password);
-                            $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-                            $sql = "select * from questions where id=".htmlspecialchars($_GET["id"]);
+                            $con = new PDO("mysql:host=$servername;dbname=oj", $username, $password);
+                            $con->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-                            $result = $conn->query($sql);
-                            $row = $result->fetch();
+                            $stat = $con -> prepare("select * from questions where id=?");
+                            $stat->execute(array($_GET["id"]));
+
+                            $row = $stat->fetch();
                             // $row = $result->fetch_assoc();
 
                             echo "<div class='black-heading question card'>";
@@ -75,7 +76,7 @@
                         }
                         catch(PDOException $e)
                         {
-                            echo $sql . "<br>" . $e->getMessage();
+                            echo $e->getMessage() ."\n";
                         }
 
                         $con = null;

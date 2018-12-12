@@ -39,9 +39,9 @@
 
         $con->beginTransaction();
 
-        $sql = "insert into questions values('','$name','$description','$inputformat',
-        '$outputformat','$constraints','$examplein','$exampleout')";
-        $result = $con->query($sql);
+        $stat = $con->prepare("insert into questions values('',?,?,?,?,?,?,?)");
+        $stat->execute(array($name,$description,$inputformat,
+        $outputformat,$constraints,$examplein,$exampleout));
         // $result = pg_query($sql);
 
         $ai = $con -> lastInsertId();
@@ -50,11 +50,11 @@
 
         if($ai)
         {
-            $sql = "insert into testcases values('$ai','$inputtest','$outputtest')";
-            $result = $con->query($sql);
+            $stat = $con->prepare("insert into testcases values(?,?,?)");
+            $stat->execute(array($ai,$inputtest,$outputtest));
             // $result = pg_query($sql);
 
-            if(!$result)
+            if(!$stat)
             {
                 // testcase insert Failed show error
 
@@ -70,12 +70,11 @@
 
             $con = null;
             header('Location: ../public/practice.php');
-
         }
     }
     catch(PDOException $e)
     {
-        echo $sql . "<br>" . $e->getMessage();
+        echo $e->getMessage() . "\n";
     }
 
     $con = null;
