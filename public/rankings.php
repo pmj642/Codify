@@ -44,12 +44,12 @@
 
                             // obtain names and user_ids in an assoc array
 
-                            $sql = "select id,name from userdetails";
+                            $sql = "select user_id,name from userdetails";
                             $result = $con->query($sql);
 
                             while($row = $result->fetch())
                             {
-                                $idToName[$row['id']] = $row['name'];
+                                $idToName[$row['user_id']] = $row['name'];
                                 // echo $idToName[$id];
                             }
 

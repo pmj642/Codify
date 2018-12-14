@@ -74,7 +74,7 @@
                             {
                                 echo "<tr>";
                                 echo    "<td>";
-                                echo        "<a href='../app/question.php?id=".$row["id"]."'>";
+                                echo        "<a href='../app/question.php?id=".$row["que_id"]."'>";
                                 echo            $row["name"];
                                 echo        "</a>";
                                 echo    "</td>";

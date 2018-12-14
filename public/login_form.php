@@ -26,7 +26,7 @@
 
 						<?php
 
-							if(isset($_SESSION['user']))
+							if(isset($_SESSION['user_id']))
 							{
 								header('Location: ../public/home.php');
 							}

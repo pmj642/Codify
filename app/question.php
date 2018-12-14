@@ -48,7 +48,7 @@
                             $con = new PDO("mysql:host=$servername;dbname=oj", $username, $password);
                             $con->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-                            $stat = $con -> prepare("select * from questions where id=?");
+                            $stat = $con -> prepare("select * from questions where que_id=?");
                             $stat->execute(array($_GET["id"]));
 
                             $row = $stat->fetch();

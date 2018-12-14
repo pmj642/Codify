@@ -32,7 +32,7 @@
 
         // check for duplicate username and show error
 
-        $stat = $con->prepare("select * from userlogin where user=?");
+        $stat = $con->prepare("select * from userlogin where username=?");
         $stat->execute(array($email));
 
         // $result = pg_query($sql);
@@ -58,7 +58,7 @@
 
             $con->beginTransaction();
 
-            $stat1 = $con->prepare("insert into userlogin (user,pass) values(?,?)");
+            $stat1 = $con->prepare("insert into userlogin (username,pass) values(?,?)");
             $stat1->execute(array($email,$hashPass));
 
             $stat2 = $con->prepare("insert into userdetails (name,age,gender,country) values(?,?,?,?)");
