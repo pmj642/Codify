@@ -39,24 +39,19 @@
                             unset($_SESSION['errorMsg']);
                         }
 
-                        // $con = pg_connect(getenv("DATABASE_URL"));
-                        // $con = new mysqli("localhost","root","","oj");
-                        //
-                        // if($con->connect_error)
-                        // {
-                        //     die("Failed to connect to database! <br> Error:".$con->connect_error);
-                        // }
-
-                        $servername = "localhost";
-                        $username = "root";
-                        $password = "";
+                        $db = parse_url(getenv("DATABASE_URL"));
 
                         try
                         {
-                            $con = new PDO("mysql:host=$servername;dbname=oj", $username, $password);
+                            $con = new PDO("pgsql:" . sprintf(
+                                            "host=%s;port=%s;user=%s;password=%s;dbname=%s",
+                                            $db["host"],
+                                            $db["port"],
+                                            $db["user"],
+                                            $db["pass"],
+                                            ltrim($db["path"], "/")
+                                        ));
                             $con->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-
-                            // echo "Connected to database successfully<br>";
 
                             // check for valid credentials and show error
 

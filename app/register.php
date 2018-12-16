@@ -9,25 +9,18 @@
 
     echo $name." ".$pass."<br>";
 
-    // $con = pg_connect(getenv("DATABASE_URL"));
-    // $con = new mysqli("localhost","root","","oj");
-    //
-    // if($con->connect_error)
-    // {
-    //     die("Failed to connect to database! <br> Error:".$con->connect_error);
-    // }
-    //
-    // echo "Connected to database successfully<br>";
-    //
-    // $con->set_charset("utf8");
-
-    $servername = "localhost";
-    $username = "root";
-    $password = "";
+    $db = parse_url(getenv("DATABASE_URL"));
 
     try
     {
-        $con = new PDO("mysql:host=$servername;dbname=oj", $username, $password);
+        $con = new PDO("pgsql:" . sprintf(
+                        "host=%s;port=%s;user=%s;password=%s;dbname=%s",
+                        $db["host"],
+                        $db["port"],
+                        $db["user"],
+                        $db["pass"],
+                        ltrim($db["path"], "/")
+                    ));
         $con->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
         // check for duplicate username and show error
@@ -52,30 +45,40 @@
             // hash the Password
 
             $hashPass = password_hash($pass, PASSWORD_DEFAULT);
-            echo $hashPass;
+            echo $hashPass . "<br>";
 
             // start a transaction
 
             $con->beginTransaction();
 
-            $stat1 = $con->prepare("insert into userlogin (username,pass) values(?,?)");
-            $stat1->execute(array($email,$hashPass));
+            $stat = $con->prepare("insert into userdetails (name,age,gender,country) values(?,?,?,?)");
+            $stat->execute(array($name,$age,$gender,$country));
 
-            $stat2 = $con->prepare("insert into userdetails (name,age,gender,country) values(?,?,?,?)");
-            $stat2->execute(array($name,$age,$gender,$country));
+            $ai = $con->lastInsertId();
+            echo "AI=" . $ai . "<br>";
 
-            if(!$stat1 || !$stat2)
+            if($ai)
             {
-                $_SESSION["errorMsg"] = 'User creation failed! Try again!';
-                header('Location: ../public/register_form.php');
-            }
-            else
-            {
-                $con->commit();
-                $con = null;
-                $_SESSION["successMsg"] = 'User created successfully!';
-                header('Location: ../public/login_form.php');
-                // echo "User creation successful!";
+                $stat = $con->prepare("insert into userlogin (user_id,username,pass) values(?,?,?)");
+                $stat->execute(array($ai,$email,$hashPass));
+
+                echo "STAT=" . $stat1 . " " . $stat2 . "<br>";
+
+                if(!$stat)
+                {
+                    $err = $stat->errorInfo();
+                    $_SESSION["errorMsg"] = $err[2] . 'User creation failed! Try again!';
+                    $con->rollback();
+                    header('Location: ../public/register_form.php');
+                }
+                else
+                {
+                    $con->commit();
+                    $con = null;
+                    $_SESSION["successMsg"] = 'User created successfully!';
+                    header('Location: ../public/login_form.php');
+                    // echo "User creation successful!";
+                }
             }
         }
     }

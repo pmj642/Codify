@@ -36,17 +36,18 @@
 
                     <?php
 
-                        // $con = pg_connect(getenv("DATABASE_URL"));
-                        // $con = new mysqli("localhost","root","","oj");
-
-                        $servername = "localhost";
-                        $username = "root";
-                        $password = "";
+                        $db = parse_url(getenv("DATABASE_URL"));
 
                         try
                         {
-                            $con = new PDO("mysql:host=$servername;dbname=oj", $username, $password);
-                            $con->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+                            $con = new PDO("pgsql:" . sprintf(
+                                            "host=%s;port=%s;user=%s;password=%s;dbname=%s",
+                                            $db["host"],
+                                            $db["port"],
+                                            $db["user"],
+                                            $db["pass"],
+                                            ltrim($db["path"], "/")
+                                        ));$con->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
                             $stat = $con -> prepare("select * from questions where que_id=?");
                             $stat->execute(array($_GET["id"]));
