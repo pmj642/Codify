@@ -15,12 +15,12 @@
                 require('../public/templates/header.php');
             ?>
 
-            <section class="row black-heading">
+            <section class="row">
               <div class="grid">
 
-                <section class="col-1-3 card submit-box centre">
+                <section class="col-1-3">
 
-                    <div>
+                    <div class="card submit-box black-heading">
                         File
                         <input type="file" id="solution">
 
@@ -43,16 +43,18 @@
 
                     Result
 
-                --><section class="col-1-3 card result-box centre">
+                --><section class="col-1-3">
 
-                    <div class="result-div" id="verdict">
+                    <div class="card result-box black-heading" style="margin-top: 0">
+                        <div class="result-div centre" id="verdict">
 
-                    </div><!--
+                        </div><!--
 
-                    Verdict
+                        Verdict
 
-                    --><div class="result-div" id="result">
+                        --><div class="result-div centre" id="result">
 
+                        </div>
                     </div>
 
                 </section>
