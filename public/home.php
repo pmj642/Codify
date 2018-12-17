@@ -49,7 +49,7 @@
                         After all competition is good for your brain!</p>
 
                     <div class="centre-wrapper">
-                        <a class="btn btn-default" href="../public/rankings.html">
+                        <a class="btn btn-default" href="../public/rankings.php">
                             Rankings
                         </a>
                     </div>
