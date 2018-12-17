@@ -32,23 +32,72 @@
 --   que_id serial PRIMARY KEY,
 --   name VARCHAR (50) UNIQUE NOT NULL,
 --   description TEXT NOT NULL,
---   inputFormat TEXT  NOT NULL,
---   outputFormat TEXT  NOT NULL,
+--   inputformat TEXT  NOT NULL,
+--   outputformat TEXT  NOT NULL,
 --   constraints TEXT  NOT NULL,
---   exampleIn TEXT  NOT NULL,
---   exampleOut TEXT  NOT NULL
+--   examplein TEXT  NOT NULL,
+--   exampleout TEXT  NOT NULL
 -- );
 --
 -- --
 -- -- Dumping data for table questions
 -- --
 --
--- INSERT INTO questions (name, description, inputFormat, outputFormat, constraints, exampleIn, exampleOut) VALUES
--- ('Sum of Digits', 'You are given an integer N. Write a program to calculate the sum of all the digits of N.', 'The first line contains an integer T, total number of testcases. Then follow T lines, each line contains an integer N.', 'Calculate the sum of digits of N.', '1 ≤ T ≤ 1000\r^M1 ≤ N ≤ 1000000', '3 \r^M12345\r^M31203\r^M2123', '15\r^M9\r^M8'),
--- ('Small Factorial', 'Write a program to find the factorial value of any number entered by the user.', 'The first line contains an integer T, total number of testcases. Then follow T lines, each line contains an integer N. ', 'Display the factorial of the given number N.', '1 ≤ T ≤ 1000\r^M0 ≤ N ≤ 20\r^M', '3 \r^M3 \r^M4\r^M5', '6\r^M24\r^M120'),
--- ('Squares', 'Given a number, output its square i.e. N*N.', 'First line provides the number of testcases T. The next T lines contain a single integer N.', 'Output the square of N.\r^M', '1 <= T <= 100\r^M1 <= N <= 100\r^M', '4\r^M1\r^M2\r^M3\r^M4\r^M', '1\r^M4\r^M9\r^M16'),
--- ('Sum of two numbers', 'Given a & b. Print their sum.', 'Each line contains two integers a & b.', 'Print a+b.', '1 =< a <= b <= 100', '2 3', '5'),
--- ('Square Root', 'Given a number N find the square root of N.', 'A single line containing N.', 'The square root of N.', '1 <= N <= 1000', '100', '10');
+INSERT INTO questions (name, description, inputformat, outputformat, constraints, examplein, exampleout) VALUES
+('Sum of Digits', 'You are given an integer N. Write a program to calculate the sum of all the digits of N.',
+ 'The first line contains an integer T, total number of testcases. Then follow T lines, each line contains an integer N.',
+ 'Calculate the sum of digits of N.',
+ '1 ≤ T ≤ 1000
+ 1 ≤ N ≤ 1000000',
+ '3
+ 12345
+ 31203
+ 2123',
+ '15
+ 9
+ 8'),
+('Small Factorial',
+ 'Write a program to find the factorial value of any number entered by the user.',
+ 'The first line contains an integer T, total number of testcases. Then follow T lines, each line contains an integer N.',
+ 'Display the factorial of the given number N.',
+ '1 ≤ T ≤ 1000
+ 0 ≤ N ≤ 20',
+ '3
+ 3
+ 4
+ 5',
+ '6
+ 24
+ 120'),
+('Squares',
+ 'Given a number, output its square i.e. N*N.',
+ 'First line provides the number of testcases T. The next T lines contain a single integer N.',
+ 'Output the square of N.',
+ '1 <= T <= 100
+ 1 <= N <= 100',
+ '4
+ 1
+ 2
+ 3
+ 4',
+ '1
+ 4
+ 9
+ 16'),
+('Sum of two numbers',
+ 'Given a & b. Print their sum.',
+ 'Each line contains two integers a & b.',
+ 'Print a+b.',
+ '1 =< a <= b <= 100',
+ '2 3',
+ '5'),
+('Square Root',
+ 'Given a number N find the square root of N.',
+ 'A single line containing N.',
+ 'The square root of N.',
+ '1 <= N <= 1000',
+ '100',
+ '10');
 
 -- --------------------------------------------------------
 
@@ -216,9 +265,9 @@
 --
 
 -- INSERT INTO testcases (que_id, input, output) VALUES
--- (1, '3 \r^M12345\r^M31203\r^M2123', '15\r^M9\r^M8'),
--- (2, '3 \r^M3 \r^M4\r^M5', '6\r^M24\r^M120'),
--- (3, '10\r^M1\r^M2\r^M3\r^M4\r^M5\r^M6\r^M7\r^M8\r^M9\r^M10', '1\r^M4\r^M9\r^M16\r^M25\r^M36\r^M49\r^M64\r^M81\r^M100\r^M'),
+-- (1, '3 \n12345\n31203\n2123', '15\n9\n8'),
+-- (2, '3 \n3 \n4\n5', '6\n24\n120'),
+-- (3, '10\n1\n2\n3\n4\n5\n6\n7\n8\n9\n10', '1\n4\n9\n16\n25\n36\n49\n64\n81\n100\n'),
 -- (4, '15 19', '34'),
 -- (5, '225', '15');
 

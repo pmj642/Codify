@@ -60,19 +60,19 @@
                             echo "<p>".$row["description"]."</p>";
 
                             echo "<h2>Input</h2>";
-                            echo "<p>".$row["inputFormat"]."</p>";
+                            echo "<p>".$row["inputformat"]."</p>";
 
                             echo "<h2>Output</h2>";
-                            echo "<p>".$row["outputFormat"]."</p>";
+                            echo "<p>".$row["outputformat"]."</p>";
 
                             echo "<h2>Constraints</h2>";
                             echo "<p>".nl2br($row["constraints"])."</p>";
 
                             echo "<h2>Example</h2>";
                             echo "<h3>Input</h3>";
-                            echo "<p>".nl2br($row["exampleIn"])."</p>";
+                            echo "<p>".nl2br($row["examplein"])."</p>";
                             echo "<h3>Output</h3>";
-                            echo "<p>".nl2br($row["exampleOut"])."</p>";
+                            echo "<p>".nl2br($row["exampleout"])."</p>";
                             echo "</div>";
                         }
                         catch(PDOException $e)
