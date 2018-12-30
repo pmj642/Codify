@@ -1,27 +1,29 @@
-# Codify _(work-in-progress)_
+# Codify v1.0 :collision: :grey_exclamation:
 
-### About
+### About :thought_balloon:
 
 Codify is an _**Online Interface**_ for code evaluation. It executes the code submitted by user and displays the result back to the user.
 
-### Features
+### How it works :question:
 
-1)	Uploading new challenges _(work-in-progress)_
-2)	Ranking users based on correct solutions _(work-in-progress)_
-3)	Running any program and validating it against any specified output
-4)	Submitting solutions to the challenges hosted on the platform _(work-in-progress)_
+Codify uses __[Judge0](https://api.judge0.com/) API__ to evaluate code and displays the result obtained from the API. Hence, it is __only an interface__.
+It also supports functions like __uploading questions along with testcases__ to the platform, __ranks__ based on number of questions solved and __an IDE__ to run code.
 
-### Technologies used
+### Progress :100:
 
-#### Frontend
+1)	Uploading new challenges  :heavy_check_mark:
+2)	Ranking users based on correct solutions  :heavy_check_mark:
+3)	Running any program and validating it against any specified output  :heavy_check_mark:
+4)	Submitting solutions to the challenges hosted on the platform  :heavy_check_mark:
+
+### Technologies used :pencil:
+
+#### Frontend :rose:
     1)	HTML5
     2)	CSS3
     3)	Vanilla JS
     
-#### Backend
+#### Backend :bomb:
     1)	PHP (no framework)
-    2)	MySQL
-
-### How it works?
-
-Codify uses __[Judge0](https://api.judge0.com/) API__ to evaluate code and displays the result obtained from the API. Hence, it is __only an interface__.
+    2)	MySQL & PostgreSQL
+    
