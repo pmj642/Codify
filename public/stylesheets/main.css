@@ -1,6 +1,6 @@
 /* http://meyerweb.com/eric/tools/css/reset/
-   v2.0 | 20110126
-   License: none (public domain)
+v2.0 | 20110126
+License: none (public domain)
 */
 
 html, body, div, span, applet, object, iframe,
@@ -16,53 +16,53 @@ article, aside, canvas, details, embed,
 figure, figcaption, footer, header, hgroup,
 menu, nav, output, ruby, section, summary,
 time, mark, audio, video {
-  margin: 0;
-  padding: 0;
-  border: 0;
-  font-size: 100%;
-  font: inherit;
-  vertical-align: baseline;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
 }
 /* HTML5 display-role reset for older browsers */
 article, aside, details, figcaption, figure,
 footer, header, hgroup, menu, nav, section {
-  display: block;
+    display: block;
 }
 body {
-  line-height: 1;
+    line-height: 1;
 }
 ol, ul {
-  list-style: none;
+    list-style: none;
 }
 blockquote, q {
-  quotes: none;
+    quotes: none;
 }
 blockquote:before, blockquote:after,
 q:before, q:after {
-  content: '';
-  content: none;
+    content: '';
+    content: none;
 }
 table {
-  border-collapse: collapse;
-  border-spacing: 0;
+    border-collapse: collapse;
+    border-spacing: 0;
 }
 
 /*
-  ========================================
-  Custom styles
-  ========================================
+========================================
+Custom styles
+========================================
 */
 
 body {
-    background: #4b00af;
+    background: #4b0082;
     color: #000;
     font: 300 16px/22px "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
 /*
-  ========================================
-  Grid
-  ========================================
+========================================
+Grid
+========================================
 */
 
 .centre {
@@ -76,9 +76,9 @@ body {
 *,
 *:before,
 *:after {
-  -webkit-box-sizing: border-box;
-     -moz-box-sizing: border-box;
-          box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
 }
 
 .grid,
@@ -95,8 +95,8 @@ body {
 .grid,
 .col-1-3,
 .col-2-3 {
-  padding-left: 1.5%;
-  padding-right: 1.5%;
+    padding-left: 1.5%;
+    padding-right: 1.5%;
 }
 
 .col-1-3,
@@ -106,36 +106,36 @@ body {
 }
 
 .col-1-3 {
-  width: 33.33%;
+    width: 33.33%;
 }
 
 .col-2-3 {
-  width: 66.66%;
+    width: 66.66%;
 }
 
 /*
-  ========================================
-  Clearfix
-  ========================================
+========================================
+Clearfix
+========================================
 */
 
 .group:before,
 .group:after {
-  content: "";
-  display: table;
+    content: "";
+    display: table;
 }
 .group:after {
-  clear: both;
+    clear: both;
 }
 .group {
-  clear: both;
-  *zoom: 1;
+    clear: both;
+    *zoom: 1;
 }
 
 /*
-  ========================================
-  Rows
-  ========================================
+========================================
+Rows
+========================================
 */
 
 .row,
@@ -156,9 +156,9 @@ body {
 }
 
 /*
-  ========================================
-  Typography
-  ========================================
+========================================
+Typography
+========================================
 */
 
 .black-heading h1,
@@ -170,77 +170,76 @@ body {
 }
 
 h1, h2, h3, h4 {
-  /*color: #9370db;*/
-  color: #fff;
+    color: #fff;
 }
 
 h1, h3, h4, h5, p {
-  margin-bottom: 20px;
+    margin-bottom: 20px;
 }
 
 h1 {
-  font-size: 36px;
-  line-height: 44px;
+    font-size: 36px;
+    line-height: 44px;
 }
 h2 {
-  font-size: 24px;
-  line-height: 44px;
+    font-size: 24px;
+    line-height: 44px;
 }
 h3 {
-  font-size: 21px;
+    font-size: 21px;
 }
 h4 {
-  font-size: 18px;
+    font-size: 18px;
 }
 h5 {
-  color: #a9b2b9;
-  font-size: 14px;
-  font-weight: 400;
-  text-transform: uppercase;
+    color: #a9b2b9;
+    font-size: 14px;
+    font-weight: 400;
+    text-transform: uppercase;
 }
 
 strong {
-  font-weight: 400;
+    font-weight: 400;
 }
 
 cite,
 em {
-  font-style: italic;
+    font-style: italic;
 }
 
 /*
-  ========================================
-  Links
-  ========================================
+========================================
+Links
+========================================
 */
 
 a {
-  color: #fff;
-  text-decoration: none;
+    color: #fff;
+    text-decoration: none;
 }
 
 a:hover {
-  color: #F7FE1C;
+    color: #F7FE1C;
 }
 
 p a {
-  border-bottom: 1px solid #dfe2e5;
+    border-bottom: 1px solid #dfe2e5;
 }
 
 .primary-header a,
 .primary-footer a {
-  color: #fff;
+    color: #fff;
 }
 
 .primary-header a:hover,
 .primary-footer a:hover {
-  color: #F7FE1C;
+    color: #F7FE1C;
 }
 
 /*
-  ========================================
-  Primary header
-  ========================================
+========================================
+Primary header
+========================================
 */
 
 .logo {
@@ -260,16 +259,16 @@ p a {
 }
 
 .primary-nav {
-  font-size: 16px;
-  font-weight: 400;
-  letter-spacing: 1px;
-  text-transform: none;
+    font-size: 16px;
+    font-weight: 400;
+    letter-spacing: 1px;
+    text-transform: none;
 }
 
 /*
-  ========================================
-  Primary footer
-  ========================================
+========================================
+Primary footer
+========================================
 */
 
 .primary-footer {
@@ -291,9 +290,9 @@ p a {
 }
 
 /*
-  ========================================
-  Navigation
-  ========================================
+========================================
+Navigation
+========================================
 */
 
 .nav {
@@ -309,50 +308,49 @@ p a {
 }
 
 /*
-  ========================================
-  Buttons
-  ========================================
+========================================
+Buttons
+========================================
 */
 
 .btn {
-  border-radius: 5px;
-  color: #fff;
-  cursor: pointer;
-  display: inline-block;
-  font-weight: 400;
-  letter-spacing: 1px;
-  margin: 0;
-  text-transform: uppercase;
+    border-radius: 5px;
+    color: #fff;
+    cursor: pointer;
+    display: inline-block;
+    font-weight: 400;
+    letter-spacing: 1px;
+    margin: 0;
+    text-transform: uppercase;
 }
 
 .btn-alt {
-  /* border: 1px solid #000; */
-  padding: 10px 30px;
-  background: #5DADE2;
+    padding: 10px 30px;
+    background: #5DADE2;
 }
 
 .btn-alt:hover {
-  background: #F7FE1C;
-  color: #4b0082;
+    background: #F7FE1C;
+    color: #4b0082;
 }
 
 .btn-default {
-  border: 0;
-  background: #5DADE2;
-  padding: 11px 30px;
-  font-size: 14px;
+    border: 0;
+    background: #5DADE2;
+    padding: 11px 30px;
+    font-size: 14px;
 }
 
 .btn-default:hover {
-  background: #4b0082;
-  color: #fff;
+    background: #4b0082;
+    color: #fff;
 }
 
 
 /*
-  ========================================
-  Home
-  ========================================
+========================================
+Home
+========================================
 */
 
 .hero {
@@ -371,44 +369,41 @@ p a {
     font-weight: 100;
 }
 
-/* .teaser:hover {
-  border: 2px solid #4b0082;
-  border-radius: 10px;
-} */
+.teaser-div:hover {
+    border: 2px solid #4b0082;
+}
 
 .teaser h2 {
-    /* font-size: 28px; */
     color: #000;
     text-align: center;
 }
 
 .teaser p {
-   margin-top: 10px;
-   color: #000;
-   font-weight: 100;
-   font-size: 16px;
-   text-align: center;
+    margin-top: 10px;
+    color: #000;
+    font-weight: 100;
+    font-size: 16px;
+    text-align: center;
 }
 
 .teaser img{
-  max-width: 100%;
-  display: block;
-  margin-bottom: 22px;
-  border-radius: 5px;
+    max-width: 100%;
+    display: block;
+    margin-bottom: 22px;
+    border-radius: 5px;
 }
 
 .teaser-div {
-  padding: 20px;
+    padding: 20px;
 }
 
 /*
-  ========================================
-  Form
-  ========================================
+========================================
+Form
+========================================
 */
 
 form {
-    /* margin: 0 auto 40px; */
     color: #000;
     font: 400 18px/20px "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
     cursor: pointer;
@@ -457,9 +452,9 @@ textarea:focus {
 }
 
 /*
-  ========================================
-  Question
-  ========================================
+========================================
+Question
+========================================
 */
 
 .question {
@@ -467,9 +462,9 @@ textarea:focus {
 }
 
 /*
-  ========================================
-  Upload question
-  ========================================
+========================================
+Upload question
+========================================
 */
 
 .upload-question {
@@ -492,16 +487,15 @@ textarea:focus {
     text-decoration: underline;
 }
 /*
-  ========================================
-  Error
-  ========================================
+========================================
+Error
+========================================
 */
 
 .reporting {
     width: 100%;
     text-align: center;
     padding: 10px;
-    /* border-radius: 20px; */
 }
 
 .error {
@@ -538,46 +532,24 @@ textarea:focus {
 }
 
 /*
-  ========================================
-  Tables
-  ========================================
+========================================
+Tables
+========================================
 */
-
-/* .questions {
-    border: 2px solid #7b68ee;
-    padding: 20px;
-} */
 
 table {
     margin: 2.5% 5%;
     width: 90%;
-    /* border: 2px solid #7b68ee; */
-    /* padding: 30px; */
     font: 300 18px/24px "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
     color: #00c;
-    /* table-layout: fixed; */
 }
 
-/* tbody {
-    display: block;
-    width: 90%;
-    padding: 20px;
-    margin: auto;
-    border: 1px solid #000;
-} */
-
 tr {
-    /* display: block; */
     border: 1px solid #7b68ee;
-    /* padding: 5px; */
     height: 40px;
-    /* margin: 20px; */
-    /* vertical-align: middle; */
 }
 
 tr:hover {
-    /* color: #fff; */
-    /* text-decoration: underline; */
     background-color: #f1eeed;
 }
 
@@ -604,8 +576,6 @@ tr:last-child {
 
 th,td {
     border: 1px solid #7b68ee;
-    /* display: inline-block;
-    margin: 10px auto; */
     width: 33%;
     text-align: center;
     vertical-align: middle;
@@ -621,9 +591,9 @@ td a:hover {
 }
 
 /*
-  ========================================
-  Submit and Result Interface
-  ========================================
+========================================
+Submit and Result Interface
+========================================
 */
 
 .submit-box {
@@ -657,12 +627,12 @@ td a:hover {
 }
 
 /*
-  ========================================
-  General
-  ========================================
+========================================
+General
+========================================
 */
 
 .card {
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),
-                0 6px 20px 0 rgba(0,0,0,0.2);
+    0 6px 20px 0 rgba(0,0,0,0.2);
 }
