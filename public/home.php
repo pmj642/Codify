@@ -85,7 +85,7 @@
                         input and displays the result!</p>
 
                     <div class="centre-wrapper">
-                        <a class="btn btn-default" href="../public/IDE.php">
+                        <a class="btn btn-default" href="../public/ide.php">
                             Codify IDE
                         </a>
                     </div>
