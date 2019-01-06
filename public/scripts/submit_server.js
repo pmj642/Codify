@@ -8,8 +8,6 @@ function displayResult(responseObj)
     let result = document.getElementById('result');
     let verdict = document.getElementById('verdict');
     let resultBox = document.getElementsByClassName('result-box');
-
-    // let status = xhr.response.status;
     let verdict_img;
 
     if(responseObj.status.description === "Accepted")
@@ -69,7 +67,7 @@ function submit()
                     langType = 43;
     }
 
-//  get the question id from the url
+    // get the question id from the url
 
     let urlParams = new URLSearchParams(location.search);
     questionId = urlParams.get('id');

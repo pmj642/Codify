@@ -7,8 +7,6 @@ function displayResult(responseObj)
     let result = document.getElementById('result');
     let verdict = document.getElementById('verdict');
     let resultBox = document.getElementsByClassName('result-box');
-
-    // let status = xhr.response.status;
     let verdict_img;
 
     if(responseObj.status.description === "Accepted")
@@ -44,9 +42,6 @@ function submit()
     let fileType = document.getElementById('fileType').value;
     let reader = new FileReader();
     let stdin = document.getElementById('stdin').value;
-    // let result = document.getElementById('result');
-    // let verdict = document.getElementById('verdict');
-    // let resultBox = document.getElementsByClassName('result-box');
     let expected_out = document.getElementById('stdout');
     let langType;
 
@@ -78,55 +73,15 @@ function submit()
 
         xhr.onreadystatechange = function() {
             if(xhr.readyState === XMLHttpRequest.DONE) {
-
-                // let outDiv = document.createElement('div');
-
                 displayResult(xhr.response);
-                // let status = xhr.response.status;
-                // let verdict_img;
-                //
-                // if(status.description === "Accepted")
-                //     verdict_img = "<img src='../public/images/correct-icon.png'>";
-                // else if(status.description === "Compilation Error")
-                //     verdict_img = "<img src='../public/images/compilation-icon.png'>";
-                // else if(status.description === "Wrong Answer")
-                //     verdict_img = "<img src='../public/images/wrong-icon.png'>";
-                //
-                // verdict.innerHTML = "<h1>" + status.description + "</h1>" + verdict_img;
-                //
-                // if(status.description === "Accepted")
-                // {
-                //     result.innerHTML =    "<img src='../public/images/clock-icon.png'>" + xhr.response.time + " sec<br/>"
-                //                         + "<img src='../public/images/memory-icon.png'>" + xhr.response.memory + " kB<br/>"
-                //                         + "<img src='../public/images/output-icon.png'>" + xhr.response.stdout;
-                //
-                //     verdict.style.width = result.style.width = "50%";
-                // }
-                // else
-                // {
-                //     result.innerHTML = "";
-                //     verdict.style.width = "100%";
-                //     result.style.width = "0";
-                // }
-                //
-                // resultBox[0].style.visibility = "visible";
-                // result.appendChild(outDiv);
-              }
+            }
         };
-
-        // console.log(JSON.stringify(request));
 
         xhr.open("POST",url);
         xhr.setRequestHeader("Content-type", "application/json");
 
         xhr.send(JSON.stringify(request));
-
-        // console.log(reader.result);
     };
 
     reader.readAsText(file);
-
-    // console.log("Hello");
-    // console.log(langType);
-    // console.log(file.type);
 }
