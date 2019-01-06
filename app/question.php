@@ -82,30 +82,8 @@
 
                         $con = null;
 
-                        // if($con->connect_error)
-                        // {
-                        //     die("Failed to connect to database! <br> Error:".$con->connect_error);
-                        // }
-                        //
-                        // $sql = "select * from questions where id=".htmlspecialchars($_GET["id"]);
-                        // $result = $con->query($sql);
-
-                        // $con->set_charset("utf8");
-                        // echo pg_client_encoding($con);
-                        // pg_set_client_encoding($con, "UNICODE");
-                        // $sql = "select * from question";
-                        // $result = pg_query($sql);
-                        // echo "Query successful<br>";
-
-                        // $row = pg_fetch_assoc($result);
-
-
-
-                        // $con->close();
-                        // pg_close($con);
-                        // echo "Closing Connection!";
                     ?>
-                    <!-- </div> -->
+                    
                 </section><!--
 
                 Submit
@@ -124,8 +102,6 @@
 
                         <a class="btn btn-default" onclick="submit()">Submit</a>
                     </div>
-
-                <!-- </section><section class="col-1-3"> -->
 
                     <div class="card result-box black-heading">
                         <div class="result-div centre" id="verdict">

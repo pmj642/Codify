@@ -34,7 +34,6 @@
         constraints, exampleIn, exampleOut) values(?,?,?,?,?,?,?)");
         $stat->execute(array($name,$description,$inputformat,
         $outputformat,$constraints,$examplein,$exampleout));
-        // $result = pg_query($sql);
 
         $ai = $con -> lastInsertId();
 
@@ -44,14 +43,13 @@
         {
             $stat = $con->prepare("insert into testcases (que_id, input, output) values(?,?,?)");
             $stat->execute(array($ai,$inputtest,$outputtest));
-            // $result = pg_query($sql);
 
             if(!$stat)
             {
                 // testcase insert Failed show error
 
                 // can we add functionality to redirect to question upload page
-                // with the question info filled in
+                // with the question info filled in?
                 $_SESSION["errorMsg"] = 'Question upload failed! Try again!';
             }
             else

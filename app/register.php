@@ -28,7 +28,6 @@
         $stat = $con->prepare("select * from userlogin where username=?");
         $stat->execute(array($email));
 
-        // $result = pg_query($sql);
         session_start();
 
         if($stat->rowCount() > 0)
@@ -77,7 +76,6 @@
                     $con = null;
                     $_SESSION["successMsg"] = 'User created successfully!';
                     header('Location: ../public/login_form.php');
-                    // echo "User creation successful!";
                 }
             }
         }

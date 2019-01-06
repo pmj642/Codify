@@ -25,10 +25,6 @@
         $stat->execute(array($email));
         $row1 = $stat->fetch();
 
-        // $hashPass = password_hash($pass, PASSWORD_DEFAULT);
-
-        // echo $row1["pass"]."<br>".$pass;
-
         if(password_verify($pass,$row1["pass"]))
         {
             echo "Valid";
@@ -37,7 +33,6 @@
             $stat = $con->prepare("select * from userdetails where user_id=?");
             $stat->execute(array($id));
             $row2 = $stat->fetch();
-            // $con->close();
             $con = null;
 
             $_SESSION["user_name"] = $row2["name"];
@@ -48,7 +43,6 @@
         else
         {
             echo "Error!<br>";
-            // $con->close();
             $con = null;
 
             $_SESSION["errorMsg"] = 'Incorrect credentials!';

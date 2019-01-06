@@ -44,9 +44,6 @@
 							}
 						?>
 
-						<!-- <p class="reporting error">Username already exists!</p>
-						<p class="reporting success">User created!</p> -->
-
 						Email
 						<input type="email" name="email" placeholder="Your email..." required>
 

@@ -39,9 +39,6 @@
 
 						?>
 
-						<!-- <p class="reporting error">Username already exists!</p>
-						<p class="reporting success">User created!</p> -->
-
 						Name
 						<input type="text" name="name" placeholder="Your name..." required>
 

@@ -47,7 +47,6 @@
                             while($row = $result->fetch())
                             {
                                 $idToName[$row['user_id']] = $row['name'];
-                                // echo $idToName[$id];
                             }
 
                             echo "<table>";
@@ -83,7 +82,6 @@
 
                     ?>
 
-                    <!-- </div> -->
                 </section>
 
               </div>
