@@ -83,37 +83,49 @@
                         $con = null;
 
                     ?>
-                    
+
                 </section><!--
 
                 Submit
 
             --><section class="col-1-3">
 
-                    <div class="card submit-box">
-                        File
-                        <input type="file" id="solution">
+                    <?php
 
-                        <br>Language
-                        <select id="fileType">
-                            <option>C++</option>
-                            <option>Java</option>
-                        </select>
+                        if(!$_SESSION['user_id'])
+                        {
+                            echo "<p class='reporting error' style='margin: 0% 5%; width: 90%;'>".
+                                     "Login to submit solutions!".
+                                 "</p>";
+                        }
+                        else
+                        {
+                            echo "<div class='card submit-box'>
+                                File
+                                <input type='file' id='solution'>
 
-                        <a class="btn btn-default" onclick="submit()">Submit</a>
-                    </div>
+                                <br>Language
+                                <select id='fileType'>
+                                    <option>C++</option>
+                                    <option>Java</option>
+                                </select>
 
-                    <div class="card result-box black-heading">
-                        <div class="result-div centre" id="verdict">
+                                <a class='btn btn-default' onclick='submit()'>Submit</a>
+                            </div>
 
-                        </div><!--
+                            <div class='card result-box black-heading'>
+                                <div class='result-div centre' id='verdict'>
 
-                        Verdict
+                                </div><!--
 
-                    --><div class="result-div centre" id="result">
+                                Verdict
 
-                        </div>
-                    </div>
+                            --><div class='result-div centre' id='result'>
+
+                                </div>
+                            </div>";
+                        }
+                    ?>
 
                 </section>
 
