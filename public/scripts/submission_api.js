@@ -2,7 +2,7 @@
 
 function displayResult(responseObj)
 {
-    console.log(responseObj);
+    console.log("RESPONSE\n" + responseObj);
 
     let result = document.getElementById('result');
     let verdict = document.getElementById('verdict');

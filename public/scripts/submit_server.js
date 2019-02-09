@@ -2,8 +2,8 @@
 
 function displayResult(responseObj)
 {
+    console.log("RESPONSE\n" + responseObj);
     responseObj = JSON.parse(responseObj);
-    console.log(responseObj);
 
     let result = document.getElementById('result');
     let verdict = document.getElementById('verdict');
@@ -86,25 +86,15 @@ function submit()
 
         xhr.onreadystatechange = function() {
             if(xhr.readyState === XMLHttpRequest.DONE) {
-                console.log("THIS IS THE RESPONSE\n");
-
                 displayResult(xhr.response);
               }
         };
-
-        console.log(JSON.stringify(request));
 
         xhr.open("POST",url);
         xhr.setRequestHeader("Content-type", "application/json");
 
         xhr.send(JSON.stringify(request));
-
-        console.log(reader.result);
     };
 
     reader.readAsText(file);
-
-    console.log("Hello");
-    console.log(langType);
-    console.log(file.type);
 }
