@@ -16,28 +16,30 @@
             require('../public/templates/header.php');
         ?>
 
-        <!-- Hero -->
-
-        <section class="hero container">
-
-          <h2>Learn => Code => Master</h2>
-
-          <p>Code is not something which you write on paper! <br>
-              It is to be run on a machine!</p>
-
-        <?php
-              if(!isset($_SESSION['user_id']))
-              {
-                  echo "<a class='btn btn-alt' href='../public/register_form.php'>Register Now</a>";
-              }
-        ?>
-
-        </section>
-
         <!-- Teasers -->
 
         <section class="row">
           <div class="grid">
+
+              <!-- Hero -->
+
+              <section class="hero col-2-3">
+                <div class="hero-div black-heading card">
+                    <h2>Learn => Code => Master</h2>
+
+                    <p>Code is not something which you write on paper! <br>
+                        It is to be run on a machine!</p>
+
+                    <?php
+                        if(!isset($_SESSION['user_id']))
+                        {
+                            echo "<a class='btn btn-default' href='../public/register_form.php'>Register Now</a>";
+                        }
+                    ?>
+                </div>
+
+
+              </section>
 
             <!-- Leaderboard -->
 

@@ -141,6 +141,7 @@ Rows
 .row,
 .row-alt {
     min-width: 100%;
+    min-height: 450px;
 }
 
 .row {
@@ -354,10 +355,19 @@ Home
 */
 
 .hero {
-    color: #fff;
+    display: block;
     line-height: 44px;
-    padding: 22px 80px 40px 80px;
+    padding: 0 100px 40px;
+    margin: 0 auto;
     text-align: center;
+}
+
+.hero-div {
+    padding: 30px 0;
+}
+
+.hero-div:hover {
+    border: 2px solid #4b0082;
 }
 
 .hero h2 {
@@ -367,10 +377,6 @@ Home
 .hero p {
     font-size: 24px;
     font-weight: 100;
-}
-
-.teaser-div:hover {
-    border: 2px solid #4b0082;
 }
 
 .teaser h2 {
@@ -386,15 +392,12 @@ Home
     text-align: center;
 }
 
-.teaser img{
-    max-width: 100%;
-    display: block;
-    margin-bottom: 22px;
-    border-radius: 5px;
-}
-
 .teaser-div {
     padding: 20px;
+}
+
+.teaser-div:hover {
+    border: 2px solid #4b0082;
 }
 
 /*
