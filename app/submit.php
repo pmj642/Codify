@@ -55,9 +55,10 @@
                 date_default_timezone_set('UTC');
                 $ctime = date('Y/m/d H:i:s');
 
+                // get submission token
                 header('Content-type: application/json');
 
-                $apiUrl = "https://api.judge0.com/submissions/?base64_encoded=false&wait=true";
+                $apiUrl = "https://api.judge0.com/submissions/?base64_encoded=false&wait=false";
 
                 $client = new Client(['base_uri' => $apiUrl]);
 
@@ -73,15 +74,31 @@
 
                 $response = json_decode($result->getBody());
 
-                $debug .= $response->time . "\n";
-                $debug .= $response->status->description . "\n";
-                $debug .= $ctime . "\n";
-                $debug .= $_SESSION["user_id"] . "\n";
+                $submissionToken = $response->token;
+
+                // get submission
+                $apiUrl = "https://api.judge0.com/submissions/" . $submissionToken . "?fields=stdout,stderr,status,memory,time";
+                $client = new Client(['base_uri' => $apiUrl]);
+                $responseStatus = "";
+
+                do {
+                    sleep(1);
+                    $result = $client -> request('GET', $apiUrl);
+
+                    $debug .= "THIS IS RESULT\n";
+                    $debug .= $result->getStatusCode() . "\n";
+
+                    $response = json_decode($result->getBody());
+
+                    $responseStatus = $response->status->description;
+                    $debug .= $response->time . "\n";
+                    $debug .= $response->status->description . "\n";
+                    $debug .= $ctime . "\n";
+                    $debug .= $_SESSION["user_id"] . "\n";
+                } while($responseStatus == "In Queue" || $responseStatus == "Processing");
 
                 // make submission entry in database
-
                 $responseTime = $response->time;
-                $responseStatus = $response->status->description;
 
                 $responseObj['time'] = $responseTime;
                 $responseObj['memory'] = $response->memory;

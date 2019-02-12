@@ -2,8 +2,8 @@
 
 function displayResult(responseObj)
 {
-    console.log("RESPONSE\n" + responseObj);
     responseObj = JSON.parse(responseObj);
+    console.log("RESPONSE\n" + responseObj);
 
     let result = document.getElementById('result');
     let verdict = document.getElementById('verdict');
